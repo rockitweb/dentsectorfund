@@ -5,9 +5,10 @@ import NavBar from "../components/navbar";
 import { graphql } from "gatsby";
 import Hero from "../components/hero";
 import CTA from "../components/cta";
+import TextSection from "../components/text-section";
 export default function Home({ data }) {
   const homePageData = data.contentfulHomePage;
-  const { hero, investNow } = homePageData;
+  const { hero, investNow, about } = homePageData;
 
   return (
     <Layout>
@@ -21,6 +22,7 @@ export default function Home({ data }) {
         link={investNow.link}
         ctaMessage={investNow.ctaMessage}
       ></CTA>
+      <TextSection heading={about.heading} body={about.body}></TextSection>
     </Layout>
   );
 }
@@ -49,6 +51,14 @@ export const pageQuery = graphql`
         link
         ctaMessage {
           ctaMessage
+          childMarkdownRemark {
+            html
+          }
+        }
+      }
+      about {
+        heading
+        body {
           childMarkdownRemark {
             html
           }
