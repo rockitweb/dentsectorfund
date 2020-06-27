@@ -7,7 +7,7 @@ export interface CtaProps {
   ctaMessage: any;
 }
 const CTA: React.FC<CtaProps> = ({ buttonLabel, link, ctaMessage }) => (
-  <div className="flex">
+  <div sx={{variant:"layout.container.narrow"}} className="flex container mx-auto">
     <div
       className="whitespace-pre-wrap"
       contentEditable="true"

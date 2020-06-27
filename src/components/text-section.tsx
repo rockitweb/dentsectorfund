@@ -6,15 +6,17 @@ export interface CtaProps {
   body: any;
 }
 const TextSection: React.FC<CtaProps> = ({ heading, body }) => (
-  <div className="flex flex-col">
-    <Heading as="h3">{heading}</Heading>
-    <div
-      className="whitespace-pre-wrap"
-      contentEditable="true"
-      dangerouslySetInnerHTML={{
-        __html: body.childMarkdownRemark.html,
-      }}
-    />
+  <div>
+    <div className="container mx-auto flex flex-col">
+      <Heading as="h3">{heading}</Heading>
+      <div
+        className="whitespace-pre-wrap"
+        contentEditable="true"
+        dangerouslySetInnerHTML={{
+          __html: body.childMarkdownRemark.html,
+        }}
+      />
+    </div>
   </div>
 );
 export default TextSection;

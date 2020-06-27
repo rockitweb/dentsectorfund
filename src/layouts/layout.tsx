@@ -26,7 +26,7 @@ const Layout = ({ includeContact = true, children }) => {
   return (
     <>
       <div>
-        <NavBar siteTitle={data.site.siteMetadata.title}></NavBar>
+        <NavBar ></NavBar>
         <main>
           <div
             sx={{

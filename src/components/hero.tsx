@@ -18,8 +18,8 @@ const Hero: React.FC<HeroProps> = ({ heading, message, backgroundImage }) => (
       alt={heading}
       fluid={backgroundImage.fluid}
     />
-    <div className=" absolute top-0 w-full justify-center items-center  h-full flex content-center">
-      <div className="container px-5">
+    <div className=" absolute top-0 w-full  h-full flex items-center ">
+      <div className="container mx-auto px-5">
         <h2 sx={{ variant: "hero.heading" }}>{heading}</h2>
         <p>{message}</p>
         <p></p>

@@ -10,9 +10,22 @@ export default {
       height: "61.8vh",
       maxHeight: "400px",
     },
-
   },
   styles: {
     ...rockitWeb.styles,
+  },
+  layout: {
+    container: {
+      maxWidth: "100%",
+      box: {
+        maxWidth: "1290px",
+        mx: "auto",
+      },
+      narrow: {
+        maxWidth: ["768px"],
+        mx: "auto",
+        px: [4, 4, null],
+      },
+    },
   },
 };

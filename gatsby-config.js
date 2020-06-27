@@ -32,6 +32,7 @@ module.exports = {
     "gatsby-transformer-sharp",
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-sharp",
+    `gatsby-transformer-inline-svg`,
     {
       resolve: "gatsby-source-contentful",
       options: contentfulConfig,

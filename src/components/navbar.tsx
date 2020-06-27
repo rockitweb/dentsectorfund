@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 import MenuTopNav from "../components/menu-top";
 
 //const Nav: React.FC<Props> = ({ theme }) =>
-type Props = { siteTitle: string };
+type Props = {};
 
 const NavBar: React.FC<Props> = (props) => {
   //const [isExpanded, toggleExpansion] = useState(false);
