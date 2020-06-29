@@ -14,7 +14,7 @@ const IconSection: React.FC<IconSectionProps> = ({ icons }) => {
   ));
 
   return (
-    <div className="bg-blue-800">
+    <div sx={{backgroundColor:"primary"}}>
       <div
         sx={{ variant: "layout.container.box",
     
