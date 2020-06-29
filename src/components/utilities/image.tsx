@@ -38,7 +38,7 @@ const Image: React.FC<ImageProps> = ({
       const svgRegEx = /<svg.*?>/;
       const content = (svg.content as string).replace(
         "<svg ",
-        `<svg  "`
+        `<svg width="100%"`
       );
 
       return <div sx={{...styles}} className="flex " dangerouslySetInnerHTML={{ __html: content }} />;
