@@ -104,182 +104,190 @@ export default function Home({ data }) {
       ></ArticleList>
 */
 export const pageQuery = graphql`
-  query HomePageQuery {
-    contentfulHomePage {
-      slug
-      title
-      hero {
-        message
-        heading
-        backgroundImage {
-          fluid(
-            maxWidth: 1600
-            maxHeight: 700
+         query HomePageQuery {
+           contentfulHomePage {
+             slug
+             title
+             hero {
+               message {
+                 childMarkdownRemark {
+                   html
+                 }
+               }
+               heading
+               backgroundImage {
+                 fluid(
+                   maxWidth: 1600
+                   maxHeight: 700
 
-            background: "rgb:000000"
-          ) {
-            ...GatsbyContentfulFluid_tracedSVG
-          }
-        }
-      }
-      investNow {
-        buttonLabel
-        link
-        ctaMessage {
-          ctaMessage
-          childMarkdownRemark {
-            html
-          }
-        }
-      }
-      about {
-        heading
-        body {
-          childMarkdownRemark {
-            html
-          }
-        }
-      }
-      aboutHarry {
-        heading
-        body {
-          childMarkdownRemark {
-            html
-          }
-        }
-      }
-      iconSection1 {
-        heading
-        icon {
-          svg {
-            content
-            absolutePath
-            dataURI
-            relativePath
-          }
-          file {
-            url
-            contentType
-          }
-          fluid(
-            maxWidth: 100
-            maxHeight: 100
+                   background: "rgb:000000"
+                 ) {
+                   ...GatsbyContentfulFluid_tracedSVG
+                 }
+               }
+             }
+             investNow {
+               buttonLabel
+               link
+               ctaMessage {
+                 ctaMessage
+                 childMarkdownRemark {
+                   html
+                 }
+               }
+             }
+             about {
+               heading
+               body {
+                 childMarkdownRemark {
+                   html
+                 }
+               }
+             }
+             aboutHarry {
+               heading
+               body {
+                 childMarkdownRemark {
+                   html
+                 }
+               }
+             }
+             iconSection1 {
+               heading
+               icon {
+                 svg {
+                   content
+                   absolutePath
+                   dataURI
+                   relativePath
+                 }
+                 file {
+                   url
+                   contentType
+                 }
+                 fluid(
+                   maxWidth: 100
+                   maxHeight: 100
 
-            background: "rgb:000000"
-          ) {
-            ...GatsbyContentfulFluid_tracedSVG
-          }
-        }
-      }
-      iconSection2 {
-        heading
-        icon {
-          svg {
-            content
-            absolutePath
-            dataURI
-            relativePath
-          }
-          file {
-            url
-            contentType
-          }
-          fluid(
-            maxWidth: 100
-            maxHeight: 100
+                   background: "rgb:000000"
+                 ) {
+                   ...GatsbyContentfulFluid_tracedSVG
+                 }
+               }
+             }
+             iconSection2 {
+               heading
+               icon {
+                 svg {
+                   content
+                   absolutePath
+                   dataURI
+                   relativePath
+                 }
+                 file {
+                   url
+                   contentType
+                 }
+                 fluid(
+                   maxWidth: 100
+                   maxHeight: 100
 
-            background: "rgb:000000"
-          ) {
-            ...GatsbyContentfulFluid_tracedSVG
-          }
-        }
-      }
-      infoBoxes {
-        heading
-        message {
-          childMarkdownRemark {
-            html
-          }
-        }
-      }
-      featurePerson {
-        person {
-          name
-          title
-          shortBio {
-            childMarkdownRemark {
-              html
-            }
-          }
-        }
-        image {
-          svg {
-            content
-            absolutePath
-            dataURI
-            relativePath
-          }
-          file {
-            url
-            contentType
-          }
-          fluid(
-            maxWidth: 1600
-            maxHeight: 700
+                   background: "rgb:000000"
+                 ) {
+                   ...GatsbyContentfulFluid_tracedSVG
+                 }
+               }
+             }
+             infoBoxes {
+               heading
+               message {
+                 childMarkdownRemark {
+                   html
+                 }
+               }
+             }
+             featurePerson {
+               person {
+                 name
+                 title
+                 shortBio {
+                   childMarkdownRemark {
+                     html
+                   }
+                 }
+               }
+               image {
+                 svg {
+                   content
+                   absolutePath
+                   dataURI
+                   relativePath
+                 }
+                 file {
+                   url
+                   contentType
+                 }
+                 fluid(
+                   maxWidth: 1600
+                   maxHeight: 700
 
-            background: "rgb:000000"
-          ) {
-            ...GatsbyContentfulFluid_tracedSVG
-          }
-        }
-      }
-      latestBlogs {
-        heading
-      }
-      mediaLogos {
-        title
-        svg {
-          content
-          absolutePath
-          dataURI
-          relativePath
-        }
-        file {
-          url
-          contentType
-        }
-        fluid(
-          maxWidth: 100
-          maxHeight: 70
+                   background: "rgb:000000"
+                 ) {
+                   ...GatsbyContentfulFluid_tracedSVG
+                 }
+               }
+             }
+             latestBlogs {
+               heading
+             }
+             mediaLogos {
+               title
+               svg {
+                 content
+                 absolutePath
+                 dataURI
+                 relativePath
+               }
+               file {
+                 url
+                 contentType
+               }
+               fluid(
+                 maxWidth: 100
+                 maxHeight: 70
 
-          background: "rgb:000000"
-        ) {
-          ...GatsbyContentfulFluid_tracedSVG
-        }
-      }
-    }
-    allContentfulBlogPost(
-      sort: { fields: [publishDate], order: DESC }
-      limit: 3
-    ) {
-      edges {
-        node {
-          title
-          slug
-          publishDate(formatString: "MMMM Do, YYYY")
-          tags
-          heroImage {
-            fluid(maxWidth: 350, maxHeight: 196, resizingBehavior: SCALE) {
-              ...GatsbyContentfulFluid_tracedSVG
-            }
-          }
-          description {
-            childMarkdownRemark {
-              html
-            }
-          }
-        }
-      }
-    }
-  }
-`;
+                 background: "rgb:000000"
+               ) {
+                 ...GatsbyContentfulFluid_tracedSVG
+               }
+             }
+           }
+           allContentfulBlogPost(
+             sort: { fields: [publishDate], order: DESC }
+             limit: 3
+           ) {
+             edges {
+               node {
+                 title
+                 slug
+                 publishDate(formatString: "MMMM Do, YYYY")
+                 tags
+                 heroImage {
+                   fluid(
+                     maxWidth: 350
+                     maxHeight: 196
+                     resizingBehavior: SCALE
+                   ) {
+                     ...GatsbyContentfulFluid_tracedSVG
+                   }
+                 }
+                 description {
+                   childMarkdownRemark {
+                     html
+                   }
+                 }
+               }
+             }
+           }
+         }
+       `;

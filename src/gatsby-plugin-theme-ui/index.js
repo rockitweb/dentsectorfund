@@ -4,8 +4,15 @@ import baseColours from "./colors";
 export default {
   ...rockitWeb,
   hero: {
+    maxWidth: "1290px",
+    mx: "auto",
     heading: {
-      color: "primary",
+      color: "white",
+      fontSize: [3, 3, 5],
+    },
+    message: {
+      color: "white",
+      fontSize: [2, 2, 3],
     },
     image: {
       height: "61.8vh",

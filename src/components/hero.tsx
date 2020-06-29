@@ -5,7 +5,7 @@ import Img from "gatsby-image";
 
 export interface HeroProps {
   heading: string;
-  message: string;
+  message: any;
   backgroundImage: {
     fluid: any;
   };
@@ -18,17 +18,25 @@ const Hero: React.FC<HeroProps> = ({ heading, message, backgroundImage }) => (
       alt={heading}
       fluid={backgroundImage.fluid}
     />
-    
+    <div className=" absolute top-0 w-full  h-full z-50">
+      <div
+        className="h-full flex flex-col justify-center"
+        sx={{ variant: "hero"}}
+      >
+        <h2 sx={{ variant: "hero.heading" }}>{heading}</h2>
+        <div
+          sx={{ variant: "hero.message" }}
+          className="whitespace-pre-wrap"
+          dangerouslySetInnerHTML={{
+            __html: message.childMarkdownRemark.html,
+          }}
+        />
+      </div>
+    </div>
   </div>
 );
 export default Hero;
 
 /*
-<div className=" absolute top-0 w-full  h-full flex items-center ">
-      <div className="container mx-auto px-5">
-        <h2 sx={{ variant: "hero.heading" }}>{heading}</h2>
-        <p>{message}</p>
-        <p></p>
-      </div>
-    </div>
+
 */

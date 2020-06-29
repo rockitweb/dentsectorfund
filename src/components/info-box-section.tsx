@@ -22,7 +22,7 @@ const InfoBoxSection: React.FC<InfoboxSectionProps> = ({ infoboxes }) => {
     <div sx={{ backgroundColor: "primary" }}>
       <div
         sx={{ variant: "layout.container.box" }}
-        className="flex items-stretch"
+        className="flex justify-between"
       >
         {infoboxList}
       </div>
