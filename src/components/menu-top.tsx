@@ -21,7 +21,7 @@ export default function MenuTopNav() {
       }
     }
   `);
-console.log(contentfulMenu);
+
   const mainMenu: Menu[] = contentfulMenu.menuItems;
 
   const menu = mainMenu

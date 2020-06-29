@@ -28,7 +28,6 @@ export default function Home({ data }) {
     mediaLogos
   } = homePageData;
 
-  console.log(featurePerson);
   const _infoBoxes: InfoBoxProps[] = infoBoxes.map((b) => ({
     heading: b.heading,
     message: b.message.childMarkdownRemark.html,
