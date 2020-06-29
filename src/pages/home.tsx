@@ -61,6 +61,38 @@ export default function Home({ data }) {
       <IconSection icons={iconSection1}></IconSection>
       <TextSection heading={about.heading} body={about.body}></TextSection>
       <IconSection icons={iconSection2}></IconSection>
+
+      <FeaturePerson
+        person={_featurePerson.person}
+        image={_featurePerson.image}
+      />
+      <InfoBoxSection infoboxes={_infoBoxes}></InfoBoxSection>
+      <MediaIcons images={mediaLogos}></MediaIcons>
+      <ArticleList
+        heading={latestBlogs?.heading}
+        articles={articleData.edges}
+      ></ArticleList>
+    </Layout>
+  );
+}
+/*
+ <Hero
+        heading={hero.heading}
+        message={hero.message}
+        backgroundImage={hero.backgroundImage}
+      />
+      <CTA
+        buttonLabel={investNow.buttonLabel}
+        link={investNow.link}
+        ctaMessage={investNow.ctaMessage}
+      ></CTA>
+      <TextSection
+        heading={aboutHarry.heading}
+        body={aboutHarry.body}
+      ></TextSection>
+      <IconSection icons={iconSection1}></IconSection>
+      <TextSection heading={about.heading} body={about.body}></TextSection>
+      <IconSection icons={iconSection2}></IconSection>
       <InfoBoxSection infoboxes={_infoBoxes}></InfoBoxSection>
       <FeaturePerson
         person={_featurePerson.person}
@@ -71,10 +103,7 @@ export default function Home({ data }) {
         heading={latestBlogs?.heading}
         articles={articleData.edges}
       ></ArticleList>
-    </Layout>
-  );
-}
-
+*/
 export const pageQuery = graphql`
   query HomePageQuery {
     contentfulHomePage {

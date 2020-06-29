@@ -12,9 +12,27 @@ export interface IconBoxProps {
 // Render inline SVG with fallback non-svg images
 const IconBox: React.FC<IconBoxProps> = ({ heading, icon }) => {
   return (
-    <div className=" flex flex-col">
-      <Heading as="h3">{heading}</Heading>
-      <Image file={icon.file} svg={icon.svg} fluid= {icon.fluid} alt={heading} />
+    <div className="w-1/4  flex flex-col justify-center items-center">
+      <Image
+        styles={{
+          width: ["50px", "50px", "70px"],
+          height: ["50px", "50px", "70px"],
+        }}
+        file={icon.file}
+        svg={icon.svg}
+        fluid={icon.fluid}
+        alt={heading}
+      />
+      <div
+        sx={{
+          color: "textLight",
+          textAlign: "center",
+          fontSize: [2, 2, 4],
+          pt: [3, 2, 2],
+        }}
+      >
+        {heading}
+      </div>
     </div>
   );
 };

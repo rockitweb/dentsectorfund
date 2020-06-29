@@ -18,7 +18,16 @@ const InfoBoxSection: React.FC<InfoboxSectionProps> = ({ infoboxes }) => {
     />
   ));
 
-  return <div className="bg-blue-800 flex">{infoboxList}</div>;
+  return (
+    <div className="bg-blue-800">
+      <div
+        sx={{ variant: "layout.container.box" }}
+        className="flex items-stretch"
+      >
+        {infoboxList}
+      </div>
+    </div>
+  );
 };
 
 export default InfoBoxSection;

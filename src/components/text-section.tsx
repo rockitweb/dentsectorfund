@@ -6,8 +6,8 @@ export interface CtaProps {
   body: any;
 }
 const TextSection: React.FC<CtaProps> = ({ heading, body }) => (
-  <div>
-    <div className="container mx-auto flex flex-col">
+  <div sx={{variant: "layout.container.narrow"}}>
+    <div className="flex flex-col">
       <Heading as="h3">{heading}</Heading>
       <div
         className="whitespace-pre-wrap"

@@ -11,9 +11,10 @@ export interface InfoBoxProps {
 // Render inline SVG with fallback non-svg images
 const InfoBox: React.FC<InfoBoxProps> = ({ heading, message }) => {
   return (
-    <div className=" flex flex-col">
-      <div> {heading} </div>
+    <div className="w-1/3 flex flex-col items-center text-center">
+      <div sx={{ color: "textLight", fontSize: [5, 5, 6] }}> {heading} </div>
       <div
+        sx={{ color: "textLight", fontSize: [2, 2, 4] }}
         className="whitespace-pre-wrap"
         dangerouslySetInnerHTML={{
           __html: message,

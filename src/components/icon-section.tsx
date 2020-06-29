@@ -13,7 +13,18 @@ const IconSection: React.FC<IconSectionProps> = ({ icons }) => {
     <IconBox key={icon.heading} icon={icon.icon} heading={icon.heading} />
   ));
 
-  return <div className="bg-blue-800 flex">{iconList}</div>;
+  return (
+    <div className="bg-blue-800">
+      <div
+        sx={{ variant: "layout.container.box",
+    
+      }}
+        className="flex justify-between"
+      >
+        {iconList}
+      </div>
+    </div>
+  );
 };
 
 export default IconSection;
