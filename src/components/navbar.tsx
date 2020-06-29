@@ -33,43 +33,13 @@ const NavBar: React.FC<Props> = (props) => {
   }, [scrolled]);
 
   return (
-    <div>
-      <div className="fixed  z-40  w-full">
-       
-          <svg
-            sx={{ height: ["100%", "100%", "100%"] }}
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 1704 204"
-          >
-            <defs>
-              <linearGradient id="g1">
-                <stop stopColor="#ffffff" />
-                <stop offset=".2" stopColor="#ffffff" stopOpacity=".4" />
-                <stop offset="1" stopColor="#ffffff" stopOpacity=".3" />
-              </linearGradient>
-            </defs>
-            <path
-              d="M1702.625 150.9V97.778l-399-.888c-560.1-1.246-799.2-1.102-814.33.49-6.964.733-16.264 2.286-20.667 3.45-14.4 3.81-33.643 14.374-54.672 30.032-55.223 41.12-91.125 58.17-137.33 65.23-16.664 2.546-49.287 1.933-67.333-1.264-39.925-7.074-72.263-21.34-118-52.054-41.094-27.597-74.9-46.602-87-48.9l-4.333-.826V.001h1704v102l-.667 102c-.367 0-.667-23.9-.667-53.112z"
-              fill={scrolled ? "url(#g1)" : "url(#g1)"}
-            />
-          </svg>
-       
-      </div>
-      <div className="fixed z-50 w-full">
-        <div className="px-5 flex flex-wrap justify-between items-center">
-          <img
-            sx={{
-              width: ["20%", "20vw", "20vw"],
-              marginLeft: ["0px", "2vw", "2vw"],
-              marginTop: ["1vw", "1vw", "1vw"],
-            }}
-            src={logo}
-            alt="Logo"
-          />
+    <div sx={{ variant: "menu" }} className="fixed z-50 w-full">
+      <div className="px-5 flex flex-wrap justify-between items-center">
+        <img sx={{ variant: "menu.logo" }} src={logo} alt="Logo" />
 
-          <MenuTopNav />
-        </div>
+        <MenuTopNav />
       </div>
+    
     </div>
   );
 };
@@ -77,6 +47,11 @@ const NavBar: React.FC<Props> = (props) => {
 export default NavBar;
 
 /*
+ sx={{
+              width: ["20%", "20vw", "20vw"],
+              marginLeft: ["0px", "2vw", "2vw"],
+              marginTop: ["1vw", "1vw", "1vw"],
+            }}
     <div
         sx={{ backgroundColor: "rgba(0, 0, 0, .3)", height: "70px" }}
         className="fixed  z-40  w-full"

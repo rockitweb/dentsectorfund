@@ -3,6 +3,17 @@ import rockitWeb from "./rockitweb";
 import baseColours from "./colors";
 export default {
   ...rockitWeb,
+  menu: {
+    backgroundImage: () => {
+      return `linear-gradient(to left, rgba(255,255,255,0) 5%, rgba(255,255,255,0.3) 50%)`;
+    },
+    
+    logo: {
+      width: ["200px"],
+      mb: ["-25px"],
+      mt: [2]
+    },
+  },
   hero: {
     maxWidth: "1290px",
     mx: "auto",
@@ -42,6 +53,11 @@ export default {
     gray: {
       backgroundImage: () => {
         return `linear-gradient(to right, ${baseColours.neutrals[6]} 30%, ${baseColours.white} 100%);`;
+      },
+    },
+    menu: {
+      backgroundImage: () => {
+        return `linear-gradient(to left, rgba(255,255,255,0) 5%, rgba(255,255,255,0.3) 50%)`;
       },
     },
   },
