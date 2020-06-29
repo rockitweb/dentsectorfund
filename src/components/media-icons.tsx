@@ -12,9 +12,8 @@ export interface MediaIconsProps {
 // Render inline SVG with fallback non-svg images
 const MediaIcons: React.FC<MediaIconsProps> = ({ images }) => {
   const mediaIcons = images.map((image, index) => (
-    <div sx={{ width: "70px" }} className="overflow-hidden">
+    <div key={image.title} sx={{ width: "70px" }} className="overflow-hidden">
       <Image
-        key={index}
         file={image.file}
         svg={image.svg}
         fluid={image.fluid}

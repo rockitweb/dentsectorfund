@@ -43,9 +43,9 @@ const NavBar: React.FC<Props> = (props) => {
           >
             <defs>
               <linearGradient id="g1">
-                <stop stop-color="#ffffff" />
-                <stop offset=".2" stop-color="#ffffff" stop-opacity=".4" />
-                <stop offset="1" stop-color="#ffffff" stop-opacity=".3" />
+                <stop stopColor="#ffffff" />
+                <stop offset=".2" stopColor="#ffffff" stopOpacity=".4" />
+                <stop offset="1" stopColor="#ffffff" stopOpacity=".3" />
               </linearGradient>
             </defs>
             <path
