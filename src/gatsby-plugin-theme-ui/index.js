@@ -5,13 +5,14 @@ export default {
   ...rockitWeb,
   menu: {
     backgroundImage: () => {
-      return `linear-gradient(to left, rgba(255,255,255,0) 5%, rgba(255,255,255,0.3) 50%)`;
+      return `linear-gradient(90deg,rgb(255, 255, 255), rgb(255, 255, 255,0.4) 20%, rgb(255, 255, 255,0.3) 100%)`;
     },
-    
+
     logo: {
-      width: ["200px"],
-      mb: ["-25px"],
-      mt: [2]
+      width: ["100px"],
+      display:"fixed",
+     
+      zIndex: 1000,
     },
   },
   hero: {
@@ -61,4 +62,9 @@ export default {
       },
     },
   },
+  buttons:{
+    menu:{
+      bg:"primary",
+    }
+  }
 };

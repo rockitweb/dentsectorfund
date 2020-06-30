@@ -2,7 +2,7 @@
 import { jsx } from "theme-ui";
 import { Link } from "gatsby";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, Fragment } from "react";
 import MenuTopNav from "../components/menu-top";
 
 import logo from "../assets/images/logo_bigger.png";
@@ -33,20 +33,59 @@ const NavBar: React.FC<Props> = (props) => {
   }, [scrolled]);
 
   return (
-    <div sx={{ variant: "menu" }} className="fixed z-50 w-full">
-      <div className="px-5 flex flex-wrap justify-between items-center">
-        <img sx={{ variant: "menu.logo" }} src={logo} alt="Logo" />
+    <Fragment>
+      <div sx={{ variant: "menu" }} className="fixed z-40 w-full">
+        <div
+          sx={{ height: ["22px", "40px", "60px"] }}
+          className="px-5 pt-1 lg:pt-4 flex flex-wrap justify-end items-center"
+        >
+          <MenuTopNav />
+        </div>
+        <svg
+          className="block fixed "
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1690 118.67"
+        >
+          <defs>
+            <linearGradient id="g1">
+              <stop stopColor="#ffffff" />
+              <stop offset="20%" stopColor="#ffffff" stopOpacity=".4" />
+              <stop offset="100%" stopColor="#ffffff" stopOpacity=".3" />
+            </linearGradient>
+          </defs>
+          <path
+            d="M0 63.855V9.044l3.667.89c6.154 1.492 32.2 14.443 47 23.38 7.7 4.646 25.4 16.103 39.333 25.46 58.697 39.42 101.4 54.634 154 54.86 58.438.25 101.6-16.84 168.67-66.77 21.03-15.658 40.262-26.223 54.672-30.032 4.403-1.164 13.703-2.716 20.667-3.45 15.12-1.592 261.17-1.74 811.66-.49l391 .888v104.9H-.03z"
+            fill="#ffffff"
+            fill-opacity="0"
+          />
+          <path
+            d="M227.33 113.35c-46.254-4.063-85.1-19.5-137.33-54.58C50.2 32.043 20.178 14.955 5.06 10.426.514 9.064 0 8.457 0 4.454V-.001h1690.7v13.57l-593-.95c-436.7-.7-596.87-.553-607.7.555-28.857 2.954-45.998 10.427-77.306 33.706-46.95 34.9-77.93 51.376-113.35 60.244-23.686 5.93-49.713 8.182-71.988 6.225z"
+            fill="url(#g1)"
+          />
+        </svg>
+        <img
+          sx={{
+            position: "absolute",
+            top: "5px",
+            left: "5%",
 
-        <MenuTopNav />
+            width: ["18vw", "17vw", "17vw"],
+
+            height: "auto",
+          }}
+          className=" z-50"
+          src={logo}
+          alt="Logo"
+        />
       </div>
-    
-    </div>
+    </Fragment>
   );
 };
 
 export default NavBar;
 
 /*
+sx={{ height: ["40px", "40px", "70px"] }}
  sx={{
               width: ["20%", "20vw", "20vw"],
               marginLeft: ["0px", "2vw", "2vw"],
