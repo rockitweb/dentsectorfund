@@ -1,11 +1,11 @@
 import baseColours from "./colors";
 
 const sharedHeadingStyles = {
-  color: "text",
+  color: "secondary",
   fontFamily: "heading",
   lineHeight: "heading",
   fontWeight: "heading",
-  textTransform: "uppercase",
+  letterSpacing: 1.5,
 };
 
 const RockitWeb = {
@@ -28,8 +28,8 @@ const RockitWeb = {
   breakpoints: ["768px", "1025px", "1290px"],
   space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
   fonts: {
-    body: "'Open Sans', Helvetica, Arial, sans-serif",
-    heading: "Roboto, Montserrat, system-ui, sans-serif",
+    body: "'Red hat text', Helvetica, Arial, sans-serif",
+    heading: "Red Hat Display, Montserrat, system-ui, sans-serif",
     monospace: "Menlo, monospace",
     siteTitle: "orbitron,Roboto, Montserrat, system-ui, sans-serif",
   },
@@ -78,10 +78,11 @@ const RockitWeb = {
     },
     h2: {
       ...sharedHeadingStyles,
-      textAlign: "center",
-      fontSize: 5,
-      pt: 1,
-      pb: 1,
+     
+      fontSize: [2,2,3],
+      pt: 4,
+      pb: 3,
+  
     },
     h3: {
       ...sharedHeadingStyles,

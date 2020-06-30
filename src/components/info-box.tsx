@@ -12,9 +12,9 @@ export interface InfoBoxProps {
 const InfoBox: React.FC<InfoBoxProps> = ({ heading, message }) => {
   return (
     <div className="w-1/4 flex flex-col items-center text-center">
-      <div sx={{ color: "textLight", fontSize: [5, 5, 6] }}> {heading} </div>
+      <div sx={{ color: "textLight", fontSize: [4, 4, 6] }}> {heading} </div>
       <div
-        sx={{ color: "textLight", fontSize: [2, 2, 4] }}
+        sx={{ color: "textLight", fontSize: [1, 1, 4] }}
         className="whitespace-pre-wrap"
         dangerouslySetInnerHTML={{
           __html: message,

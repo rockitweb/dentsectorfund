@@ -10,8 +10,8 @@ export default {
 
     logo: {
       width: ["100px"],
-      display:"fixed",
-     
+      display: "fixed",
+
       zIndex: 1000,
     },
   },
@@ -19,8 +19,11 @@ export default {
     maxWidth: "1290px",
     mx: "auto",
     heading: {
+      fontFamily: "heading",
+      lineHeight: "heading",
+      fontWeight: "heading",
       color: "white",
-      fontSize: [3, 3, 5],
+      fontSize: [3, 3, 4],
     },
     message: {
       color: "white",
@@ -38,7 +41,7 @@ export default {
     container: {
       maxWidth: "100%",
       box: {
-        maxWidth: "1290px",
+        maxWidth: "1000px",
         mx: "auto",
         py: [4, 4, 4],
       },
@@ -46,7 +49,7 @@ export default {
         maxWidth: ["768px"],
         mx: "auto",
         px: [4, 4, null],
-        py: [4, 4, 4],
+        pb: [4, 4, 4],
       },
     },
   },
@@ -62,9 +65,9 @@ export default {
       },
     },
   },
-  buttons:{
-    menu:{
-      bg:"primary",
-    }
-  }
+  buttons: {
+    menu: {
+      bg: "primary",
+    },
+  },
 };
