@@ -32,7 +32,7 @@ export default function MenuTopNav() {
         sx={{
           color: "inherit",
           "&.active": {
-            color: "primary",
+            color: "secondary",
           },
           variant: "nav.link",
           p: 2,
@@ -45,7 +45,7 @@ export default function MenuTopNav() {
 
   return (
     <Fragment>
-      <div className="lg:hidden">
+      <div className="lg:hidden pr-4">
         <div
           sx={{
             width: "25px",
@@ -74,6 +74,7 @@ export default function MenuTopNav() {
         <nav
           sx={{
             variant: "nav",
+            backgroundColor: isExpanded ? "primary" : "",
           }}
         >
           <ul className="lg:flex items-center justify-between pt-4 lg:pt-0">

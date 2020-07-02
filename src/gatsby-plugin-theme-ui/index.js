@@ -70,4 +70,18 @@ export default {
       bg: "primary",
     },
   },
+  nav: {
+    textAlign: "center",
+    link: {
+      //borderColor: "white",
+      color: "white",
+      textTransform: "uppercase",
+      textAlign: "center",
+      fontSize: [3, 3],
+      //borderWidth: "2px",
+      "&:hover": {
+        color: "secondary",
+      },
+    },
+  },
 };

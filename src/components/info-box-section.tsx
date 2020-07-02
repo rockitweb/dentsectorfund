@@ -6,11 +6,11 @@ import React from "react";
 import InfoBox, { InfoBoxProps } from "./info-box";
 
 export interface InfoboxSectionProps {
-  infoboxes: InfoBoxProps[];
+  infoBoxes: InfoBoxProps[];
 }
 
-const InfoBoxSection: React.FC<InfoboxSectionProps> = ({ infoboxes }) => {
-  const infoboxList = infoboxes.map((infobox, index) => (
+const InfoBoxSection: React.FC<InfoboxSectionProps> = ({ infoBoxes }) => {
+  const infoboxList = infoBoxes.map((infobox, index) => (
     <InfoBox
       key={infobox.heading}
       message={infobox.message}
