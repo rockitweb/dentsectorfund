@@ -5,20 +5,18 @@ import React from "react";
 import IconBox from "./icon-box";
 
 export interface IconSectionProps {
-  icons: any[];
+  iconBoxes: any[];
 }
 
-const IconSection: React.FC<IconSectionProps> = ({ icons }) => {
-  const iconList = icons.map((icon, index) => (
+const IconSection: React.FC<IconSectionProps> = ({ iconBoxes }) => {
+  const iconList = iconBoxes.map((icon, index) => (
     <IconBox key={icon.heading} icon={icon.icon} heading={icon.heading} />
   ));
 
   return (
-    <div sx={{backgroundColor:"primary"}}>
+    <div sx={{ backgroundColor: "primary" }}>
       <div
-        sx={{ variant: "layout.container.box",
-    
-      }}
+        sx={{ variant: "layout.container.box" }}
         className="flex justify-between"
       >
         {iconList}

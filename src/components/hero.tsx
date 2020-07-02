@@ -11,7 +11,13 @@ export interface HeroProps {
   };
 }
 
-const Hero: React.FC<HeroProps> = ({ heading, message, backgroundImage }) => (
+const Hero: React.FC<HeroProps> = ({ heading, message, backgroundImage }) =>
+{
+console.log("ff",backgroundImage);
+
+return (
+
+  
   <BackgroundImage
     sx={{
       width: "100%",
@@ -41,7 +47,7 @@ const Hero: React.FC<HeroProps> = ({ heading, message, backgroundImage }) => (
       />
     </div>
   </BackgroundImage>
-);
+)};
 export default Hero;
 
 /*
