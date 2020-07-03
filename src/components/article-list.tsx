@@ -44,13 +44,32 @@ const ArticleList: React.FC<ArticleListProps> = ({ heading, articleCount }) => {
                 timeToRead
               }
             }
+            author {
+              image {
+                svg {
+                  content
+                  absolutePath
+                  dataURI
+                  relativePath
+                }
+                file {
+                  url
+                  contentType
+                }
+                fluid(maxWidth: 104, maxHeight: 104, resizingBehavior: SCALE) {
+                  ...GatsbyContentfulFluid_tracedSVG
+                }
+              }
+              title
+              name
+            }
           }
         }
       }
     }
   `);
   const posts = (allContentfulBlogPost.edges as any[]).slice(0, articleCount);
-  const previews = posts.map((post, index) => <ArticlePreview key={`${post.title}`} {... post.node} />)
+  const previews = posts.map((post, index) => <ArticlePreview key={`${post.title}:${index}`} {... post.node} />)
 
   return (
     <div

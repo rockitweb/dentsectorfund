@@ -11,9 +11,12 @@ export interface ImageProps {
   alt: string;
   width?: string;
   height?: string;
-  imageStyle?:any
-  styles?: any
-  classes?:string
+  imageStyle?: any;
+  styles?: any;
+  classes?: string;
+
+  sx?: object; //we expect a sx prop but never use it below
+  className?: string; //we expect a className prop but never define one when the component is called
 }
 
 // Render inline SVG with fallback non-svg images
@@ -25,8 +28,10 @@ const Image: React.FC<ImageProps> = ({
   width,
   height,
   imageStyle,
-  styles
+  styles,
+  className
 }) => {
+  
   width = width ? width : "200";
   height = height ? height : "200";
 
@@ -41,7 +46,13 @@ const Image: React.FC<ImageProps> = ({
         `<svg width="100%"`
       );
 
-      return <div sx={{...styles}} className="flex " dangerouslySetInnerHTML={{ __html: content }} />;
+      return (
+        <div
+          sx={{ ...styles }}
+          className="flex "
+          dangerouslySetInnerHTML={{ __html: content }}
+        />
+      );
     }
 
     // SVGs that can/should not be inlined
@@ -49,14 +60,7 @@ const Image: React.FC<ImageProps> = ({
   }
 
   // Non SVG images
-  return (
-    <Img
-      fluid={fluid}
-      alt={alt}
-      
-      imgStyle={imageStyle}
-    />
-  );
+  return <Img fluid={fluid} alt={alt} className={className} imgStyle={imageStyle} />;
 };
 
 export default Image;
