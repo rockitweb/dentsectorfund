@@ -49,8 +49,8 @@ const ArticleList: React.FC<ArticleListProps> = ({ heading, articleCount }) => {
       }
     }
   `);
-  const posts = allContentfulBlogPost.edges as any[];
-    const previews = posts.map((post, index) => <ArticlePreview key={`${post.title}`} {... post.node} />)
+  const posts = (allContentfulBlogPost.edges as any[]).slice(0, articleCount);
+  const previews = posts.map((post, index) => <ArticlePreview key={`${post.title}`} {... post.node} />)
 
   return (
     <div
