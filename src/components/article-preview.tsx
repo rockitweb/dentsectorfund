@@ -46,7 +46,10 @@ const ArticlePreview: React.FC<ArticleListProps> = ({
   return (
     <div className="p-4 md:w-1/3">
       <div className="h-full border-2 border-gray-200 rounded-lg overflow-hidden">
+        <Link to={`/news/${slug}/`}>
         <Image {...heroImage} alt={title} />
+        </Link>
+        
         <div className="p-6">
           <h2 className="tracking-widest text-xs title-font font-medium text-gray-500 mb-1">
             {tagsList}

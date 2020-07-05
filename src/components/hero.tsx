@@ -13,7 +13,7 @@ export interface HeroProps {
 
 const Hero: React.FC<HeroProps> = ({ heading, message, backgroundImage }) =>
 {
-console.log("ff",backgroundImage);
+  const msg = message ? message.childMarkdownRemark.html : "";
 
 return (
 
@@ -42,7 +42,7 @@ return (
         sx={{ variant: "hero.message" }}
         className="whitespace-pre-wrap"
         dangerouslySetInnerHTML={{
-          __html: message.childMarkdownRemark.html,
+          __html: msg,
         }}
       />
     </div>
