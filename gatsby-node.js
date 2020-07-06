@@ -7,6 +7,7 @@ exports.createPages = ({ graphql, actions }) => {
 
   return new Promise((resolve, reject) => {
     const blogPost = path.resolve("./src/templates/blog-post.tsx");
+    const blogList = path.resolve("./src/templates/blog-list.tsx");
     const pageTemplate = path.resolve("./src/templates/page.tsx");
     const tagTemplate = path.resolve("src/templates/tags.tsx");
     resolve(
@@ -34,6 +35,17 @@ exports.createPages = ({ graphql, actions }) => {
                 fieldValue
               }
             }
+            blogList: allContentfulBlogPost(
+              limit: 1000
+              sort: { fields: publishDate, order: DESC }
+            ) {
+              edges {
+                node {
+                  title
+                  slug
+                }
+              }
+            }
           }
         `
       ).then((result) => {
@@ -55,6 +67,24 @@ exports.createPages = ({ graphql, actions }) => {
             },
           });
         });
+        //create for our blog list
+        const postList = result.data.blogList.edges;
+        const postsPerPage = 6;
+        const numPages = Math.ceil(postList.length / postsPerPage);
+        Array.from({ length: numPages }).forEach((_, i) => {
+          createPage({
+            path: i === 0 ? `/news` : `/news/${i + 1}`,
+            component: blogList,
+            context: {
+              limit: postsPerPage,
+              skip: i * postsPerPage,
+              numPages,
+              currentPage: i + 1,
+            },
+          });
+        });
+
+
 
         //create our pages
         pages.forEach((page) => {
@@ -66,7 +96,6 @@ exports.createPages = ({ graphql, actions }) => {
               slug: page.node.slug,
             },
           });
-          
         });
 
         // Extract tag data from query
