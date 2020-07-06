@@ -14,6 +14,7 @@ export default function Page({ data }) {
       ContentfulFeaturePerson: "feature-person",
       ContentfulInfoBoxSection: "info-box-section",
       ContentfulLatestArticles: "article-list",
+      ContentfulTeamSection: "team-section"
     };
 
 
@@ -85,6 +86,44 @@ export const pageQuery = graphql`
                      ctaMessage
                      childMarkdownRemark {
                        html
+                     }
+                   }
+                 }
+                 ... on ContentfulTeamSection {
+                   id
+                   heading
+                   description {
+                     childMarkdownRemark {
+                       html
+                     }
+                   }
+                   people {
+                     name
+                     title
+                     shortBio {
+                       childMarkdownRemark {
+                         html
+                       }
+                     }
+                     image {
+                       svg {
+                         content
+                         absolutePath
+                         dataURI
+                         relativePath
+                       }
+                       file {
+                         url
+                         contentType
+                       }
+                       fluid(
+                         maxWidth: 1600
+                         maxHeight: 700
+
+                         background: "rgb:000000"
+                       ) {
+                         ...GatsbyContentfulFluid_tracedSVG
+                       }
                      }
                    }
                  }

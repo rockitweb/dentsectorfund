@@ -10,8 +10,11 @@ function isMarkdown(data: string | Markdown): data is Markdown {
 
 export interface CtaProps {
   data: string | Markdown;
+
+  sx?: object; //we expect a sx prop but never use it below
+  className?: string; //we expect a className prop but never define one when the component is called
 }
-const MarkDown: React.FC<CtaProps> = ({ data }) => {
+const MarkDown: React.FC<CtaProps> = ({ data, className }) => {
   let html = "";
   if (isMarkdown(data)) {
     html = GetHTMLFromMarkdown(data);
@@ -21,7 +24,7 @@ const MarkDown: React.FC<CtaProps> = ({ data }) => {
 
   return (
     <div 
-      className="whitespace-pre-wrap"
+      className={`whitespace-pre-wrap ${className}`}
      
       dangerouslySetInnerHTML={{
         __html: html,

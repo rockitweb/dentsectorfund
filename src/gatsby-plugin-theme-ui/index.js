@@ -42,7 +42,26 @@ export default {
       textAlign: "left",
       fontSize: 7,
     },
+    h2: {
+      ...sharedHeadingStyles,
+
+      fontSize: [2, 2, 3],
+    },
   },
+  section: {
+    heading: {
+      ...sharedHeadingStyles,
+
+      fontSize: [2, 2, 3],
+      textAlign: "center",
+      py: [2, 2, 2],
+    },
+    description: {
+      textAlign: "center",
+     
+    },
+  },
+
   layout: {
     container: {
       maxWidth: "100%",
@@ -88,6 +107,17 @@ export default {
       "&:hover": {
         color: "secondary",
       },
+    },
+  },
+  image: {
+    teamMember: {
+      flexShrink: 0,
+      width: "100%",
+      height: "14rem",
+      borderRadius: ".5rem",
+      objectFit: "cover",
+      objectPosition: "center",
+      mb: [2, 2, 0],
     },
   },
 };
