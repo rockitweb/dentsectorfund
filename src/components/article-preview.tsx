@@ -1,15 +1,16 @@
 /** @jsx jsx */
-import { jsx, Heading } from "theme-ui";
+import { jsx } from "theme-ui";
 import React from "react";
-import { Badge, Avatar } from "theme-ui";
+
 //import ArticlePreview from "../components/article-preview"
-import { useStaticQuery, graphql, Link } from "gatsby";
+import { Link } from "gatsby";
 import { Markdown } from "./interfaces/markdown";
 import FluidImage from "./interfaces/fluidImage";
 import Image from "../components/utilities/image";
-import { GetHTMLFromMarkdown } from "../utils/data-utils";
+
 import MarkDown from "./utilities/markdown";
-var kebabCase = require("lodash.kebabcase");
+import Tags from "./tags";
+
 export interface ArticleListProps {
   title: string;
   slug: string;
@@ -35,13 +36,7 @@ const ArticlePreview: React.FC<ArticleListProps> = ({
   heroImage,
   author,
 }) => {
-  const tagsList = tags.map((tag, index) => (
-    <Link key={`${tag}:${index}`} to={`/tags/${kebabCase(tag)}/`}>
-      <Badge sx={{mr:1}}>
-        <span className="uppercase">{tag}</span>
-      </Badge>
-    </Link>
-  ));
+
   const avatar = author.image;
   return (
     <div className="p-4 md:w-1/3">
@@ -52,7 +47,7 @@ const ArticlePreview: React.FC<ArticleListProps> = ({
         
         <div className="p-6">
           <h2 className="tracking-widest text-xs title-font font-medium text-gray-500 mb-1">
-            {tagsList}
+            <Tags tags= {tags}></Tags>
           </h2>
           <h1 className="title-font text-lg font-medium text-gray-900 mb-3">
             {title}

@@ -4,6 +4,8 @@ import React from "react";
 import { Markdown } from "../interfaces/markdown";
 import { GetHTMLFromMarkdown } from "../../utils/data-utils";
 
+
+
 function isMarkdown(data: string | Markdown): data is Markdown {
   return (data as Markdown).childMarkdownRemark !== undefined;
 }
@@ -20,9 +22,8 @@ const MarkDown: React.FC<CtaProps> = ({ data }) => {
   }
 
   return (
-    <div 
-      className="whitespace-pre-wrap"
-     
+    <div
+     sx={{variant:"styles"}}
       dangerouslySetInnerHTML={{
         __html: html,
       }}
@@ -30,3 +31,4 @@ const MarkDown: React.FC<CtaProps> = ({ data }) => {
   );
 };
 export default MarkDown;
+

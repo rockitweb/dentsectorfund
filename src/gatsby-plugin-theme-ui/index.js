@@ -1,5 +1,5 @@
 // See other presets to try at https://theme-ui.com/packages/presets
-import rockitWeb from "./rockitweb";
+import rockitWeb, { sharedHeadingStyles } from "./rockitweb";
 import baseColours from "./colors";
 export default {
   ...rockitWeb,
@@ -36,6 +36,12 @@ export default {
   },
   styles: {
     ...rockitWeb.styles,
+
+    h1: {
+      ...sharedHeadingStyles,
+      textAlign: "left",
+      fontSize: 7,
+    },
   },
   layout: {
     container: {

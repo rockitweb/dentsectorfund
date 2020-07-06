@@ -1,6 +1,6 @@
 import baseColours from "./colors";
 
-const sharedHeadingStyles = {
+export const sharedHeadingStyles = {
   color: "secondary",
   fontFamily: "heading",
   lineHeight: "heading",
@@ -78,11 +78,8 @@ const RockitWeb = {
     },
     h2: {
       ...sharedHeadingStyles,
-     
-      fontSize: [2,2,3],
-      pt: 4,
-      pb: 3,
-  
+
+      fontSize: [2, 2, 3],
     },
     h3: {
       ...sharedHeadingStyles,
@@ -106,8 +103,8 @@ const RockitWeb = {
       fontWeight: "body",
       lineHeight: "body",
       fontSize: 2,
-      marginBlockStart: "1em",
-      marginBlockEnd: "1em",
+      marginBlockStart: ".5em",
+      marginBlockEnd: "1.5em",
       nomargin: {
         color: "text",
         fontFamily: "body",
@@ -117,7 +114,7 @@ const RockitWeb = {
       },
     },
     a: {
-      color: "primary",
+      color: "secondary",
       fontSize: [3, 2],
     },
     pre: {
