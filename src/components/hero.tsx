@@ -4,9 +4,9 @@ import React from "react";
 import Img from "gatsby-image";
 import BackgroundImage from "gatsby-background-image";
 export interface HeroProps {
-  heading: string;
+  heading: any;
   message: any;
-  backgroundImage: {
+  backgroundImage?: {
     fluid: any;
   };
 }
@@ -30,8 +30,8 @@ return (
     }}
     Tag="section"
     alt={heading}
-    fluid={backgroundImage.fluid}
-    backgroundColor={`#040e18`}
+    fluid={backgroundImage?.fluid}
+   
   >
     <div
       className="h-full flex flex-col justify-center"

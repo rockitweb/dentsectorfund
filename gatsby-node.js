@@ -1,6 +1,6 @@
 const Promise = require("bluebird");
 const path = require("path");
-
+const _ = require("lodash");
 //create blog posts
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions;
@@ -8,7 +8,7 @@ exports.createPages = ({ graphql, actions }) => {
   return new Promise((resolve, reject) => {
     const blogPost = path.resolve("./src/templates/blog-post.tsx");
     const pageTemplate = path.resolve("./src/templates/page.tsx");
-
+    const tagTemplate = path.resolve("src/templates/tags.tsx");
     resolve(
       graphql(
         `
@@ -27,6 +27,11 @@ exports.createPages = ({ graphql, actions }) => {
                   title
                   slug
                 }
+              }
+            }
+            tagsGroup: allContentfulBlogPost(limit: 2000) {
+              group(field: tags) {
+                fieldValue
               }
             }
           }
@@ -59,6 +64,21 @@ exports.createPages = ({ graphql, actions }) => {
             component: pageTemplate,
             context: {
               slug: page.node.slug,
+            },
+          });
+          
+        });
+
+        // Extract tag data from query
+        const tags = result.data.tagsGroup.group;
+
+        // Make tag pages
+        tags.forEach((tag) => {
+          createPage({
+            path: `/tags/${_.kebabCase(tag.fieldValue)}/`,
+            component: tagTemplate,
+            context: {
+              tag: tag.fieldValue,
             },
           });
         });
