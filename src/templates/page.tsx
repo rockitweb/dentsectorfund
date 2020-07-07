@@ -33,6 +33,7 @@ export default function Page({ data }) {
       const widgetType = widgets[widget.__typename];
 
       if (widgetType) {
+        
         const Module = Loadable(() => import(`../components/${widgetType}`));
         if (backgroundImage) {
           return (
@@ -223,6 +224,7 @@ export const pageQuery = graphql`
           }
           ... on ContentfulFeaturePerson {
             id
+            position
             internal {
               type
             }
