@@ -1,15 +1,15 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui";
-import React from "react";
+import React, { Fragment } from "react";
 
 //import ArticlePreview from "../components/article-preview"
 import { Link } from "gatsby";
 import { Markdown } from "./interfaces/markdown";
 import FluidImage from "./interfaces/fluidImage";
 import Image from "../components/utilities/image";
-
-import MarkDown from "./utilities/markdown";
+import { kebabCase } from "lodash";
 import Tags from "./tags";
+import MarkDown from "./utilities/markdown";
 
 export interface ArticleListProps {
   title: string;
@@ -38,19 +38,27 @@ const ArticlePreview: React.FC<ArticleListProps> = ({
 }) => {
   let authorSection;
   if (author) {
-    authorSection = <a className="inline-flex items-center">
-        <Image
-          {...author.image}
-          alt={author.name}
-          sx={{ width: "45px", height: "45px", borderRadius: "50%" }}
-        />
-        <span className="flex-grow flex flex-col pl-4">
-          <span className="title-font font-medium text-gray-900">
-            {author.name}
+    authorSection = (
+      <div className="flex flex-col">
+        <div className="inline-flex items-center">
+          <Image
+            {...author.image}
+            alt={author.name}
+            sx={{ width: "45px", height: "45px", borderRadius: "50%" }}
+          />
+          <span className="flex-grow flex flex-col pl-4">
+            <span className="title-font font-medium text-gray-900">
+              {author.name}
+            </span>
+            <span className="text-gray-500 text-sm">{author.title}</span>
           </span>
-          <span className="text-gray-500 text-sm">{author.title}</span>
-        </span>
-      </a>
+        </div>
+        <Link sx={{color:"secondary"}}
+          to={`/team/${kebabCase(author.name)}`}
+        >{`Read more by ${author.name}`}</Link>
+      </div>
+    );
+      
   }
 
   return (
