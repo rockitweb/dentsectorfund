@@ -3,9 +3,11 @@ import { jsx, Heading } from "theme-ui";
 
 import React from "react";
 import Image from "./utilities/image"
+import { Markdown } from "./interfaces/markdown";
+import MarkDown from "./utilities/markdown";
 
 export interface IconBoxProps {
-  heading: string;
+  heading:  string | Markdown;
   icon:any;
 }
 
@@ -31,7 +33,7 @@ const IconBox: React.FC<IconBoxProps> = ({ heading, icon }) => {
           pt: [3, 2, 2],
         }}
       >
-        {heading}
+        <MarkDown data ={heading}></MarkDown>
       </div>
     </div>
   );

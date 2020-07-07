@@ -53,8 +53,8 @@ export default {
       ...sharedHeadingStyles,
 
       fontSize: [2, 2, 3],
-      textAlign: "center",
-      py: [2, 2, 2],
+      textAlign: "left",
+      py: [3, 3,4],
     },
     description: {
       textAlign: "center",
