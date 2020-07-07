@@ -58,7 +58,6 @@ export default {
     },
     description: {
       textAlign: "center",
-     
     },
   },
 
@@ -118,6 +117,24 @@ export default {
       objectFit: "cover",
       objectPosition: "center",
       mb: [2, 2, 0],
+    },
+    circle: {
+      width: "20%",
+      height: "auto",
+      minWidth: "150px",
+      float: "left",
+      mr: "2rem",
+      borderRadius: "50%",
+    boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
+      shapeOutside: "circle()",
+    },
+  },
+
+  gradients: {
+    primary: {
+      backgroundImage: () => {
+        return `linear-gradient(to right, ${baseColours.primary[6]} 10%, ${baseColours.primary[3]} 100%);`;
+      },
     },
   },
 };

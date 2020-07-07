@@ -10,6 +10,7 @@ exports.createPages = ({ graphql, actions }) => {
     const blogList = path.resolve("./src/templates/blog-list.tsx");
     const pageTemplate = path.resolve("./src/templates/page.tsx");
     const tagTemplate = path.resolve("src/templates/tags.tsx");
+    const personTemplate = path.resolve("src/templates/person.template.tsx");
     resolve(
       graphql(
         `
@@ -43,6 +44,14 @@ exports.createPages = ({ graphql, actions }) => {
                 node {
                   title
                   slug
+                }
+              }
+            }
+
+            allContentfulPerson {
+              edges {
+                node {
+                  name
                 }
               }
             }
@@ -84,8 +93,6 @@ exports.createPages = ({ graphql, actions }) => {
           });
         });
 
-
-
         //create our pages
         pages.forEach((page) => {
           const path = page.node.slug === "home" ? "/" : `/${page.node.slug}/`;
@@ -97,8 +104,24 @@ exports.createPages = ({ graphql, actions }) => {
             },
           });
         });
+;
 
-        // Extract tag data from query
+
+        // Extract people data from query
+        const people = result.data.allContentfulPerson.edges;
+
+        // Make tag pages
+        people.forEach((person) => {
+          createPage({
+            path: `/team/${_.kebabCase(person.node.name)}/`,
+            component: personTemplate,
+            context: {
+              personName: person.node.name,
+            },
+          });
+        });
+
+        // Extract tags from query
         const tags = result.data.tagsGroup.group;
 
         // Make tag pages
