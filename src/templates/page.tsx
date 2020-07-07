@@ -18,6 +18,7 @@ export default function Page({ data }) {
     ContentfulInfoBoxSection: "info-box-section",
     ContentfulLatestArticles: "article-list",
     ContentfulTeamSection: "team-section",
+    ContentfulMediaLogos :"media-icons"
   };
 
   const sections: any[] = data.contentfulPage.pageSections;
@@ -33,7 +34,6 @@ export default function Page({ data }) {
       const widgetType = widgets[widget.__typename];
 
       if (widgetType) {
-        
         const Module = Loadable(() => import(`../components/${widgetType}`));
         if (backgroundImage) {
           return (
@@ -219,6 +219,34 @@ export const pageQuery = graphql`
             body {
               childMarkdownRemark {
                 html
+              }
+            }
+          }
+
+          ... on ContentfulMediaLogos {
+            id
+            title
+            internal {
+              type
+            }
+            mediaLogos {
+              svg {
+                content
+                absolutePath
+                dataURI
+                relativePath
+              }
+              file {
+                url
+                contentType
+              }
+              fluid(
+                maxWidth: 1600
+                maxHeight: 700
+
+                background: "rgb:000000"
+              ) {
+                ...GatsbyContentfulFluid_tracedSVG
               }
             }
           }
