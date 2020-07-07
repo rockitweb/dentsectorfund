@@ -10,8 +10,10 @@ import Image from '../components/utilities/image';
 import MarkDown from "../components/utilities/styled-markdown";
 
 const PersonTemplate = ({ pageContext, data }) => {
-  const { personName } = pageContext;
+
   const person = data.contentfulPerson;
+
+  const bio = person.bio || person.shortBio;   
   return (
     <Layout>
       <div
@@ -35,7 +37,7 @@ const PersonTemplate = ({ pageContext, data }) => {
           {person.name}
         </h1>
         <span>{person.title}</span>
-        <MarkDown data={person.bio}></MarkDown>
+        <MarkDown data={bio}></MarkDown>
       </div>
     </Layout>
   );
