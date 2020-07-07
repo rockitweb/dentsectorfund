@@ -6,14 +6,25 @@ import React from "react";
 // Components
 import { graphql } from "gatsby";
 import Layout from "../layouts/layout";
-import Image from '../components/utilities/image';
+import Image from "../components/utilities/image";
 import MarkDown from "../components/utilities/styled-markdown";
+import ArticlePreview from "../components/article-preview";
 
 const PersonTemplate = ({ pageContext, data }) => {
-
+  const MAX_ARTICLES = 6;  
   const person = data.contentfulPerson;
 
-  const bio = person.bio || person.shortBio;   
+  const bio = person.bio || person.shortBio;
+  const blogPosts:any[] = person.blog_post;  
+
+  const posts = (blogPosts).slice(0, MAX_ARTICLES);
+  const previews = posts.map((post, index) => (
+  <ArticlePreview key={`${post.title}:${index}`} {...post} />
+));
+
+
+
+
   return (
     <Layout>
       <div
@@ -39,6 +50,14 @@ const PersonTemplate = ({ pageContext, data }) => {
         <span>{person.title}</span>
         <MarkDown data={bio}></MarkDown>
       </div>
+      
+        <div
+    
+          className="flex flex-col md:flex-row container mx-auto"
+        >
+          {previews}
+        </div>
+     
     </Layout>
   );
 };
@@ -78,6 +97,36 @@ export const pageQuery = graphql`
         }
         fluid(maxWidth: 150, maxHeight: 150, resizingBehavior: THUMB) {
           ...GatsbyContentfulFluid_tracedSVG
+        }
+      }
+      blog_post {
+        title
+        slug
+        publishDate(formatString: "MMMM Do, YYYY")
+        tags
+        heroImage {
+          svg {
+            content
+            absolutePath
+            dataURI
+            relativePath
+          }
+          file {
+            url
+            contentType
+          }
+          fluid(maxWidth: 350, maxHeight: 196, resizingBehavior: SCALE) {
+            ...GatsbyContentfulFluid_tracedSVG
+          }
+        }
+        description {
+          childMarkdownRemark {
+            html
+            wordCount {
+              words
+            }
+            timeToRead
+          }
         }
       }
     }
