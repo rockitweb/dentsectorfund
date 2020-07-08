@@ -5,8 +5,10 @@ import "../styles/tailwind.css";
 import Layout from "../layouts/layout";
 import { graphql } from "gatsby";
 import Loadable from "@loadable/component";
-import { InfoBoxProps } from "../components/info-box";
+
 import BackgroundImage from "gatsby-background-image";
+import { Markdown } from "../components/interfaces/markdown";
+import MarkDown from "../components/utilities/styled-markdown";
 
 export default function Page({ data }) {
   const widgets = {
@@ -23,7 +25,7 @@ export default function Page({ data }) {
   };
 
   const sections: any[] = data.contentfulPage.pageSections;
-
+  const body: Markdown = data.contentfulPage.body;
   const sectionModules = sections
     .sort(function (a, b) {
       return a.position - b.position;
@@ -64,12 +66,22 @@ export default function Page({ data }) {
       }
     });
 
-  return <Layout>{sectionModules}</Layout>;
+  return (
+    <Layout>
+      {sectionModules}
+      <MarkDown sx={{variant:"layout.container.box"}} data={body || ""}></MarkDown>
+    </Layout>
+  );
 }
 
 export const pageQuery = graphql`
   query PageQuery($slug: String!) {
     contentfulPage(slug: { eq: $slug }) {
+      body {
+        childMarkdownRemark {
+          html
+        }
+      }
       pageSections {
         title
         position
