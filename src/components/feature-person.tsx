@@ -2,32 +2,61 @@
 import { jsx, Heading } from "theme-ui";
 
 import React from "react";
-import Image from "./utilities/image";
+
 import FluidImage from "./interfaces/fluidImage";
-import Html from "./html";
+
+import BackgroundImage from "gatsby-background-image";
+
+import { Person } from "./interfaces/Person";
+import MarkDown from "./utilities/markdown";
 
 export interface FeatureProps {
-  person: { name: string; title: string; bio: string };
+  person: Person;
   image: FluidImage;
+  position: "Left" | "Right";
 }
 
 // Render inline SVG with fallback non-svg images
-const FeaturePerson: React.FC<FeatureProps> = ({ person, image }) => {
+const FeaturePerson: React.FC<FeatureProps> = ({ person, image, position }) => {
+  const heading = `${person.name} ${person.title}`;
+
   return (
-    <div className=" flex flex-col">
-      <div>
-        <div>
-          {person.name} {person.title}
-        </div>
-        <Html>{person.bio}</Html>
+    <BackgroundImage
+      sx={{
+        width: "100%",
+        backgroundColor: "primary",
+        backgroundPosition: "center center",
+        backgroundRepeat: "repeat-y",
+        backgroundSize: "cover",
+      }}
+      Tag="section"
+      alt="Section Background"
+      fluid={image.fluid}
+    >
+      <div
+        sx={{
+          variant: "layout.container.box",
+          pb: [4, 4, 0],
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: `flex-${position === "Left" ? "start" : "end"}`,
+        }}
+      >
+        <div sx={{ width: "30%", backgroundColor: "extraLight", p: [3, 3, 3] }}>
+          <h2
+            sx={{
+              variant: "section.heading",
+              textAlign: "center",
+              py: [3, 3, 3],
+            }}
+          >
+            {heading}
+          </h2>
+
+          <MarkDown data={person.shortBio}></MarkDown>
+        </div>{" "}
       </div>
-      <Image
-        file={image.file}
-        svg={image.svg}
-        fluid={image.fluid}
-        alt={person.name}
-      />
-    </div>
+    </BackgroundImage>
   );
 };
 

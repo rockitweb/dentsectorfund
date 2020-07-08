@@ -4,16 +4,16 @@ import React from "react";
 import Img from "gatsby-image";
 import BackgroundImage from "gatsby-background-image";
 export interface HeroProps {
-  heading: string;
+  heading: any;
   message: any;
-  backgroundImage: {
+  backgroundImage?: {
     fluid: any;
   };
 }
 
 const Hero: React.FC<HeroProps> = ({ heading, message, backgroundImage }) =>
 {
-console.log("ff",backgroundImage);
+  const msg = message ? message.childMarkdownRemark.html : "";
 
 return (
 
@@ -30,8 +30,8 @@ return (
     }}
     Tag="section"
     alt={heading}
-    fluid={backgroundImage.fluid}
-    backgroundColor={`#040e18`}
+    fluid={backgroundImage?.fluid}
+   
   >
     <div
       className="h-full flex flex-col justify-center"
@@ -42,7 +42,7 @@ return (
         sx={{ variant: "hero.message" }}
         className="whitespace-pre-wrap"
         dangerouslySetInnerHTML={{
-          __html: message.childMarkdownRemark.html,
+          __html: msg,
         }}
       />
     </div>

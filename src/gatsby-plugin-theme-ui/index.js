@@ -1,5 +1,5 @@
 // See other presets to try at https://theme-ui.com/packages/presets
-import rockitWeb from "./rockitweb";
+import rockitWeb, { sharedHeadingStyles, sharedFormElementStyles } from "./rockitweb";
 import baseColours from "./colors";
 export default {
   ...rockitWeb,
@@ -36,7 +36,31 @@ export default {
   },
   styles: {
     ...rockitWeb.styles,
+
+    h1: {
+      ...sharedHeadingStyles,
+      textAlign: "left",
+      fontSize: 7,
+    },
+    h2: {
+      ...sharedHeadingStyles,
+
+      fontSize: [2, 2, 3],
+    },
   },
+  section: {
+    heading: {
+      ...sharedHeadingStyles,
+
+      fontSize: [2, 2, 3],
+      textAlign: "left",
+      py: [3, 3, 4],
+    },
+    description: {
+      textAlign: "center",
+    },
+  },
+
   layout: {
     container: {
       maxWidth: "100%",
@@ -53,18 +77,7 @@ export default {
       },
     },
   },
-  gradients: {
-    gray: {
-      backgroundImage: () => {
-        return `linear-gradient(to right, ${baseColours.neutrals[6]} 30%, ${baseColours.white} 100%);`;
-      },
-    },
-    menu: {
-      backgroundImage: () => {
-        return `linear-gradient(to left, rgba(255,255,255,0) 5%, rgba(255,255,255,0.3) 50%)`;
-      },
-    },
-  },
+
   buttons: {
     menu: {
       bg: "primary",
@@ -81,6 +94,80 @@ export default {
       //borderWidth: "2px",
       "&:hover": {
         color: "secondary",
+      },
+    },
+  },
+  image: {
+    teamMember: {
+      flexShrink: 0,
+      width: "100%",
+      height: "14rem",
+      borderRadius: ".5rem",
+      objectFit: "cover",
+      objectPosition: "center",
+      mb: [2, 2, 0],
+    },
+    circle: {
+      width: "20%",
+      height: "auto",
+      minWidth: "150px",
+      float: "left",
+      mr: "2rem",
+      borderRadius: "50%",
+      boxShadow:
+        "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
+      shapeOutside: "circle()",
+    },
+  },
+  forms: {
+    label: {
+      fontSize: ".75rem",
+      fontWeight: "bold",
+      textTransform: "uppercase",
+      letterSpacing: 0.5,
+      color: "text",
+      mb: 1,
+      //block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2
+    },
+    input: {
+      ...sharedFormElementStyles,
+      backgroundColor:"white",
+    },
+    select: {
+      borderColor: "gray",
+      "&:focus": {
+        borderColor: "primary",
+        boxShadow: (t) => `0 0 0 2px ${t.colors.primary}`,
+        outline: "none",
+      },
+    },
+    textarea: {
+      ...sharedFormElementStyles,
+    },
+    slider: {
+      bg: "muted",
+    },
+    validationError: {
+      fontStyle: "italic",
+      fontSize: ".75rem",
+      color: "error",
+    },
+  },
+
+  gradients: {
+    primary: {
+      backgroundImage: () => {
+        return `linear-gradient(to right, ${baseColours.primary[6]} 10%, ${baseColours.primary[3]} 100%);`;
+      },
+    },
+    gray: {
+      backgroundImage: () => {
+        return `linear-gradient(to right, ${baseColours.neutrals[6]} 30%, ${baseColours.white} 100%);`;
+      },
+    },
+    menu: {
+      backgroundImage: () => {
+        return `linear-gradient(to left, rgba(255,255,255,0) 5%, rgba(255,255,255,0.3) 50%)`;
       },
     },
   },

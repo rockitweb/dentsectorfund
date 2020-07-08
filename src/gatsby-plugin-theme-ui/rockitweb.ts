@@ -1,13 +1,30 @@
 import baseColours from "./colors";
 
-const sharedHeadingStyles = {
+export const sharedHeadingStyles = {
   color: "secondary",
   fontFamily: "heading",
   lineHeight: "heading",
   fontWeight: "heading",
   letterSpacing: 1.5,
 };
+export const sharedFormElementStyles = {
+  //focus:outline-none focus:bg-white focus:border-gray-500"
+  appearence: "none",
+  display: "block",
+  width: "100%",
+  backgroundColor: "extraLight",
+  color: "dark",
+  borderColor: "extraLight",
+  borderRadius: "default",
+  py: 3,
+  px: 4,
 
+  "&:focus": {
+    outline: "none",
+    backgroundColor: "white",
+    borderColor: "muted",
+  },
+};
 const RockitWeb = {
   colors: {
     primary: baseColours.primary[5],
@@ -78,11 +95,8 @@ const RockitWeb = {
     },
     h2: {
       ...sharedHeadingStyles,
-     
-      fontSize: [2,2,3],
-      pt: 4,
-      pb: 3,
-  
+
+      fontSize: [2, 2, 3],
     },
     h3: {
       ...sharedHeadingStyles,
@@ -106,8 +120,8 @@ const RockitWeb = {
       fontWeight: "body",
       lineHeight: "body",
       fontSize: 2,
-      marginBlockStart: "1em",
-      marginBlockEnd: "1em",
+      marginBlockStart: ".5em",
+      marginBlockEnd: "1.5em",
       nomargin: {
         color: "text",
         fontFamily: "body",
@@ -117,7 +131,7 @@ const RockitWeb = {
       },
     },
     a: {
-      color: "primary",
+      color: "secondary",
       fontSize: [3, 2],
     },
     pre: {

@@ -6,12 +6,12 @@ import Image from "./utilities/image";
 import FluidImage from "./interfaces/fluidImage";
 
 export interface MediaIconsProps {
-  images: FluidImage[];
+  mediaLogos: FluidImage[];
 }
 
 // Render inline SVG with fallback non-svg images
-const MediaIcons: React.FC<MediaIconsProps> = ({ images }) => {
-  const mediaIcons = images.map((image, index) => (
+const MediaIcons: React.FC<MediaIconsProps> = ({ mediaLogos }) => {
+  const mediaIcons = mediaLogos.map((image, index) => (
     <div key={image.title} sx={{ width: "70px" }} className="overflow-hidden">
       <Image
         file={image.file}
@@ -19,6 +19,7 @@ const MediaIcons: React.FC<MediaIconsProps> = ({ images }) => {
         fluid={image.fluid}
         alt={image.title || "Media Image"}
         imageStyle={{ objectFit: "contain" }}
+        sx={{height:"70px"}}
       />
     </div>
   ));
