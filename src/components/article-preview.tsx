@@ -62,7 +62,7 @@ const ArticlePreview: React.FC<ArticleListProps> = ({
   }
 
   return (
-    <div className="p-4 md:w-1/3">
+    <div className="px-2 md:w-1/3">
       <div className="h-full border-2 border-gray-200 rounded-lg overflow-hidden">
         <Link to={`/news/${slug}/`}>
         <Image {...heroImage} alt={title} />

@@ -18,7 +18,7 @@ export default function Page({ data }) {
     ContentfulInfoBoxSection: "info-box-section",
     ContentfulLatestArticles: "article-list",
     ContentfulTeamSection: "team-section",
-    ContentfulMediaLogos :"media-icons"
+    ContentfulMediaLogos: "media-icons",
   };
 
   const sections: any[] = data.contentfulPage.pageSections;
@@ -114,6 +114,15 @@ export const pageQuery = graphql`
                 ...GatsbyContentfulFluid_tracedSVG
               }
             }
+          }
+          ... on ContentfulLatestArticles {
+            internal {
+              type
+            }
+            id
+            title
+            heading
+            articleCount
           }
           ... on ContentfulCallToAction {
             internal {

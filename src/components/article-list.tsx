@@ -1,8 +1,9 @@
 /** @jsx jsx */
 import { jsx, Heading } from "theme-ui";
 import React from "react";
-import ArticlePreview from "../components/article-preview"
+import ArticlePreview from "../components/article-preview";
 import { useStaticQuery, graphql } from "gatsby";
+import SectionHeading from "./section-heading";
 export interface ArticleListProps {
   heading: string;
   articleCount: number;
@@ -69,14 +70,18 @@ const ArticleList: React.FC<ArticleListProps> = ({ heading, articleCount }) => {
     }
   `);
   const posts = (allContentfulBlogPost.edges as any[]).slice(0, articleCount);
-  const previews = posts.map((post, index) => <ArticlePreview key={`${post.title}:${index}`} {... post.node} />)
+  const previews = posts.map((post, index) => (
+    <ArticlePreview key={`${post.title}:${index}`} {...post.node} />
+  ));
 
   return (
-    <div
-      
-      className="flex flex-col md:flex-row container mx-auto"
-    >
-      {previews}
+    <div sx={{ variant: "layout.container.box" }}>
+      <div className="flex flex-col">
+        <SectionHeading heading={heading} description=""></SectionHeading>
+        <div className="flex flex-col md:flex-row flex-wrap -mx-2 overflow-hidden">
+          {previews}
+        </div>
+      </div>
     </div>
   );
 };
