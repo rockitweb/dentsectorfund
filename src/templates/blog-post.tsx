@@ -11,11 +11,13 @@ import Hero, { HeroProps } from "../components/hero";
 
 import StyledMarkDown from "../components/utilities/styled-markdown";
 import BlogHeading from "../components/blog-heading";
+import SEO from "../components/utilities/seo";
 
 class BlogPostTemplate extends React.Component {
   render() {
     const post = get(this.props, "data.contentfulBlogPost");
-    const siteTitle = get(this.props, "data.site.siteMetadata.title");
+
+    const { title, description, publishDate, author, tags, body } = post;
 
     const heroProps: HeroProps = {
       heading: post.title,
@@ -24,21 +26,22 @@ class BlogPostTemplate extends React.Component {
     };
 
     const headingProps = {
-      title: post.title,
-      publishDate: post.publishDate,
+      title: title,
+      publishDate: publishDate,
       readTime: post.body.childMarkdownRemark.timeToRead,
-      author: post.author,
-      tags: post.tags,
+      author: author,
+      tags: tags,
     };
 
-    console.log(post);
     return (
       <Layout>
+        <SEO title={title} description={description}></SEO>
+
         <Hero {...heroProps}></Hero>
 
         <div sx={{ variant: "layout.container.narrow", mt: 4 }}>
           <BlogHeading {...headingProps}></BlogHeading>
-          <StyledMarkDown data={post.body}></StyledMarkDown>
+          <StyledMarkDown data={body}></StyledMarkDown>
         </div>
       </Layout>
     );
@@ -51,6 +54,11 @@ export const pageQuery = graphql`
   query BlogPostBySlug($slug: String!) {
     contentfulBlogPost(slug: { eq: $slug }) {
       title
+      description {
+        childMarkdownRemark {
+          html
+        }
+      }
       tags
       publishDate(formatString: "MMMM Do, YYYY")
       image: heroImage {

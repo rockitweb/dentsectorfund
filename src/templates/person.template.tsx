@@ -11,19 +11,20 @@ import MarkDown from "../components/utilities/styled-markdown";
 import ArticlePreview from "../components/article-preview";
 
 const PersonTemplate = ({ pageContext, data }) => {
-  const MAX_ARTICLES = 6;  
+  const MAX_ARTICLES = 6;
   const person = data.contentfulPerson;
 
   const bio = person.bio || person.shortBio;
-  const blogPosts:any[] = person.blog_post;  
+  const blogPosts: any[] = person.blog_post;
 
-  const posts = (blogPosts).slice(0, MAX_ARTICLES);
-  const previews = posts.map((post, index) => (
-  <ArticlePreview key={`${post.title}:${index}`} {...post} />
-));
-
-
-
+  //get blog previews, if there are any
+  let previews;
+  if (blogPosts) {
+    const posts = blogPosts.slice(0, MAX_ARTICLES);
+    previews = posts.map((post, index) => (
+      <ArticlePreview key={`${post.title}:${index}`} {...post} />
+    ));
+  }
 
   return (
     <Layout>
@@ -50,14 +51,10 @@ const PersonTemplate = ({ pageContext, data }) => {
         <span>{person.title}</span>
         <MarkDown data={bio}></MarkDown>
       </div>
-      
-        <div
-    
-          className="flex flex-col md:flex-row container mx-auto"
-        >
-          {previews}
-        </div>
-     
+
+      <div className="flex flex-col md:flex-row container mx-auto">
+        {previews}
+      </div>
     </Layout>
   );
 };

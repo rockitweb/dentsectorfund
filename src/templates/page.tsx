@@ -23,10 +23,11 @@ export default function Page({ data }) {
     ContentfulTeamSection: "team-section",
     ContentfulMediaLogos: "media-icons",
     ContentfulSignUpForm: "signup",
+    ContentfulContactForm: "contact",
   };
 
   const sections: any[] = data.contentfulPage.pageSections;
-  const {title, description, body} = data.contentfulPage;
+  const { title, description, body } = data.contentfulPage;
   const sectionModules = sections
     .sort(function (a, b) {
       return a.position - b.position;
@@ -69,10 +70,7 @@ export default function Page({ data }) {
 
   return (
     <Layout>
-      <SEO
-        title={title}
-        description={description}
-      ></SEO>
+      <SEO title={title} description={description}></SEO>
       {sectionModules}
       <MarkDown
         sx={{ variant: "layout.container.box" }}
@@ -146,6 +144,20 @@ export const pageQuery = graphql`
               }
             }
             social
+          }
+          ... on ContentfulContactForm {
+            id
+            formHeading: heading {
+              childMarkdownRemark {
+                html
+              }
+            }
+            message {
+              childMarkdownRemark {
+                html
+              }
+            }
+            
           }
           ... on ContentfulLatestArticles {
             internal {

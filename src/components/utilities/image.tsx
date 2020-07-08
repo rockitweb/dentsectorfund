@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui";
-import React from "react";
+import React, { Fragment } from "react";
 import propTypes from "prop-types";
 import Img from "gatsby-image";
 
@@ -34,6 +34,9 @@ const Image: React.FC<ImageProps> = ({
   
   width = width ? width : "200";
   height = height ? height : "200";
+
+  //if there isn't an image, for some reason then get out of dodge.
+  if (!file) return (< Fragment />);
 
   if (file.contentType === "image/svg+xml") {
     if (svg && svg.content) {

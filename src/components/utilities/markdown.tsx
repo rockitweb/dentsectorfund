@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx, Button } from "theme-ui";
-import React from "react";
+import React, { Fragment } from "react";
 import { Markdown } from "../interfaces/markdown";
 import { GetHTMLFromMarkdown } from "../../utils/data-utils";
 
@@ -16,6 +16,9 @@ export interface CtaProps {
 }
 const MarkDown: React.FC<CtaProps> = ({ data, className }) => {
   let html = "";
+
+  if (!data) return <Fragment />
+  
   if (isMarkdown(data)) {
     html = GetHTMLFromMarkdown(data);
   } else {

@@ -10,7 +10,7 @@ export interface SignupProps {
     social: string[]
 }
 
-const Contact: React.FC<SignupProps> = ({formHeading, social}) => {
+const SignUp: React.FC<SignupProps> = ({formHeading, social}) => {
   return (
         <section sx={{variant:"layout.container.narrow"}}>
             <SectionHeading heading={formHeading} description=""></SectionHeading>
@@ -20,4 +20,4 @@ const Contact: React.FC<SignupProps> = ({formHeading, social}) => {
 </section>
   );
 };
-export default Contact;
+export default SignUp;
