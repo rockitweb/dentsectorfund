@@ -13,12 +13,12 @@ const SectionHeading: React.FC<SectionHeadingProps> = ({
   description,
 }) => (
   <Fragment>
-    <h2 sx={{ variant: "section.heading" }}>
+    
       <MarkDown
         sx={{ variant: "section.heading" }}
         data={heading}
       ></MarkDown>
-    </h2>
+   
     <MarkDown
       sx={{ variant: "section.description" }}
       data={description}
