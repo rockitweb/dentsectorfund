@@ -1,5 +1,5 @@
 // See other presets to try at https://theme-ui.com/packages/presets
-import rockitWeb, { sharedHeadingStyles } from "./rockitweb";
+import rockitWeb, { sharedHeadingStyles, sharedFormElementStyles } from "./rockitweb";
 import baseColours from "./colors";
 export default {
   ...rockitWeb,
@@ -54,7 +54,7 @@ export default {
 
       fontSize: [2, 2, 3],
       textAlign: "left",
-      py: [3, 3,4],
+      py: [3, 3, 4],
     },
     description: {
       textAlign: "center",
@@ -119,6 +119,41 @@ export default {
       shapeOutside: "circle()",
     },
   },
+  forms: {
+    label: {
+      fontSize: ".75rem",
+      fontWeight: "bold",
+      textTransform: "uppercase",
+      letterSpacing: 0.5,
+      color: "text",
+      mb: 1,
+      //block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2
+    },
+    input: {
+      ...sharedFormElementStyles,
+      backgroundColor:"white",
+    },
+    select: {
+      borderColor: "gray",
+      "&:focus": {
+        borderColor: "primary",
+        boxShadow: (t) => `0 0 0 2px ${t.colors.primary}`,
+        outline: "none",
+      },
+    },
+    textarea: {
+      ...sharedFormElementStyles,
+    },
+    slider: {
+      bg: "muted",
+    },
+    validationError: {
+      fontStyle: "italic",
+      fontSize: ".75rem",
+      color: "error",
+    },
+  },
+
   gradients: {
     primary: {
       backgroundImage: () => {

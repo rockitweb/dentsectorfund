@@ -7,7 +7,24 @@ export const sharedHeadingStyles = {
   fontWeight: "heading",
   letterSpacing: 1.5,
 };
+export const sharedFormElementStyles = {
+  //focus:outline-none focus:bg-white focus:border-gray-500"
+  appearence: "none",
+  display: "block",
+  width: "100%",
+  backgroundColor: "extraLight",
+  color: "dark",
+  borderColor: "extraLight",
+  borderRadius: "default",
+  py: 3,
+  px: 4,
 
+  "&:focus": {
+    outline: "none",
+    backgroundColor: "white",
+    borderColor: "muted",
+  },
+};
 const RockitWeb = {
   colors: {
     primary: baseColours.primary[5],

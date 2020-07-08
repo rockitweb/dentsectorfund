@@ -5,7 +5,7 @@ import React, { Fragment } from "react";
 import { Markdown } from "./interfaces/markdown";
 import MarkDown from "./utilities/markdown";
 export interface SectionHeadingProps {
-  heading: string;
+  heading: string | Markdown;
   description: string | Markdown;
 }
 const SectionHeading: React.FC<SectionHeadingProps> = ({
@@ -13,7 +13,12 @@ const SectionHeading: React.FC<SectionHeadingProps> = ({
   description,
 }) => (
   <Fragment>
-    <h2 sx={{ variant: "section.heading" }}>{heading}</h2>
+    <h2 sx={{ variant: "section.heading" }}>
+      <MarkDown
+        sx={{ variant: "section.heading" }}
+        data={heading}
+      ></MarkDown>
+    </h2>
     <MarkDown
       sx={{ variant: "section.description" }}
       data={description}

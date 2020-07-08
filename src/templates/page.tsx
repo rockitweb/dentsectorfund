@@ -19,6 +19,7 @@ export default function Page({ data }) {
     ContentfulLatestArticles: "article-list",
     ContentfulTeamSection: "team-section",
     ContentfulMediaLogos: "media-icons",
+    ContentfulSignUpForm: "signup",
   };
 
   const sections: any[] = data.contentfulPage.pageSections;
@@ -114,6 +115,15 @@ export const pageQuery = graphql`
                 ...GatsbyContentfulFluid_tracedSVG
               }
             }
+          }
+          ... on ContentfulSignUpForm {
+            id
+            formHeading: heading {
+              childMarkdownRemark {
+                html
+              }
+            }
+            social
           }
           ... on ContentfulLatestArticles {
             internal {
