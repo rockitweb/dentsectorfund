@@ -33,7 +33,10 @@ const ArticleList: React.FC<ArticleListProps> = ({ heading, articleCount }) => {
                 contentType
               }
               fluid(maxWidth: 350, maxHeight: 196, resizingBehavior: SCALE) {
-                ...GatsbyContentfulFluid_tracedSVG
+                aspectRatio
+                src
+                srcSet
+                sizes
               }
             }
             description {
@@ -58,7 +61,10 @@ const ArticleList: React.FC<ArticleListProps> = ({ heading, articleCount }) => {
                   contentType
                 }
                 fluid(maxWidth: 104, maxHeight: 104, resizingBehavior: SCALE) {
-                  ...GatsbyContentfulFluid_tracedSVG
+                  aspectRatio
+                  src
+                  srcSet
+                  sizes
                 }
               }
               title

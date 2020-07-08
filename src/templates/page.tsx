@@ -110,7 +110,10 @@ export const pageQuery = graphql`
 
             background: "rgb:000000"
           ) {
-            ...GatsbyContentfulFluid_tracedSVG
+            aspectRatio
+            src
+            srcSet
+            sizes
           }
         }
 
@@ -126,13 +129,11 @@ export const pageQuery = graphql`
             }
             heading
             backgroundImage {
-              fluid(
-                maxWidth: 1600
-                maxHeight: 700
-
-                background: "rgb:000000"
-              ) {
-                ...GatsbyContentfulFluid_tracedSVG
+              fluid(maxWidth: 1600, maxHeight: 700) {
+                aspectRatio
+                src
+                srcSet
+                sizes
               }
             }
           }
@@ -157,7 +158,6 @@ export const pageQuery = graphql`
                 html
               }
             }
-            
           }
           ... on ContentfulLatestArticles {
             internal {
@@ -214,7 +214,10 @@ export const pageQuery = graphql`
 
                   background: "rgb:000000"
                 ) {
-                  ...GatsbyContentfulFluid_tracedSVG
+                  aspectRatio
+                  src
+                  srcSet
+                  sizes
                 }
               }
             }
@@ -246,7 +249,10 @@ export const pageQuery = graphql`
 
                   background: "rgb:000000"
                 ) {
-                  ...GatsbyContentfulFluid_tracedSVG
+                  aspectRatio
+                  src
+                  srcSet
+                  sizes
                 }
               }
             }
@@ -299,7 +305,10 @@ export const pageQuery = graphql`
 
                 background: "rgb:000000"
               ) {
-                ...GatsbyContentfulFluid_tracedSVG
+                aspectRatio
+                src
+                srcSet
+                sizes
               }
             }
           }
@@ -335,7 +344,10 @@ export const pageQuery = graphql`
 
                 background: "rgb:000000"
               ) {
-                ...GatsbyContentfulFluid_tracedSVG
+                aspectRatio
+                src
+                srcSet
+                sizes
               }
             }
           }
