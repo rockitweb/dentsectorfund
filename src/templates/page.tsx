@@ -9,6 +9,7 @@ import Loadable from "@loadable/component";
 import BackgroundImage from "gatsby-background-image";
 import { Markdown } from "../components/interfaces/markdown";
 import MarkDown from "../components/utilities/styled-markdown";
+import SEO from "../components/utilities/seo";
 
 export default function Page({ data }) {
   const widgets = {
@@ -25,7 +26,7 @@ export default function Page({ data }) {
   };
 
   const sections: any[] = data.contentfulPage.pageSections;
-  const body: Markdown = data.contentfulPage.body;
+  const {title, description, body} = data.contentfulPage;
   const sectionModules = sections
     .sort(function (a, b) {
       return a.position - b.position;
@@ -68,8 +69,15 @@ export default function Page({ data }) {
 
   return (
     <Layout>
+      <SEO
+        title={title}
+        description={description}
+      ></SEO>
       {sectionModules}
-      <MarkDown sx={{variant:"layout.container.box"}} data={body || ""}></MarkDown>
+      <MarkDown
+        sx={{ variant: "layout.container.box" }}
+        data={body || ""}
+      ></MarkDown>
     </Layout>
   );
 }
@@ -77,6 +85,8 @@ export default function Page({ data }) {
 export const pageQuery = graphql`
   query PageQuery($slug: String!) {
     contentfulPage(slug: { eq: $slug }) {
+      title
+      description
       body {
         childMarkdownRemark {
           html
