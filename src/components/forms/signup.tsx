@@ -4,6 +4,7 @@ import React from "react";
 import { Input, Textarea, Button, Label } from "theme-ui";
 import { useForm } from "react-hook-form";
 import { navigate } from "gatsby";
+import addToMailchimp from "gatsby-plugin-mailchimp";
 const encode = (data: any) => {
   return Object.keys(data)
     .map((key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
@@ -13,7 +14,6 @@ type FormData = {
   firstName: string;
   lastName: string;
   email: string;
- 
 };
 
 const SignupForm: React.FC = () => {
@@ -22,12 +22,10 @@ const SignupForm: React.FC = () => {
   });
   const onSubmit = handleSubmit((data, e) => {
     //alert(JSON.stringify(data));
-    fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode({ "form-name": "contact-form", ...data }),
-    })
-      .then(() => {
+    e?.preventDefault();
+    addToMailchimp(data.email, {FNAME: data.firstName, LNAME: data.lastName})
+      .then((result) => {
+          alert(JSON.stringify(result));
         e?.target.reset();
         navigate("/thanks/");
       })
