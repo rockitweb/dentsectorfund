@@ -1,9 +1,9 @@
 /** @jsx jsx */
 import { jsx, Heading } from "theme-ui";
 import React from "react";
-import ArticlePreview from "../components/article-preview";
+import ArticlePreview from "./article-preview";
 import { useStaticQuery, graphql } from "gatsby";
-import SectionHeading from "./section-heading";
+import SectionHeading from "../section-heading";
 export interface ArticleListProps {
   heading: string;
   articleCount: number;

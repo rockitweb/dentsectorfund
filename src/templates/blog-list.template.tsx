@@ -4,7 +4,7 @@ import React from "react";
 import { graphql, Link } from "gatsby";
 import Layout from "../layouts/layout";
 import Hero, { HeroProps } from "../components/hero";
-import ArticlePreview from "../components/article-preview";
+import ArticlePreview from "../components/blog/article-preview";
 import Pagination from "../components/utilities/pagination";
 // pageContext, data
 const BlogList = ({ pageContext, data }) => {

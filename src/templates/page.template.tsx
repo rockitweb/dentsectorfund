@@ -19,7 +19,7 @@ export default function Page({ data }) {
     ContentfulIconBoxSection: "icon-section",
     ContentfulFeaturePerson: "feature-person",
     ContentfulInfoBoxSection: "info-box-section",
-    ContentfulLatestArticles: "article-list",
+    ContentfulLatestArticles: "blog/article-list",
     ContentfulTeamSection: "team-section",
     ContentfulMediaLogos: "media-icons",
     ContentfulSignUpForm: "signup",

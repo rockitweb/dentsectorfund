@@ -7,7 +7,7 @@ import React from "react";
 import { Link, graphql } from "gatsby";
 import Layout from "../layouts/layout";
 import Hero, { HeroProps } from "../components/hero";
-import ArticlePreview from "../components/article-preview";
+import ArticlePreview from "../components/blog/article-preview";
 
 const Tags = ({ pageContext, data }) => {
   const { tag } = pageContext;

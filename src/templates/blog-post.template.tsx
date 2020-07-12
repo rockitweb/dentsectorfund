@@ -10,7 +10,7 @@ import Layout from "../layouts/layout";
 import Hero, { HeroProps } from "../components/hero";
 
 import StyledMarkDown from "../components/utilities/styled-markdown";
-import BlogHeading from "../components/blog-heading";
+import BlogHeading from "../components/blog/blog-heading";
 import SEO from "../components/utilities/seo";
 
 class BlogPostTemplate extends React.Component {

@@ -4,12 +4,12 @@ import React, { Fragment } from "react";
 
 //import ArticlePreview from "../components/article-preview"
 import { Link } from "gatsby";
-import { Markdown } from "./interfaces/markdown";
-import FluidImage from "./interfaces/fluidImage";
-import Image from "../components/utilities/image";
+import { Markdown } from "../interfaces/markdown";
+import FluidImage from "../interfaces/fluidImage";
+import Image from "../utilities/image";
 import { kebabCase } from "lodash";
 import Tags from "./tags";
-import MarkDown from "./utilities/markdown";
+import MarkDown from "../utilities/markdown";
 
 export interface ArticleListProps {
   title: string;

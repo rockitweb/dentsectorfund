@@ -3,7 +3,7 @@ import { jsx, Button, Styled } from "theme-ui";
 import React, { Fragment } from "react";
 import Tags from "./tags";
 import BlogAuthor from "./blog-author";
-import FluidImage from "./interfaces/fluidImage";
+import FluidImage from "../interfaces/fluidImage";
 
 export interface BlogHeadingProps {
   title: string;

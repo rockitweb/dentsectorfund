@@ -8,7 +8,7 @@ import { graphql } from "gatsby";
 import Layout from "../layouts/layout";
 import Image from "../components/utilities/image";
 import MarkDown from "../components/utilities/styled-markdown";
-import ArticlePreview from "../components/article-preview";
+import ArticlePreview from "../components/blog/article-preview";
 
 const PersonTemplate = ({ pageContext, data }) => {
   const MAX_ARTICLES = 6;

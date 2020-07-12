@@ -3,9 +3,9 @@ import { jsx, Badge } from "theme-ui";
 import React, { Fragment } from "react";
 import { Link } from "gatsby";
 import { kebabCase } from "lodash";
-import FluidImage from "./interfaces/fluidImage";
+import FluidImage from "../interfaces/fluidImage";
 import { TagProps } from "./tags";
-import Image from './utilities/image';
+import Image from '../utilities/image';
 export interface AuthorProps {
   author: {
     name: string;
