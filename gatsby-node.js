@@ -6,10 +6,10 @@ exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions;
 
   return new Promise((resolve, reject) => {
-    const blogPost = path.resolve("./src/templates/blog-post.tsx");
-    const blogList = path.resolve("./src/templates/blog-list.tsx");
-    const pageTemplate = path.resolve("./src/templates/page.tsx");
-    const tagTemplate = path.resolve("src/templates/tags.tsx");
+    const blogPost = path.resolve("./src/templates/blog-post.template.tsx");
+    const blogList = path.resolve("./src/templates/blog-list.template.tsx");
+    const pageTemplate = path.resolve("./src/templates/page.template.tsx");
+    const tagTemplate = path.resolve("src/templates/tags.template.tsx");
     const personTemplate = path.resolve("src/templates/person.template.tsx");
     resolve(
       graphql(
