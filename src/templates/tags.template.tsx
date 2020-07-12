@@ -41,82 +41,101 @@ const Tags = ({ pageContext, data }) => {
 
 export default Tags;
 export const pageQuery = graphql`
-  query($tag: String) {
-    allContentfulBlogPost(
-      limit: 2000
-      sort: { fields: publishDate, order: DESC }
-      filter: { tags: { in: [$tag] } }
-    ) {
-      totalCount
-      edges {
-        node {
-          title
-          slug
-          publishDate(formatString: "MMMM Do, YYYY")
-          tags
-          heroImage {
-            svg {
-              content
-              absolutePath
-              dataURI
-              relativePath
-            }
-            file {
-              url
-              contentType
-            }
-            fluid(maxWidth: 350, maxHeight: 196, resizingBehavior: SCALE) {
-              ...GatsbyContentfulFluid_tracedSVG
-            }
-          }
-          description {
-            childMarkdownRemark {
-              html
-              wordCount {
-                words
-              }
-              timeToRead
-            }
-          }
-          author {
-            image {
-              svg {
-                content
-                absolutePath
-                dataURI
-                relativePath
-              }
-              file {
-                url
-                contentType
-              }
-              fluid(maxWidth: 104, maxHeight: 104, resizingBehavior: SCALE) {
-                ...GatsbyContentfulFluid_tracedSVG
-              }
-            }
-            title
-            name
-          }
-        }
-      }
-    }
-    hero: contentfulHero(id: { eq: "8a8ccf5f-4f63-56af-abeb-c1b33df44b04" }) {
-      heading
-      message {
-        childMarkdownRemark {
-          html
-        }
-      }
-      backgroundImage {
-        fluid(
-          maxWidth: 1600
-          maxHeight: 700
+         query($tag: String) {
+           allContentfulBlogPost(
+             limit: 2000
+             sort: { fields: publishDate, order: DESC }
+             filter: { tags: { in: [$tag] } }
+           ) {
+             totalCount
+             edges {
+               node {
+                 title
+                 slug
+                 publishDate(formatString: "MMMM Do, YYYY")
+                 tags
+                 heroImage {
+                   svg {
+                     content
+                     absolutePath
+                     dataURI
+                     relativePath
+                   }
+                   file {
+                     url
+                     contentType
+                   }
+                   fluid(
+                     maxWidth: 350
+                     maxHeight: 196
+                     resizingBehavior: SCALE
+                   ) {
+                     aspectRatio
+                     src
+                     srcSet
+                     sizes
+                   }
+                 }
+                 description {
+                   childMarkdownRemark {
+                     html
+                     wordCount {
+                       words
+                     }
+                     timeToRead
+                   }
+                 }
+                 author {
+                   image {
+                     svg {
+                       content
+                       absolutePath
+                       dataURI
+                       relativePath
+                     }
+                     file {
+                       url
+                       contentType
+                     }
+                     fluid(
+                       maxWidth: 104
+                       maxHeight: 104
+                       resizingBehavior: SCALE
+                     ) {
+                       aspectRatio
+                       src
+                       srcSet
+                       sizes
+                     }
+                   }
+                   title
+                   name
+                 }
+               }
+             }
+           }
+           hero: contentfulHero(
+             id: { eq: "8a8ccf5f-4f63-56af-abeb-c1b33df44b04" }
+           ) {
+             heading
+             message {
+               childMarkdownRemark {
+                 html
+               }
+             }
+             backgroundImage {
+               fluid(
+                 maxWidth: 1600
+                 maxHeight: 700
 
-          background: "rgb:000000"
-        ) {
-          ...GatsbyContentfulFluid_tracedSVG
-        }
-      }
-    }
-  }
-`;
+                 background: "rgb:000000"
+               ) {
+                 aspectRatio
+                 src
+                 srcSet
+                 sizes
+               }
+             }
+           }
+         }
+       `;

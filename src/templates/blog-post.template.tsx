@@ -51,46 +51,52 @@ class BlogPostTemplate extends React.Component {
 export default BlogPostTemplate;
 
 export const pageQuery = graphql`
-  query BlogPostBySlug($slug: String!) {
-    contentfulBlogPost(slug: { eq: $slug }) {
-      title
-      description {
-        childMarkdownRemark {
-          html
-        }
-      }
-      tags
-      publishDate(formatString: "MMMM Do, YYYY")
-      image: heroImage {
-        fluid(maxWidth: 1180, background: "rgb:000000") {
-          ...GatsbyContentfulFluid_tracedSVG
-        }
-      }
-      body {
-        childMarkdownRemark {
-          html
-          timeToRead
-        }
-      }
-      author {
-        title
-        name
-        image {
-          svg {
-            content
-            absolutePath
-            dataURI
-            relativePath
-          }
-          file {
-            url
-            contentType
-          }
-          fluid(maxWidth: 104, maxHeight: 104, resizingBehavior: SCALE) {
-            ...GatsbyContentfulFluid_tracedSVG
-          }
-        }
-      }
-    }
-  }
-`;
+         query BlogPostBySlug($slug: String!) {
+           contentfulBlogPost(slug: { eq: $slug }) {
+             title
+             description {
+               childMarkdownRemark {
+                 html
+               }
+             }
+             tags
+             publishDate(formatString: "MMMM Do, YYYY")
+             image: heroImage {
+               fluid(maxWidth: 1180, background: "rgb:000000") {
+                 aspectRatio
+                 src
+                 srcSet
+                 sizes
+               }
+             }
+             body {
+               childMarkdownRemark {
+                 html
+                 timeToRead
+               }
+             }
+             author {
+               title
+               name
+               image {
+                 svg {
+                   content
+                   absolutePath
+                   dataURI
+                   relativePath
+                 }
+                 file {
+                   url
+                   contentType
+                 }
+                 fluid(maxWidth: 104, maxHeight: 104, resizingBehavior: SCALE) {
+                   aspectRatio
+                   src
+                   srcSet
+                   sizes
+                 }
+               }
+             }
+           }
+         }
+       `;
