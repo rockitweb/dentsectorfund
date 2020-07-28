@@ -5,7 +5,7 @@ import propTypes from "prop-types";
 import Img from "gatsby-image";
 
 export interface ImageProps {
-  svg: { content: string };
+  svg?: { content: string };
   fluid: any;
   file: { url: string; contentType: string };
   alt: string;
@@ -67,3 +67,8 @@ const Image: React.FC<ImageProps> = ({
 };
 
 export default Image;
+
+export interface FluidImage {
+  fluid: any;
+  alt: string;
+}

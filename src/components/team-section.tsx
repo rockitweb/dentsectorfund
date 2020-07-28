@@ -1,10 +1,11 @@
 /** @jsx jsx */
-import { jsx, Styled } from "theme-ui";
+import { jsx, Grid } from "theme-ui";
 import React from "react";
 import { Person } from "./interfaces/Person";
 import MarkDown from "./utilities/markdown";
 import PersonComponent from "./person";
 import SectionHeading from "./section-heading";
+import CardVertical from "./cards/image-card";
 export interface TeamSectionProps {
   heading: string;
   description: any;
@@ -16,7 +17,7 @@ const TeamSection: React.FC<TeamSectionProps> = ({
   people,
 }) => {
   const teamMebers = people.map((person, index) => (
-    <PersonComponent key={person.name} person={person}></PersonComponent>
+    <PersonComponent sx={{width:"100%"}} key={person.name} person={person}></PersonComponent>
   ));
 
   return (
@@ -26,10 +27,12 @@ const TeamSection: React.FC<TeamSectionProps> = ({
           heading={heading}
           description={description}
         ></SectionHeading>
-
+       
         <div className="flex flex-wrap">{teamMebers}</div>
       </div>
     </div>
   );
 };
 export default TeamSection;
+
+//  
