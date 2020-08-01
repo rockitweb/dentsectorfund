@@ -7,7 +7,7 @@ import Img from "gatsby-image";
 export interface ImageProps {
   svg?: { content: string };
   fluid: any;
-  file: { url: string; contentType: string };
+  file?: { url: string; contentType: string };
   alt: string;
   width?: string;
   height?: string;
