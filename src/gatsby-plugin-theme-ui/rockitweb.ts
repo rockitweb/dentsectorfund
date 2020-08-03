@@ -45,14 +45,16 @@ const RockitWeb = {
   breakpoints: ["768px", "1025px", "1290px"],
   space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
   fonts: {
-    body: "'Red hat text', Helvetica, Arial, sans-serif",
-    heading: "Red Hat Display, Montserrat, system-ui, sans-serif",
+    body: "'Red hat Display-Regular', Helvetica, Arial, sans-serif",
+    heading: "Red Hat Display-Bold, Montserrat, system-ui, sans-serif",
+    medium: "Red Hat Display-Medium, Montserrat, system-ui, sans-serif",
     monospace: "Menlo, monospace",
     siteTitle: "orbitron,Roboto, Montserrat, system-ui, sans-serif",
   },
   fontSizes: [12, 14, 16, 20, 24, 32, 48, 64, 96],
   fontWeights: {
     body: 400,
+    focus: 500,
     heading: 700,
     bold: 700,
   },

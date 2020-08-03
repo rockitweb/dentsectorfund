@@ -22,6 +22,7 @@ export const Video: React.FC<VideoProps> = ({
 }) => {
   const vid = video.videoH264
   const poster = vid.screenshots[0].path
+
   return (
     <div sx={{ width: "100%", height: "600px" }}>
       <video
@@ -32,6 +33,7 @@ export const Video: React.FC<VideoProps> = ({
         className={className}
         poster={poster}
         src={withPrefix(vid.path)}
+     
       >
         <source src={withPrefix(vid.path)} type="video/mp4" />
       </video>

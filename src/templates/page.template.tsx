@@ -68,7 +68,7 @@ export default function Page({ data }) {
         return <div key={index}>oops</div>;
       }
     });
-console.log("aa")
+
   return (
     <Layout>
       <SEO title={title} description={description}></SEO>

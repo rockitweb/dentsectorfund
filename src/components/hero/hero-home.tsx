@@ -23,6 +23,8 @@ export const HeroHome: React.FC<HeroWiHomeProps> = ({
   video,
   image,
 }) => {
+  console.log(image)
+ 
   return (
     <Video
       video={video}
@@ -35,29 +37,32 @@ export const HeroHome: React.FC<HeroWiHomeProps> = ({
         zIndex: -1,
       }}
     >
-      <div
-        className="h-full flex flex-col justify-center"
-        sx={{ variant: "hero" }}
+      <section
+        sx={{ variant: "hero", height: "100%"}}
+        className="flex justify-between items-end"
       >
-        <h2 sx={{ variant: "hero.heading" }}>{heading}</h2>
-        <div
-          sx={{ variant: "hero.message" }}
-          className="whitespace-pre-wrap"
-          dangerouslySetInnerHTML={{
-            __html: message,
+        <div className="flex flex-col h-full justify-center">
+          <h2 sx={{ variant: "hero.heading"}}>{heading}</h2>
+          <div
+            sx={{ variant: "hero.message" }}
+            className="whitespace-pre-wrap"
+            dangerouslySetInnerHTML={{
+              __html: message,
+            }}
+          />
+        </div>
+        <Image
+          sx={{
+            width: "35%",
+            height: "auto",
+            objectFit: "contain",
+            objectPosition: "center top",
           }}
-        />
-      </div>
-      <Image
-        sx={{
-          width: "100%",
-          height: "auto",
-          objectFit: "contain",
-          objectPosition: "center top",
-        }}
-        fluid={image?.fluid}
-        alt="Harry dent"
-      ></Image>
+          fluid={image?.fluid}
+          alt="Harry dent"
+          file={{ contentType: "any", url: "" }}
+        ></Image>
+      </section>
     </Video>
   );
 };

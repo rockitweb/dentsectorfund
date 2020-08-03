@@ -1,5 +1,8 @@
 // See other presets to try at https://theme-ui.com/packages/presets
-import rockitWeb, { sharedHeadingStyles, sharedFormElementStyles } from "./rockitweb";
+import rockitWeb, {
+  sharedHeadingStyles,
+  sharedFormElementStyles,
+} from "./rockitweb";
 import baseColours from "./colors";
 export default {
   ...rockitWeb,
@@ -16,18 +19,23 @@ export default {
     },
   },
   hero: {
-    maxWidth: "1290px",
+    maxWidth: "1000px",
     mx: "auto",
+    pt:5,
     heading: {
+      pt: 3,
       fontFamily: "heading",
       lineHeight: "heading",
       fontWeight: "heading",
       color: "white",
       fontSize: [3, 3, 4],
+      pb: 4,
     },
     message: {
       color: "white",
-      fontSize: [2, 2, 3],
+      fontSize: [2, 2, 5],
+      fontFamily: "medium",
+      fontWeight: "focus",
     },
     image: {
       height: "61.8vh",
@@ -68,6 +76,10 @@ export default {
         maxWidth: "1000px",
         mx: "auto",
         py: [4, 4, 4],
+        noPadding: {
+          maxWidth: "1000px",
+          mx: "auto",
+        },
       },
       narrow: {
         maxWidth: ["768px"],
@@ -131,7 +143,7 @@ export default {
     },
     input: {
       ...sharedFormElementStyles,
-      backgroundColor:"white",
+      backgroundColor: "white",
     },
     select: {
       borderColor: "gray",
