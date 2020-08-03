@@ -10,7 +10,7 @@ export interface IconSectionProps {
 
 const IconSection: React.FC<IconSectionProps> = ({ iconBoxes }) => {
   const iconList = iconBoxes.map((icon, index) => (
-    <IconBox key={icon.heading} icon={icon.icon} heading={icon.heading} />
+    <IconBox key={`${icon.heading}-${index}`} icon={icon.icon} heading={icon.heading} />
   ));
 
   return (

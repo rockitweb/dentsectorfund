@@ -43,6 +43,7 @@ export default function Page({ data }) {
         if (backgroundImage) {
           return (
             <BackgroundImage
+              key={`section-${section.title}: ${index}`}
               sx={{
                 width: "100%",
                 backgroundColor: "primary",
@@ -67,7 +68,7 @@ export default function Page({ data }) {
         return <div key={index}>oops</div>;
       }
     });
-
+console.log("aa")
   return (
     <Layout>
       <SEO title={title} description={description}></SEO>
