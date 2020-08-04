@@ -36,7 +36,7 @@ const NavBar: React.FC<Props> = (props) => {
     <Fragment>
       <div sx={{ variant: "menu" }} className="fixed z-40 w-full">
         <div
-          sx={{ height: ["22px", "40px", "60px"] }}
+          sx={{ height: ["22px", "40px", "60px"]}}
           className="pt-1 lg:pt-4 flex flex-wrap justify-end items-center"
         >
           <MenuTopNav />

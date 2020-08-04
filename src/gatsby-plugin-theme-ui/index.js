@@ -10,7 +10,9 @@ export default {
     backgroundImage: () => {
       return `linear-gradient(90deg,rgb(255, 255, 255), rgb(255, 255, 255,0.4) 20%, rgb(255, 255, 255,0.3) 100%)`;
     },
-
+    fontWeight:"heading",
+    pr: 4,
+    width:"100%",
     logo: {
       width: ["100px"],
       display: "fixed",
@@ -21,7 +23,7 @@ export default {
   hero: {
     maxWidth: "1000px",
     mx: "auto",
-    pt:5,
+    pt: 5,
     heading: {
       pt: 3,
       fontFamily: "heading",
@@ -60,7 +62,7 @@ export default {
     heading: {
       ...sharedHeadingStyles,
 
-      fontSize: [2, 2, 3],
+      fontSize: [2, 2, 5],
       textAlign: "left",
       py: [3, 3, 4],
     },
@@ -97,6 +99,7 @@ export default {
   },
   nav: {
     textAlign: "center",
+   
     link: {
       //borderColor: "white",
       color: "white",
@@ -108,6 +111,11 @@ export default {
         color: "secondary",
       },
     },
+  },
+  cta:{
+    fontWeight:"heading",
+    fontFamily:"heading",
+    fontSize:[3]
   },
   image: {
     teamMember: {
