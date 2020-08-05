@@ -102,6 +102,11 @@ export default {
         mx: "auto",
         px: [4, 4, null],
         pb: [4, 4, 4],
+        noPadding: {
+          maxWidth: ["768px"],
+          mx: "auto",
+         
+        },
       },
     },
   },
@@ -109,6 +114,19 @@ export default {
   buttons: {
     menu: {
       bg: "primary",
+    },
+    cta: {
+      fontSize: 3,
+      font: "heading",
+      fontWeight: "heading",
+      bg: "secondary",
+      p: 3,
+      px: 4,
+      border: 2,
+      borderStyle: "solid",
+      borderColor: "white",
+      borderRadius: 25,
+      boxShadow: "inset 0 0 10px #801020",
     },
   },
   nav: {

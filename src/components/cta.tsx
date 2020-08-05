@@ -10,7 +10,7 @@ export interface CtaProps {
 const CTA: React.FC<CtaProps> = ({ buttonLabel, link, ctaMessage }) => (
   <div sx={{ variant: "gradients.gray" }}>
     <div
-      sx={{ variant: "layout.container.narrow", py:3, color:"textLight"  }}
+      sx={{ variant: "layout.container.narrow.noPadding", py:[3],  color:"textLight"  }}
       className="flex flex-wrap justify-between items-center"
     >
       <div sx={{variant:"cta"}}
@@ -20,7 +20,7 @@ const CTA: React.FC<CtaProps> = ({ buttonLabel, link, ctaMessage }) => (
           __html: ctaMessage.childMarkdownRemark.html,
         }}
       />
-      <Button>{buttonLabel}</Button>
+      <Button variant="cta">{buttonLabel}</Button>
     </div>
   </div>
 );
