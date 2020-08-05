@@ -30,7 +30,7 @@ export default function MenuTopNav() {
         to={menu.path}
         activeClassName="active"
         sx={{
-          color: "inherit",
+          
           "&.active": {
             color: "secondary",
           },

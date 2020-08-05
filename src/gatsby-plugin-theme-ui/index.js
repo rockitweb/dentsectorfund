@@ -10,14 +10,28 @@ export default {
     backgroundImage: () => {
       return `linear-gradient(90deg,rgb(255, 255, 255), rgb(255, 255, 255,0.4) 20%, rgb(255, 255, 255,0.3) 100%)`;
     },
-    fontWeight:"heading",
+    color: "white",
+    fontWeight: "heading",
     pr: 4,
-    width:"100%",
+    width: "100%",
     logo: {
       width: ["100px"],
       display: "fixed",
 
       zIndex: 1000,
+    },
+    scrolled: {
+      backgroundColor: "white",
+      fontWeight: "heading",
+      color: "primary",
+      pr: 4,
+      width: "100%",
+      logo: {
+        width: ["100px"],
+        display: "fixed",
+
+        zIndex: 1000,
+      },
     },
   },
   hero: {
@@ -99,10 +113,10 @@ export default {
   },
   nav: {
     textAlign: "center",
-   
+
     link: {
       //borderColor: "white",
-      color: "white",
+
       textTransform: "uppercase",
       textAlign: "center",
       fontSize: [3, 3],
@@ -112,10 +126,10 @@ export default {
       },
     },
   },
-  cta:{
-    fontWeight:"heading",
-    fontFamily:"heading",
-    fontSize:[3]
+  cta: {
+    fontWeight: "heading",
+    fontFamily: "heading",
+    fontSize: [3],
   },
   image: {
     teamMember: {

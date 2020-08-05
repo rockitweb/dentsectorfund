@@ -34,9 +34,9 @@ const NavBar: React.FC<Props> = (props) => {
 
   return (
     <Fragment>
-      <div sx={{ variant: "menu" }} className="fixed z-40 w-full">
+      <div sx={{variant: scrolled ? 'menu.scrolled' : 'menu' }} className="fixed z-40 w-full">
         <div
-          sx={{ height: ["22px", "40px", "60px"]}}
+          sx={{ height: ["22px", "40px", "60px"] }}
           className="pt-1 lg:pt-4 flex flex-wrap justify-end items-center"
         >
           <MenuTopNav />
@@ -60,7 +60,7 @@ const NavBar: React.FC<Props> = (props) => {
           />
           <path
             d="M227.33 113.35c-46.254-4.063-85.1-19.5-137.33-54.58C50.2 32.043 20.178 14.955 5.06 10.426.514 9.064 0 8.457 0 4.454V-.001h1690.7v13.57l-593-.95c-436.7-.7-596.87-.553-607.7.555-28.857 2.954-45.998 10.427-77.306 33.706-46.95 34.9-77.93 51.376-113.35 60.244-23.686 5.93-49.713 8.182-71.988 6.225z"
-            fill="url(#g1)"
+            fill={scrolled ? "#ffffff" : "url(#g1)"}
           />
         </svg>
         <img
