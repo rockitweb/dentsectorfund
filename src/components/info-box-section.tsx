@@ -21,7 +21,7 @@ const InfoBoxSection: React.FC<InfoboxSectionProps> = ({ infoBoxes }) => {
   return (
     <div sx={{ backgroundColor: "primary" }}>
       <div
-        sx={{ variant: "layout.container.box" }}
+        sx={{ variant: "layout.container.box", px:[2,2,0]}}
         className="flex justify-between"
       >
         {infoboxList}

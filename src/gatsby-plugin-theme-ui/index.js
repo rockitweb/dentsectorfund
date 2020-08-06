@@ -38,7 +38,7 @@ export default {
     maxWidth: "1000px",
     mx: "auto",
     pt: 5,
-    px: [3, 2, null],
+    px: [3, 2, 0],
     heading: {
       pt: 3,
       fontFamily: "heading",
@@ -120,7 +120,7 @@ export default {
       font: "heading",
       fontWeight: "heading",
       bg: "secondary",
-      p: 3,
+      p: [2,2,3],
       px: 4,
       border: 2,
       borderStyle: "solid",
@@ -214,7 +214,7 @@ export default {
     },
     gray: {
       backgroundImage: () => {
-        return `linear-gradient(to right, ${baseColours.neutrals[6]} 30%, ${baseColours.white} 100%);`;
+        return `linear-gradient(to right, ${baseColours.neutrals[6]} 5%, ${baseColours.neutrals[2]} 95%);`;
       },
     },
     menu: {

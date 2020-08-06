@@ -42,11 +42,11 @@ const FeaturePerson: React.FC<FeatureProps> = ({ person, image, position }) => {
           justifyContent: `flex-${position === "Left" ? "start" : "end"}`,
         }}
       >
-        <div sx={{ width: "30%", backgroundColor: "extraLight", p: [3, 3, 3] }}>
+        <div sx={{ width: ["100%","30%","30%"], backgroundColor: "extraLight", p: [3, 3, 3] }}>
           <h2
             sx={{
               variant: "section.heading",
-              textAlign: "center",
+              textAlign: ["left",null,"center"],
               py: [3, 3, 3],
             }}
           >

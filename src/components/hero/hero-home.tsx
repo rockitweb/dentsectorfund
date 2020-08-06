@@ -57,7 +57,7 @@ export const HeroHome: React.FC<HeroWiHomeProps> = ({
 
         <section
           sx={{ variant: "hero", height: "100%" }}
-          className="flex justify-around items-end"
+          className="flex justify-between items-end"
         >
           <div className="flex flex-col h-full justify-center">
             <h2 sx={{ variant: "hero.heading" }}>{heading}</h2>
