@@ -314,6 +314,29 @@ export const pageQuery = graphql`
                    internal {
                      type
                    }
+                   image {
+                     svg {
+                       content
+                       absolutePath
+                       dataURI
+                       relativePath
+                     }
+                     file {
+                       url
+                       contentType
+                     }
+                     fluid(
+                       maxWidth: 1600
+                       maxHeight: 700
+
+                       background: "rgb:000000"
+                     ) {
+                       aspectRatio
+                       src
+                       srcSet
+                       sizes
+                     }
+                   }
                    mediaLogos {
                      svg {
                        content
