@@ -38,24 +38,25 @@ export default {
     maxWidth: "1000px",
     mx: "auto",
     pt: 5,
+    px: [3, 2, null],
     heading: {
       pt: 3,
       fontFamily: "heading",
       lineHeight: "heading",
       fontWeight: "heading",
       color: "white",
-      fontSize: [3, 3, 4],
+      fontSize: [1, 4, 4],
       pb: 4,
     },
     message: {
       color: "white",
-      fontSize: [2, 2, 5],
+      fontSize: [1, 5, 5],
       fontFamily: "medium",
       fontWeight: "focus",
     },
     image: {
       height: "61.8vh",
-      maxHeight: "400px",
+     
     },
   },
   styles: {
@@ -105,7 +106,6 @@ export default {
         noPadding: {
           maxWidth: ["768px"],
           mx: "auto",
-         
         },
       },
     },

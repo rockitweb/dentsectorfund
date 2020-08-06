@@ -29,7 +29,7 @@ const Hero: React.FC<HeroProps> = ({
   if (backgroundVideo) {
     return (
       <HeroHome
-        sx={{ width: "100%", height: "600px" }}
+        sx={{ width: "100%", }}
         heading={heading}
         message={msg}
         video={backgroundVideo}

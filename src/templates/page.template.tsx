@@ -21,7 +21,7 @@ export default function Page({ data }) {
     ContentfulInfoBoxSection: "info-box-section",
     ContentfulLatestArticles: "blog/article-list",
     ContentfulTeamSection: "team-section",
-    ContentfulMediaLogos: "media-icons",
+    //ContentfulMediaLogos: "media-icons",
     ContentfulSignUpForm: "signup",
     ContentfulContactForm: "contact",
   };

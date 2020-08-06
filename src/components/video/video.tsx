@@ -24,21 +24,20 @@ export const Video: React.FC<VideoProps> = ({
   const poster = vid.screenshots[0].path
 
   return (
-    <div sx={{ width: "100%", height: "600px" }}>
+    
       <video
         autoPlay={autoplay}
         muted={muted}
         loop={loop}
-        sx={{ width: "100%" }}
+       
         className={className}
         poster={poster}
         src={withPrefix(vid.path)}
-     
       >
         <source src={withPrefix(vid.path)} type="video/mp4" />
       </video>
-      {children}
-    </div>
+  
+   
   );
 }
 
