@@ -24,6 +24,7 @@ const Hero: React.FC<HeroProps> = ({
   backgroundVideo,
   image
 }) => {
+  console.log("in hero");
   const msg = message ? message.childMarkdownRemark.html : "";
 
   if (backgroundVideo) {
