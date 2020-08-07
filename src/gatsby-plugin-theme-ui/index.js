@@ -12,7 +12,7 @@ export default {
     },
     color: "white",
     fontWeight: "heading",
-    pr: [1,1,4],
+    pr: [0,0,4],
     width: "100%",
     logo: {
       width: ["100px"],
@@ -24,7 +24,7 @@ export default {
       backgroundColor: "white",
       fontWeight: "heading",
       color: "primary",
-      pr: [1,1,4],
+      pr: [0,0,4],
       width: "100%",
       logo: {
         width: ["100px"],
