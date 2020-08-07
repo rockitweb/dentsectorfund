@@ -32,7 +32,7 @@ const MediaIcons: React.FC<MediaIconsProps> = ({ mediaLogos, image }) => {
         <div
           key={`${image.title}-${index}`}
           sx={{
-            width: "120px",
+            width: "70px",
           }}
           className="overflow-hidden"
         >
@@ -50,7 +50,7 @@ const MediaIcons: React.FC<MediaIconsProps> = ({ mediaLogos, image }) => {
   }
 
   return (
-    <Grid  sx={{py:3, justifyContent:"center"}} gap={2} columns={"repeat(7, minmax(180px,1fr))"}>
+    <Grid  sx={{py:3, justifyContent:"center"}} gap={2} columns={`repeat(auto-fit, 70px)`}>
       {mediaImage}
     </Grid>
   );
