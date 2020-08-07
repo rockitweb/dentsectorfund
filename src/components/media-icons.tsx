@@ -27,10 +27,11 @@ const MediaIcons: React.FC<MediaIconsProps> = ({ mediaLogos, image }) => {
   } else {
     mediaImage = mediaLogos.map((image, index) => (
       <div
+        key={`${image.title}-${index}`}
         sx={{ display: "flex", alignItems: "center", justifyContent: "center" }}
       >
         <div
-          key={`${image.title}-${index}`}
+         
           sx={{
             width: "70px",
           }}

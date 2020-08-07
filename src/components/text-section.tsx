@@ -8,7 +8,7 @@ export interface CtaProps {
   body: any;
 }
 const TextSection: React.FC<CtaProps> = ({ heading, body }) => (
-  <div sx={{ variant: "layout.container.narrow" }}>
+  <div sx={{ variant: "layout.container.box" }}>
     <div className="flex flex-col">
     
       <SectionHeading heading={heading} description=""></SectionHeading>

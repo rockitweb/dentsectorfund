@@ -11,9 +11,9 @@ const CTA: React.FC<CtaProps> = ({ buttonLabel, link, ctaMessage }) => (
   <div sx={{ variant: "gradients.gray" }}>
     <div
       sx={{
-        variant: "layout.container.narrow.noPadding",
+        variant: "layout.container.box.noPadding",
         py: [3],
-        px: [4, 4, null],
+        px: [4, 4, 0],
         color: "textLight",
       }}
       className="flex flex-wrap flex-col text-center lg:text-left lg:flex-row lg:justify-between  items-center"
