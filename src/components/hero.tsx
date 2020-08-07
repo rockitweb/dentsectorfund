@@ -41,8 +41,8 @@ const Hero: React.FC<HeroProps> = ({
     return (
       <BackgroundImage
         sx={{
-          
-
+          height: ["60vh"],
+          maxHeight:"600px",
           backgroundColor: "primary",
           backgroundPosition: "center center",
           backgroundRepeat: "repeat-y",
