@@ -55,7 +55,7 @@ export default function Page({ data }) {
               alt="Section Background"
               fluid={backgroundImage.fluid}
             >
-              <Module key={`${section.title}: ${index}`} {...widget}></Module>;
+              <Module key={`${section.title}: ${index}`} {...widget}></Module>
             </BackgroundImage>
           );
         } else {
