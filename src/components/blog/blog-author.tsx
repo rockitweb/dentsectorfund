@@ -1,10 +1,7 @@
 /** @jsx jsx */
-import { jsx, Badge } from "theme-ui";
-import React, { Fragment } from "react";
-import { Link } from "gatsby";
-import { kebabCase } from "lodash";
+import { jsx } from "theme-ui";
+import React from "react";
 import FluidImage from "../interfaces/fluidImage";
-import { TagProps } from "./tags";
 import Image from '../utilities/image';
 export interface AuthorProps {
   author: {

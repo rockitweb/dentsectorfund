@@ -1,6 +1,7 @@
 const Promise = require("bluebird");
 const path = require("path");
-const _ = require("lodash");
+const kebabCase = require("lodash/kebabCase");
+//import { kebabCase } from "lodash";
 //create blog posts
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions;
@@ -113,7 +114,7 @@ exports.createPages = ({ graphql, actions }) => {
         // Make tag pages
         people.forEach((person) => {
           createPage({
-            path: `/team/${_.kebabCase(person.node.name)}/`,
+            path: `/team/${kebabCase(person.node.name)}/`,
             component: personTemplate,
             context: {
               personName: person.node.name,
@@ -127,7 +128,7 @@ exports.createPages = ({ graphql, actions }) => {
         // Make tag pages
         tags.forEach((tag) => {
           createPage({
-            path: `/tags/${_.kebabCase(tag.fieldValue)}/`,
+            path: `/tags/${kebabCase(tag.fieldValue)}/`,
             component: tagTemplate,
             context: {
               tag: tag.fieldValue,

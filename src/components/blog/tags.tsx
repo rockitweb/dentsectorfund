@@ -2,7 +2,7 @@
 import { jsx, Badge } from "theme-ui";
 import React, { Fragment } from "react";
 import { Link } from "gatsby";
-import { kebabCase } from "lodash";
+import kebabCase from "lodash/kebabCase";
 export interface TagProps {
   tags: string[];
 }

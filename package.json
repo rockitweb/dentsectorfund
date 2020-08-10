@@ -1,12 +1,9 @@
 {
-  "name": "contentful-starter-gatsby-blog",
-  "description": "Contentful Gatsby Starter Blog",
+  "name": "DentSectorFund",
+  "description": "Dent Sector Fund Public Site",
   "private": true,
   "version": "0.0.1",
-  "author": "Contentful <opensource@contentful.com>",
-  "bugs": {
-    "url": "https://github.com/contentful/starter-gatsby-blog/issues"
-  },
+  "author": "RockitWeb<info@rockitweb.com.au>",
   "dependencies": {
     "@babel/plugin-proposal-class-properties": "^7.10.4",
     "@babel/preset-env": "^7.11.0",
@@ -23,6 +20,7 @@
     "gatsby-image": "^2.4.14",
     "gatsby-plugin-mailchimp": "^5.2.2",
     "gatsby-plugin-postcss": "^2.3.11",
+    "gatsby-plugin-preact": "^4.0.9",
     "gatsby-plugin-react-helmet": "^3.3.10",
     "gatsby-plugin-theme-ui": "^0.3.0",
     "gatsby-plugin-typescript": "^2.4.16",
@@ -34,6 +32,8 @@
     "gh-pages": "^2.0.1",
     "lodash": "^4.17.19",
     "lodash.kebabcase": "^4.1.1",
+    "preact": "^10.4.7",
+    "preact-render-to-string": "^5.1.10",
     "react": "^16.13.1",
     "react-docgen-typescript-loader": "^3.7.2",
     "react-dom": "^16.13.1",
@@ -45,6 +45,7 @@
   },
   "devDependencies": {
     "contentful-import": "^7.9.2",
+    "gatsby-plugin-webpack-bundle-analyser-v2": "^1.1.11",
     "netlify-cli": "^2.58.0"
   },
   "homepage": "https://github.com/contentful/starter-gatsby-blog#readme",
@@ -62,6 +63,8 @@
   "scripts": {
     "dev": "gatsby develop",
     "build": "gatsby build",
+    "clean": "gatsby clean",
+    "build:serve": "npm run clean && npm run build && npm run serve",
     "heroku-postbuild": "gatsby build",
     "serve": "gatsby serve",
     "postinstall": "node ./bin/hello.js",
