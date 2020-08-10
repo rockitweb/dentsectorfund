@@ -205,7 +205,12 @@ export default {
       color: "error",
     },
   },
-
+ footer:{
+   bg: "primary",
+   color: "white",
+   p:4,
+   textAlign:"center"
+ },
   gradients: {
     primary: {
       backgroundImage: () => {

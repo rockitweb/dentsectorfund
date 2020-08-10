@@ -53,10 +53,7 @@ const ArticlePreview: React.FC<ArticleListProps> = ({
             <span className="text-gray-500 text-sm">{author.title}</span>
           </span>
         </div>
-        <Link sx={{color:"secondary"}}
-          to={`/team/${kebabCase(author.name)}`}
-        >{`Read more by ${author.name}`}</Link>
-      </div>
+       </div>
     );
       
   }

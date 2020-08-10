@@ -34,7 +34,7 @@ const PersonComponent: React.FC<TeamSectionProps> = ({ person }) => {
 
     return (
       <div className="p-4 lg:w-1/3 md:w-1/2">
-        <Link to={`/team/${kebabCase(person.name)}`}>
+        
           <div className="h-full flex-col items-center text-center ">
             {image}
 
@@ -86,7 +86,7 @@ const PersonComponent: React.FC<TeamSectionProps> = ({ person }) => {
               </span>
             </div>
           </div>
-        </Link>
+        
       </div>
     );};
 export default PersonComponent;
