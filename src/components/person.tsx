@@ -1,11 +1,9 @@
 /** @jsx jsx */
-import { jsx, Styled } from "theme-ui";
+import { jsx } from "theme-ui";
 import React from "react";
 import { Person } from "./interfaces/Person";
 import MarkDown from "./utilities/markdown";
 import Image from "./utilities/image";
-import { Link } from "gatsby";
-import { kebabCase } from "lodash";
 export interface TeamSectionProps {
   person: Person;
 }

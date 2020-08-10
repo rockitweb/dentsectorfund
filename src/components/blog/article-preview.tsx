@@ -1,13 +1,12 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui";
-import React, { Fragment } from "react";
+import React from "react";
 
 //import ArticlePreview from "../components/article-preview"
 import { Link } from "gatsby";
 import { Markdown } from "../interfaces/markdown";
 import FluidImage from "../interfaces/fluidImage";
 import Image from "../utilities/image";
-import { kebabCase } from "lodash";
 import Tags from "./tags";
 import MarkDown from "../utilities/markdown";
 
@@ -30,7 +29,6 @@ export interface ArticleListProps {
 const ArticlePreview: React.FC<ArticleListProps> = ({
   title,
   slug,
-  publishDate,
   tags,
   description,
   heroImage,
