@@ -74,7 +74,9 @@ export default function MenuTopNav() {
         <nav
           sx={{
             variant: "nav",
+            opacity: ".9",
             backgroundColor: isExpanded ? "primary" : "",
+            color: isExpanded ? "white" : "",
           }}
         >
           <ul className="lg:flex items-center justify-between pt-4 lg:pt-0">
