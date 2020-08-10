@@ -12,7 +12,7 @@ export default {
     },
     color: "white",
     fontWeight: "heading",
-    pr: [0,0,4],
+    pr: [0, 0, 4],
     width: "100%",
     logo: {
       width: ["100px"],
@@ -21,10 +21,10 @@ export default {
       zIndex: 1000,
     },
     scrolled: {
-      backgroundColor: "white",
+      backgroundColor: "#F5F7FA",
       fontWeight: "heading",
       color: "primary",
-      pr: [0,0,4],
+      pr: [0, 0, 4],
       width: "100%",
       logo: {
         width: ["100px"],
@@ -56,7 +56,6 @@ export default {
     },
     image: {
       height: "61.8vh",
-     
     },
   },
   styles: {
@@ -82,13 +81,14 @@ export default {
       py: [3, 3, 4],
     },
     description: {
-      textAlign: "center",
+      textAlign: "left",
     },
   },
 
   layout: {
     container: {
       maxWidth: "100%",
+      bg: "extraLight",
       box: {
         maxWidth: "1000px",
         mx: "auto",
@@ -120,7 +120,7 @@ export default {
       font: "heading",
       fontWeight: "heading",
       bg: "secondary",
-      p: [2,2,3],
+      p: [2, 2, 3],
       px: 4,
       border: 2,
       borderStyle: "solid",
@@ -205,12 +205,12 @@ export default {
       color: "error",
     },
   },
- footer:{
-   bg: "primary",
-   color: "white",
-   p:4,
-   textAlign:"center"
- },
+  footer: {
+    bg: "primary",
+    color: "white",
+    p: 4,
+    textAlign: "center",
+  },
   gradients: {
     primary: {
       backgroundImage: () => {

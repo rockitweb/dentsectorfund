@@ -29,7 +29,7 @@ const Layout = ({ includeContact = true, children }) => {
   const contactCSS = includeContact ? '' : 'hidden';
   return (
     <>
-      <div>
+      <div >
         <NavBar></NavBar>
         <main>
           <div

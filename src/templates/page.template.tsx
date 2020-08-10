@@ -184,6 +184,11 @@ export const pageQuery = graphql`
                        html
                      }
                    }
+                   otherInformation {
+                     childMarkdownRemark {
+                       html
+                     }
+                   }
                  }
                  ... on ContentfulLatestArticles {
                    internal {
