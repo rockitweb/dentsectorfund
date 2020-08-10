@@ -29,7 +29,7 @@ const BlogHeading: React.FC<BlogHeadingProps> = ({
       <div className="flex">
         <Tags tags={tags}></Tags>
       </div>
-      <div sx={{ py: 3 }} className="flex items-end justify-between">
+      <div sx={{ py: 3 }} className="flex-col md:flex-row items-end justify-between">
         <BlogAuthor author={author}></BlogAuthor>
         <div sx={{ color: "light" }} className="flex">
           <span>{publishDate}</span>
