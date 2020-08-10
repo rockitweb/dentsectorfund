@@ -24,7 +24,7 @@ const BlogList = ({ pageContext, data }) => {
       <Hero {...heroProps}></Hero>
 
       <div sx={{ variant: "layout.container.box" }}>
-        <div className="flex">{previews}</div>
+        <div className="flex flex-col md:flex-row">{previews}</div>
        
           <Pagination {...pageContext} />
     
