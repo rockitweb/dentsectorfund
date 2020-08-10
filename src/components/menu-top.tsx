@@ -45,11 +45,11 @@ export default function MenuTopNav() {
 
   return (
     <Fragment>
-      <div className="lg:hidden pr-4">
+      <div className="lg:hidden pr-4" >
         <div
           sx={{
             width: "25px",
-            height: "auto",
+            height: "25px",
             color: "secondary",
             cursor: "pointer",
             zIndex: 5000,
@@ -77,6 +77,7 @@ export default function MenuTopNav() {
             opacity: ".9",
             backgroundColor: isExpanded ? "primary" : "",
             color: isExpanded ? "white" : "",
+            mt:["2px",0,0]
           }}
         >
           <ul className="lg:flex items-center justify-between pt-4 lg:pt-0">
