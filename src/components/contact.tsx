@@ -21,8 +21,8 @@ const Contact: React.FC<ContactProps> = ({ formHeading, message, otherInformatio
         description={message}
       ></SectionHeading>
 
-      <div className="flex justify-between pt-4">
-        <div className="w-1/2">
+      <div className="flex flex-col lg:flex-row justify-between pt-4">
+        <div className="w-full lg:w-1/2">
           <ContactForm></ContactForm>
         </div>
         <div className="">
