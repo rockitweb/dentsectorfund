@@ -93,6 +93,7 @@ export default {
         maxWidth: "1000px",
         mx: "auto",
         py: [4, 4, 4],
+        px:[3,3,0],
         noPadding: {
           maxWidth: "1000px",
           mx: "auto",

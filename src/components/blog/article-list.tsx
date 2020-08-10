@@ -81,7 +81,7 @@ const ArticleList: React.FC<ArticleListProps> = ({ heading, articleCount }) => {
   ));
 
   return (
-    <div sx={{ variant: "layout.container.box", px:[3,3,0] }}>
+    <div sx={{ variant: "layout.container.box"}}>
       <div className="flex flex-col">
         <SectionHeading heading={heading} description=""></SectionHeading>
         <div className="flex flex-col md:flex-row flex-wrap -mx-2 overflow-hidden">
