@@ -78,7 +78,7 @@ const Hero: React.FC<HeroProps> = ({
                 sx={{
                   height: "auto",
                   width: "100%",
-                  maxWidth: ["40%", null, "300px"],
+                  maxWidth: ["45%", null, "300px"],
                   objectFit: "contain",
                   objectPosition: "center top",
                 }}

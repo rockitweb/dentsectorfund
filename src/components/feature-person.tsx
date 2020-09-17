@@ -39,7 +39,7 @@ console.log (person.image)
           variant: "layout.container.box",
           pb: [4, 4, 0],
           display: "flex",
-          flexDirection: "row",
+          flexDirection: ["column","row"],
           justifyContent: `flex-${position === "Left" ? "start" : "end"}`,
         }}
       >
@@ -62,7 +62,7 @@ console.log (person.image)
 
           <MarkDown data={person.shortBio}></MarkDown>
         </div>
-        <div sx={{ width: ["100%", "70%", "60%"], display:"flex", justifyContent: "flex-end"  }}>
+        <div sx={{ width: ["100%", "70%", "60%"], display:"flex", justifyContent: ["center","flex-end"]  }}>
           <Image sx={{width:"50%"}} {... person.image} alt={person.name}>
 
           </Image>
