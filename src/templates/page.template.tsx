@@ -145,23 +145,7 @@ export const pageQuery = graphql`
                        sizes
                      }
                    }
-                   backgroundVideo {
-                     videoH264(screenshots: "0") {
-                       path
-                       name
-                       ext
-                       codec
-                       formatName
-                       formatLongName
-                       startTime
-                       duration
-                       size
-                       bitRate
-                       screenshots {
-                         path
-                       }
-                     }
-                   }
+                  
                  }
                  ... on ContentfulSignUpForm {
                    id

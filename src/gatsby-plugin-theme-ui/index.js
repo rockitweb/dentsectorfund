@@ -10,7 +10,7 @@ export default {
     backgroundImage: () => {
       return `linear-gradient(90deg,rgb(255, 255, 255), rgb(255, 255, 255,0.4) 20%, rgb(255, 255, 255,0.3) 100%)`;
     },
-    color: "white",
+    color: "primary",
     fontWeight: "heading",
     pr: [0, 0, 4],
     width: "100%",
@@ -44,13 +44,13 @@ export default {
       fontFamily: "heading",
       lineHeight: "heading",
       fontWeight: "heading",
-      color: "white",
-      fontSize: [1, 4, 4],
+      color: "primary",
+      fontSize: [3, 4, 4],
       pb: 4,
     },
     message: {
-      color: "white",
-      fontSize: [1, 5, 5],
+      color: "primary",
+      fontSize: [2, 5, 5],
       fontFamily: "medium",
       fontWeight: "focus",
     },
@@ -93,7 +93,7 @@ export default {
         maxWidth: "1000px",
         mx: "auto",
         py: [4, 4, 4],
-        px:[3,3,0],
+        px: [3, 3, 0],
         noPadding: {
           maxWidth: "1000px",
           mx: "auto",
