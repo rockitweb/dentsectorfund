@@ -223,8 +223,8 @@ export const pageQuery = graphql`
                          contentType
                        }
                        fluid(
-                         maxWidth: 1600
-                         maxHeight: 700
+                         maxWidth: 400
+                         maxHeight: 400
 
                          background: "rgb:000000"
                        ) {
