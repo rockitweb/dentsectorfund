@@ -145,7 +145,6 @@ export const pageQuery = graphql`
                        sizes
                      }
                    }
-                  
                  }
                  ... on ContentfulSignUpForm {
                    id
@@ -362,6 +361,25 @@ export const pageQuery = graphql`
                      shortBio {
                        childMarkdownRemark {
                          html
+                       }
+                     }
+                     image {
+                       svg {
+                         content
+                         absolutePath
+                         dataURI
+                         relativePath
+                       }
+                       file {
+                         url
+                         contentType
+                       }
+                       fluid(
+                         maxWidth: 400
+                        
+                        
+                       ) {
+                         ...GatsbyContentfulFluid_tracedSVG
                        }
                      }
                    }
