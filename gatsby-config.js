@@ -51,6 +51,7 @@ module.exports = {
     {
       resolve: `gatsby-transformer-video`,
     },
+    `gatsby-plugin-catch-links`,
     "gatsby-plugin-webpack-bundle-analyser-v2",
   ],
 };

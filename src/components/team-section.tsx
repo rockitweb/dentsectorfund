@@ -6,6 +6,7 @@ import MarkDown from "./utilities/markdown";
 import PersonComponent from "./person";
 import SectionHeading from "./section-heading";
 import CardVertical from "./cards/image-card";
+import PersonProfile from "./person-profile";
 export interface TeamSectionProps {
   heading: string;
   description: any;
@@ -17,16 +18,17 @@ const TeamSection: React.FC<TeamSectionProps> = ({
   people,
 }) => {
   const teamMebers = people.map((person, index) => (
-    <PersonComponent sx={{width:"100%"}} key={person.name} person={person}></PersonComponent>
+    <PersonProfile
+      sx={{ width: "100%" }}
+      key={person.name}
+      person={person}
+    ></PersonProfile>
   ));
 
   return (
     <div sx={{ variant: "layout.container.box" }}>
       <div className="flex flex-col">
-        <SectionHeading
-          heading={heading}
-          description={description}
-        ></SectionHeading>
+      
        
         <div className="flex flex-wrap">{teamMebers}</div>
       </div>
@@ -35,4 +37,10 @@ const TeamSection: React.FC<TeamSectionProps> = ({
 };
 export default TeamSection;
 
-//  
+/*
+
+  <SectionHeading
+          heading={heading}
+          description={description}
+        ></SectionHeading>
+*/

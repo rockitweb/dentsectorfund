@@ -123,7 +123,7 @@ const RockitWeb = {
       lineHeight: "body",
       fontSize: 2,
       marginBlockStart: ".5em",
-      marginBlockEnd: "1.5em",
+      marginBlockEnd: "0",
       nomargin: {
         color: "text",
         fontFamily: "body",

@@ -198,11 +198,8 @@ export const pageQuery = graphql`
                  ... on ContentfulTeamSection {
                    id
                    heading
-                   description {
-                     childMarkdownRemark {
-                       html
-                     }
-                   }
+                   
+                   
                    people {
                      name
                      title

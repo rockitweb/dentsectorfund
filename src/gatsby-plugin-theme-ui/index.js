@@ -68,8 +68,8 @@ export default {
     },
     h2: {
       ...sharedHeadingStyles,
-
-      fontSize: [2, 2, 3],
+      mb: "-20px",
+      fontSize: [2, 2, 5],
     },
   },
   section: {
@@ -196,6 +196,7 @@ export default {
     },
     textarea: {
       ...sharedFormElementStyles,
+      backgroundColor: "white",
     },
     slider: {
       bg: "muted",
