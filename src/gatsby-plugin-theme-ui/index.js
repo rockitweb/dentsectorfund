@@ -212,6 +212,9 @@ export default {
     color: "white",
     p: 4,
     textAlign: "center",
+    a:{
+      color:"secondary"
+    }
   },
   gradients: {
     primary: {

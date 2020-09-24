@@ -8,8 +8,9 @@ import FluidImage from "./interfaces/fluidImage";
 import BackgroundImage from "gatsby-background-image";
 
 import { Person } from "./interfaces/Person";
-import MarkDown from "./utilities/markdown";
+
 import Image from "./utilities/image";
+import MarkDown from "./utilities/styled-markdown";
 
 export interface FeatureProps {
   person: Person;
