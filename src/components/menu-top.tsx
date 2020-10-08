@@ -6,6 +6,9 @@ import { Link, useStaticQuery, graphql } from "gatsby";
 export interface Menu {
   label: string;
   path: string;
+  externalPath:string;
+
+  highlight:boolean;
 }
 
 export default function MenuTopNav() {
@@ -17,6 +20,8 @@ export default function MenuTopNav() {
         menuItems {
           label
           path
+          externalPath
+          highlight
         }
       }
     }
@@ -24,24 +29,43 @@ export default function MenuTopNav() {
 
   const mainMenu: Menu[] = contentfulMenu.menuItems;
 
-  const menu = mainMenu.map((menu, i) => (
-    <li key={i}>
-      <Link
-        to={menu.path}
-        activeClassName="active"
-        sx={{
+  const menu = mainMenu.map((menu, i) => {
+    let link;
+    if (menu.externalPath)  {
+      link = (
+        <a
           
-          "&.active": {
-            color: "secondary",
-          },
-          variant: "nav.link",
-          p: 2,
-        }}
-      >
-        {menu.label}
-      </Link>
-    </li>
-  ));
+          href={menu.externalPath}
+          target="_blank"
+        >
+          {menu.label}
+        </a>
+      );
+    } else {
+     link = (
+       <Link
+         to={menu.path}
+         activeClassName="active"
+         sx={{
+           "&.active": {
+             color: "secondary",
+           },
+           variant: "nav.link",
+           p: 2,
+         }}
+       >
+         {menu.label}
+       </Link>
+     );
+    }
+
+
+    
+    return (
+      <li sx={{ variant: menu.highlight === true ? "nav.highlight" : null }} key={i}>
+        {link}
+      </li>
+    );});
 
   return (
     <Fragment>

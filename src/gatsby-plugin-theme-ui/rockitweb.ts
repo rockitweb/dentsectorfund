@@ -31,6 +31,7 @@ const RockitWeb = {
     primaryLight: baseColours.primary[1],
     primaryDark: baseColours.primary[6],
     secondary: baseColours.secondary[5],
+    secondaryLight: baseColours.secondary[4],
     background: baseColours.white,
     textMuted: baseColours.neutrals[6],
     text: baseColours.neutrals[8],

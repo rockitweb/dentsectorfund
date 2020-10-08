@@ -144,6 +144,19 @@ export default {
         color: "secondary",
       },
     },
+    highlight: {
+      textTransform: "uppercase",
+      fontSize: [3],
+      color: "white",
+      fontWeight: "body",
+      bg: "secondaryLight",
+      py: [2],
+      px: 2,
+      border: 1,
+      //borderStyle: "solid",
+      //borderColor: "white",
+      borderRadius: 10,
+    },
   },
   cta: {
     fontWeight: "heading",
@@ -212,9 +225,9 @@ export default {
     color: "white",
     p: 4,
     textAlign: "center",
-    a:{
-      color:"secondary"
-    }
+    a: {
+      color: "secondary",
+    },
   },
   gradients: {
     primary: {
