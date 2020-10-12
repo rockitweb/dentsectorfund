@@ -48,7 +48,9 @@ export const PersonProfile: React.FC<PersonProfileProps> = ({  person}) => {
           <h3 className="text-gray-500 mb-3 text-center ">{person.title}</h3>
         </div>
         <div sx={{ pl: [0, 4], width: ["100%", "75%"] }}>
-          <Styled.h2 sx={{mb:0}}>{person.name}</Styled.h2>
+          <Styled.h2 sx={{ mb: 0 }}>
+            {person.name} | {person.title}
+          </Styled.h2>
           <Styled.p>
             <MarkDown data={person.shortBio}></MarkDown>
           </Styled.p>

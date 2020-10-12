@@ -7,6 +7,7 @@ import BackgroundImage from "gatsby-background-image";
 import { VideoData } from "./video/interfaces";
 import HeroHome from "./hero/hero-home";
 import { isBlock } from "typescript";
+import MarkDown from "./utilities/markdown";
 export interface HeroProps {
   heading: any;
   message: any;
@@ -131,11 +132,10 @@ console.log(image)
                   variant: "hero.message",
                   textAlign: ["center", "left"],
                 }}
-                className="whitespace-pre-wrap"
-                dangerouslySetInnerHTML={{
-                  __html: msg,
-                }}
-              ></div>
+                
+              > 
+                <MarkDown  data={message}></MarkDown>
+              </div>
               <div
                 sx={{
                   display: "flex",

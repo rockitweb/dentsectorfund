@@ -50,7 +50,7 @@ export default {
     },
     message: {
       color: "primary",
-      fontSize: [2, 5, 4],
+      fontSize: [2, 3, 3],
       fontFamily: "medium",
       fontWeight: "focus",
     },
@@ -68,7 +68,7 @@ export default {
     },
     h2: {
       ...sharedHeadingStyles,
-      mb: "-20px",
+     
       fontSize: [2, 2, 5],
     },
   },

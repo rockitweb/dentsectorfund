@@ -25,7 +25,7 @@ const MarkDown: React.FC<CtaProps> = ({ data, className }) => {
 
   return (
     <div
-      className={`whitespace-pre-wrap ${className}`}
+      className={`${className}`}
       sx={{ variant: "styles" }}
       dangerouslySetInnerHTML={{
         __html: html,
@@ -35,3 +35,4 @@ const MarkDown: React.FC<CtaProps> = ({ data, className }) => {
 };
 export default MarkDown;
 
+//whitespace-pre-wrap 

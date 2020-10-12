@@ -1,12 +1,14 @@
 import baseColours from "./colors";
 
 export const sharedHeadingStyles = {
-  color: "secondary",
-  fontFamily: "heading",
-  lineHeight: "heading",
-  fontWeight: "heading",
-  letterSpacing: 1.5,
-};
+         color: "secondary",
+         fontFamily: "heading",
+         lineHeight: "heading",
+         fontWeight: "heading",
+         letterSpacing: 1.5,
+         marginBlockStart: "1em",
+         marginBlockEnd: ".5em",
+       };
 export const sharedFormElementStyles = {
   //focus:outline-none focus:bg-white focus:border-gray-500"
   appearence: "none",

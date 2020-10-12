@@ -20,8 +20,8 @@ export interface FeatureProps {
 
 // Render inline SVG with fallback non-svg images
 const FeaturePerson: React.FC<FeatureProps> = ({ person, image, position }) => {
-  const heading = `${person.name} ${person.title}`;
-console.log (person.image)
+  const heading = `${person.name} | ${person.title}`;
+
   return (
     <BackgroundImage
       sx={{

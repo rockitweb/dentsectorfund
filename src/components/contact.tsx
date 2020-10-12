@@ -25,7 +25,7 @@ const Contact: React.FC<ContactProps> = ({ formHeading, message, otherInformatio
         <div className="w-full lg:w-1/2">
           <ContactForm></ContactForm>
         </div>
-        <div className="">
+        <div className="w-full lg:w-1/2 pl-4">
           <MarkDown data={otherInformation}></MarkDown>
         </div>
       </div>
