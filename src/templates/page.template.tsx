@@ -14,7 +14,7 @@ import SEO from "../components/utilities/seo";
 export default function Page({ data }) {
   const widgets = {
     ContentfulHero: "hero",
-    ContentfulCallToAction: "cta",
+    
     ContentfulTextSection: "text-section",
     ContentfulIconBoxSection: "icon-section",
     ContentfulFeaturePerson: "feature-person",
@@ -64,9 +64,7 @@ export default function Page({ data }) {
           );
         }
       }
-      {
-        return <div key={index}>oops</div>;
-      }
+      
     });
 
   return (
@@ -127,6 +125,16 @@ export const pageQuery = graphql`
                      childMarkdownRemark {
                        html
                      }
+                   }
+                   ctaPrimary {
+                     label
+                     externalLink
+                     target
+                   }
+                   ctaSecondary {
+                     label
+                     internalLink
+                     target
                    }
                    heading
                    backgroundImage {
@@ -198,8 +206,7 @@ export const pageQuery = graphql`
                  ... on ContentfulTeamSection {
                    id
                    heading
-                   
-                   
+
                    people {
                      name
                      title
@@ -371,11 +378,7 @@ export const pageQuery = graphql`
                          url
                          contentType
                        }
-                       fluid(
-                         maxWidth: 400
-                        
-                        
-                       ) {
+                       fluid(maxWidth: 400) {
                          ...GatsbyContentfulFluid_tracedSVG
                        }
                      }

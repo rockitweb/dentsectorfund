@@ -117,7 +117,7 @@ export default {
       bg: "primary",
     },
     cta: {
-      fontSize: 3,
+      fontSize: 4,
       font: "heading",
       fontWeight: "heading",
       bg: "secondary",
@@ -128,6 +128,20 @@ export default {
       borderColor: "white",
       borderRadius: 25,
       boxShadow: "inset 0 0 10px #801020",
+      secondary: {
+        fontSize: 3,
+        font: "heading",
+        fontWeight: "heading",
+        //bg:"white",
+        color: "secondary",
+        p: [2, 2, 3],
+        px: 4,
+        border: 2,
+        borderStyle: "solid",
+        borderColor: "secondary",
+        borderRadius: 25,
+       
+      },
     },
   },
   nav: {

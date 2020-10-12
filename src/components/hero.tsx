@@ -6,15 +6,28 @@ import Image from "./utilities/image";
 import BackgroundImage from "gatsby-background-image";
 import { VideoData } from "./video/interfaces";
 import HeroHome from "./hero/hero-home";
+import { isBlock } from "typescript";
 export interface HeroProps {
   heading: any;
   message: any;
+
   backgroundImage?: {
     fluid: any;
   };
   backgroundVideo: VideoData;
   image?: {
     fluid: any;
+  };
+
+  ctaPrimary: {
+    label: string;
+    externalLink: string;
+    target: string;
+  };
+  ctaSecondary: {
+    label: string;
+    internalLink: string;
+    target: string;
   };
 }
 
@@ -23,10 +36,49 @@ const Hero: React.FC<HeroProps> = ({
   message,
   backgroundImage,
   backgroundVideo,
-  image
+  image,
+  ctaPrimary,
+  ctaSecondary
 }) => {
-  console.log("in hero");
   const msg = message ? message.childMarkdownRemark.html : "";
+
+  let elementPrimaryCTA;
+  let elementSecondaryCTA;
+  if (ctaPrimary) {
+    elementPrimaryCTA = (
+      <a
+        sx={{
+          variant: "buttons.cta",
+          display: "block",
+          color: "white",
+          width: "100%",
+          textAlign: "center",
+        }}
+        href={ctaPrimary.externalLink || "/"}
+        target={ctaPrimary.target}
+      >
+        {ctaPrimary.label}
+      </a>
+    );
+  }
+  if (ctaSecondary){
+    elementSecondaryCTA = (
+      <a
+        sx={{
+          variant: "buttons.cta.secondary",
+          display: "block",
+         
+          width: "100%",
+          textAlign:"center"
+        }}
+        href={ctaSecondary.internalLink || "/"}
+        target={ctaSecondary.target}
+      >
+        {ctaSecondary.label}
+      </a>
+    );
+  }
+
 
   if (backgroundVideo) {
     return (
@@ -61,19 +113,37 @@ const Hero: React.FC<HeroProps> = ({
           >
             <div className="flex flex-col justify-start md:justify-center">
               <h2
-                sx={{ variant: "hero.heading", textAlign: ["center", "left"] }}
+                sx={{
+                  variant: "hero.heading",
+                  textAlign: ["center", "left"],
+                }}
               >
                 {heading}
               </h2>
               <div
-                sx={{ variant: "hero.message", textAlign: ["center", "left"] }}
+                sx={{
+                  variant: "hero.message",
+                  textAlign: ["center", "left"],
+                }}
                 className="whitespace-pre-wrap"
                 dangerouslySetInnerHTML={{
                   __html: msg,
                 }}
-              />
+              ></div>
+              <div sx={{display:"flex",justifyContent:"flex-start" }}>
+                <div sx={{ pt: 4, pr:2, width:["40%"]}}>{elementPrimaryCTA}</div>
+                <div sx={{ pt: 4,width:["40%"] }}>{elementSecondaryCTA}</div>
+              </div>
             </div>
-            <div sx={{width:["100%","50%"],height:["100%"], display:"flex",alignItems:"flex-end", justifyContent:["center","flex-end"]}}>
+            <div
+              sx={{
+                width: ["100%", "50%"],
+                height: ["100%"],
+                display: "flex",
+                alignItems: "flex-end",
+                justifyContent: ["center", "flex-end"],
+              }}
+            >
               <Image
                 sx={{
                   height: "auto",
