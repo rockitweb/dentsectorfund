@@ -78,7 +78,10 @@ const Hero: React.FC<HeroProps> = ({
       </a>
     );
   }
-
+console.log(image)
+  const heroTextSectionWidth = image !== null
+    ? ["100%", "50%", "60%"]
+    : ["100%", "80%", "100%"];
 
   if (backgroundVideo) {
     return (
@@ -111,7 +114,10 @@ const Hero: React.FC<HeroProps> = ({
             sx={{ variant: "hero", height: "100%" }}
             className="flex flex-col md:flex-row justify-between items-center md:items-center"
           >
-            <div className="flex flex-col justify-start md:justify-center">
+            <div
+              sx={{ width: heroTextSectionWidth }}
+              className="flex flex-col justify-start  md:justify-center"
+            >
               <h2
                 sx={{
                   variant: "hero.heading",
@@ -130,16 +136,30 @@ const Hero: React.FC<HeroProps> = ({
                   __html: msg,
                 }}
               ></div>
-              <div sx={{display:"flex",justifyContent:"flex-start" }}>
-                <div sx={{ pt: 4, pr:2, width:["40%"]}}>{elementPrimaryCTA}</div>
-                <div sx={{ pt: 4,width:["40%"] }}>{elementSecondaryCTA}</div>
+              <div
+                sx={{
+                  display: "flex",
+                  flexDirection: ["row", "row", "row"],
+                  justifyContent: "flex-start",
+                }}
+              >
+                <div sx={{ pt: 4, pr: 2, width: ["100%", "40%"] }}>
+                  {elementPrimaryCTA}
+                </div>
+                <div sx={{ pt: 4, width: ["100%", "40%"] }}>
+                  {elementSecondaryCTA}
+                </div>
               </div>
             </div>
             <div
               sx={{
                 width: ["100%", "50%"],
                 height: ["100%"],
-                display: "flex",
+                display: [
+                  "none",
+                  image ? "flex" : "none",
+                  image ? "flex" : "none",
+                ],
                 alignItems: "flex-end",
                 justifyContent: ["center", "flex-end"],
               }}

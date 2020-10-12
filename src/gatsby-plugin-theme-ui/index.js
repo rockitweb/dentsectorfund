@@ -45,12 +45,12 @@ export default {
       lineHeight: "heading",
       fontWeight: "heading",
       color: "primary",
-      fontSize: [3, 4, 4],
+      fontSize: [3, 4, 5],
       pb: 4,
     },
     message: {
       color: "primary",
-      fontSize: [2, 5, 5],
+      fontSize: [2, 5, 4],
       fontFamily: "medium",
       fontWeight: "focus",
     },
@@ -117,7 +117,7 @@ export default {
       bg: "primary",
     },
     cta: {
-      fontSize: 4,
+      fontSize: [2, 3, 4],
       font: "heading",
       fontWeight: "heading",
       bg: "secondary",
@@ -129,7 +129,7 @@ export default {
       borderRadius: 25,
       boxShadow: "inset 0 0 10px #801020",
       secondary: {
-        fontSize: 3,
+        fontSize: [2, 3, 4],
         font: "heading",
         fontWeight: "heading",
         //bg:"white",
@@ -140,7 +140,6 @@ export default {
         borderStyle: "solid",
         borderColor: "secondary",
         borderRadius: 25,
-       
       },
     },
   },

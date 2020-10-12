@@ -14,7 +14,7 @@ import SEO from "../components/utilities/seo";
 export default function Page({ data }) {
   const widgets = {
     ContentfulHero: "hero",
-    
+    ContentfulCallToAction: "cta",
     ContentfulTextSection: "text-section",
     ContentfulIconBoxSection: "icon-section",
     ContentfulFeaturePerson: "feature-person",
@@ -64,7 +64,7 @@ export default function Page({ data }) {
           );
         }
       }
-      
+    
     });
 
   return (
