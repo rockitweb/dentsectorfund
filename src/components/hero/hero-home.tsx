@@ -23,7 +23,7 @@ export const HeroHome: React.FC<HeroWiHomeProps> = ({
   video,
   image,
 }) => {
-  console.log(image);
+
 
   return (
     <div id="hero" sx={{ position: "relative", minHeight: ["65vw", "600px"] }}>

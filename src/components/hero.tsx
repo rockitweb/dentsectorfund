@@ -79,7 +79,7 @@ const Hero: React.FC<HeroProps> = ({
       </a>
     );
   }
-console.log(image)
+
   const heroTextSectionWidth = image !== null
     ? ["100%", "50%", "60%"]
     : ["100%", "80%", "100%"];

@@ -25,11 +25,14 @@ if (!spaceId || !accessToken) {
 
 module.exports = {
   siteMetadata: {
-    title: "Gatsby Contentful starter",
+    title: "Dent Sector Fund",
+    siteUrl: "https://dentsectorfund.com.au"
   },
   pathPrefix: "/gatsby-contentful-starter",
   plugins: [
     `gatsby-plugin-preact`,
+    `gatsby-plugin-sitemap`,
+    'gatsby-plugin-robots-txt',
     "gatsby-transformer-remark",
     "gatsby-transformer-sharp",
     "gatsby-plugin-react-helmet",
