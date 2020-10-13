@@ -25,7 +25,7 @@ const SignupForm: React.FC = () => {
     e?.preventDefault();
     addToMailchimp(data.email, {FNAME: data.firstName, LNAME: data.lastName})
       .then((result) => {
-          alert(JSON.stringify(result));
+          //alert(JSON.stringify(result));
         e?.target.reset();
         navigate("/thanks/");
       })
