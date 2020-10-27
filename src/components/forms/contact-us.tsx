@@ -25,7 +25,7 @@ const ContactForm: React.FC = () => {
     fetch('/', {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode({ "form-name": "contact-form", ...data }),
+      body: encode({ "form-name": "contact", ...data }),
     })
       .then(() => {
         e?.target.reset();
@@ -39,13 +39,12 @@ const ContactForm: React.FC = () => {
 
   return (
     <form
-      name="contact-form"
+      name="contact"
       data-netlify={true}
       data-netlify-honeypot={true}
       className="w-full max-w-lg"
       onSubmit={onSubmit}
     >
-      <Input type="hidden" name="form-name" value="contact-form"></Input>
       <Input type="hidden" name="bot-field"></Input>
       <div className="flex flex-wrap -mx-3 mb-6">
         <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
