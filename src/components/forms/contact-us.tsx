@@ -21,7 +21,8 @@ const ContactForm: React.FC = () => {
     mode: "onBlur",
   });
   const onSubmit = handleSubmit((data, e) => {
-    fetch("/", {
+    console.log(data)
+    fetch("/contact", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: encode({ "form-name": "contact-form", ...data }),
