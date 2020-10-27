@@ -22,7 +22,7 @@ const ContactForm: React.FC = () => {
   });
   const onSubmit = handleSubmit((data, e) => {
     console.log(data)
-    fetch("/contact/", {
+    fetch("/contact", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: encode({ "form-name": "contact-form", ...data }),
