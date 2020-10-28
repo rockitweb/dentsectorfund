@@ -26,13 +26,13 @@ if (!spaceId || !accessToken) {
 module.exports = {
   siteMetadata: {
     title: "Dent Sector Fund",
-    siteUrl: "https://dentsectorfund.com.au"
+    siteUrl: "https://dentsectorfund.com.au",
   },
   pathPrefix: "/gatsby-contentful-starter",
   plugins: [
     `gatsby-plugin-preact`,
     `gatsby-plugin-sitemap`,
-    'gatsby-plugin-robots-txt',
+    "gatsby-plugin-robots-txt",
     "gatsby-transformer-remark",
     "gatsby-transformer-sharp",
     "gatsby-plugin-react-helmet",
@@ -63,6 +63,27 @@ module.exports = {
       resolve: `gatsby-transformer-video`,
     },
     `gatsby-plugin-catch-links`,
-    "gatsby-plugin-webpack-bundle-analyser-v2",
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        // The property ID; the tracking code won't be generated without it
+        trackingId: "UA-180443735-1",
+        // Defines where to place the tracking script - `true` in the head and `false` in the body
+        head: true,
+        // Setting this parameter is optional
+        anonymize: true,
+        // Setting this parameter is also optional
+        respectDNT: true,
+        // Avoids sending pageview hits from custom paths
+        exclude: ["/preview/**", "/do-not-track/me/too/"],
+        // Delays sending pageview hits on route update (in milliseconds)
+        pageTransitionDelay: 0,
+
+        // Defers execution of google analytics script after page load
+        defer: true,
+   
+
+      },
+    },
   ],
 };
