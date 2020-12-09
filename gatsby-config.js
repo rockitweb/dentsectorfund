@@ -63,7 +63,16 @@ module.exports = {
       resolve: `gatsby-transformer-video`,
     },
     `gatsby-plugin-catch-links`,
+
     {
+      resolve: "gatsby-plugin-google-tagmanager",
+      options: {
+        id: "GTM-NXDNSSW",
+        includeInDevelopment: false,
+        routeChangeEventName: "route-change",
+      },
+    },
+    /* {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
         // The property ID; the tracking code won't be generated without it
@@ -81,9 +90,8 @@ module.exports = {
 
         // Defers execution of google analytics script after page load
         defer: true,
-   
-
       },
-    },
+    },*/
   ],
 };
+
