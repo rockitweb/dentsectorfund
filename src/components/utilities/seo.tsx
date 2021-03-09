@@ -25,7 +25,7 @@ const SEO: React.FC<props> = ({ title, description }) => {
   const seo = {
     title: title ? `${defaultTitle} | ${title}` : defaultTitle,
     description: description || defaultDescription,
-    url: `${siteUrl}${pathname || ""}`,
+    url: `${siteUrl}${pathname === "/" ? "":pathname || ""}`,
   };
 
 
