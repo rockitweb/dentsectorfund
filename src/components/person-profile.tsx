@@ -13,7 +13,7 @@ export const PersonProfile: React.FC<PersonProfileProps> = ({  person}) => {
   if (person.image) {
     image = (
       <Image
-        {...person.image}
+        gatsbyImageData = {person.image.gatsbyImageData}
         alt={person.name}
         sx={{
           width: "100%",

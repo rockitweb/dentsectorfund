@@ -5,5 +5,5 @@ export interface Person {
   title: string;
   bio: any;
   shortBio: any;
-  image: FluidImage;
+  image: {gatsbyImageData:any};
 }

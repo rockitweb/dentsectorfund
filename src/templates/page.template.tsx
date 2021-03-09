@@ -1,31 +1,17 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui";
-import React from "react";
+
 import "../styles/tailwind.css";
 import Layout from "../layouts/layout";
 import { graphql } from "gatsby";
-import Loadable from "@loadable/component";
-
+import Image from "../components/utilities/image";
 import BackgroundImage from "gatsby-background-image";
-import { Markdown } from "../components/interfaces/markdown";
+
 import MarkDown from "../components/utilities/styled-markdown";
 import SEO from "../components/utilities/seo";
+import WidgetSelector from "../components/utilities/widget-selector";
 
 export default function Page({ data }) {
-  const widgets = {
-    ContentfulHero: "hero",
-    ContentfulCallToAction: "cta",
-    ContentfulTextSection: "text-section",
-    ContentfulIconBoxSection: "icon-section",
-    ContentfulFeaturePerson: "feature-person",
-    ContentfulInfoBoxSection: "info-box-section",
-    ContentfulLatestArticles: "blog/article-list",
-    ContentfulTeamSection: "team-section",
-    ContentfulMediaLogos: "media-icons",
-    ContentfulSignUpForm: "signup",
-    ContentfulContactForm: "contact",
-  };
-
   const sections: any[] = data.contentfulPage.pageSections;
   const { title, description, body } = data.contentfulPage;
   const sectionModules = sections
@@ -35,383 +21,350 @@ export default function Page({ data }) {
     .map((section, index) => {
       const backgroundImage = section.backgroundImage;
       const widget = section.widget;
+      const widgetName = widget.__typename;
+      const WidgetElement = WidgetSelector[widgetName];
 
-      const widgetType = widgets[widget.__typename];
-
-      if (widgetType) {
-        const Module = Loadable(() => import(`../components/${widgetType}`));
-        if (backgroundImage) {
-          return (
-            <BackgroundImage
-              key={`section-${section.title}: ${index}`}
+      if (backgroundImage) {
+        
+        return (
+          <div
+            key={`section-${section.title}: ${index}`}
+            sx={{
+              position: "relative",
+              overflow: "hidden",
+            }}
+          >
+            <div
               sx={{
-                width: "100%",
-                backgroundColor: "primary",
-                backgroundPosition: "center center",
-                backgroundRepeat: "repeat-y",
-                backgroundSize: "cover",
+                left: 0,
+                top: 0,
+                position: "absolute",
+                zIndex: -1,
+                width: ["100%"],
+                opacity: ".8",
+                height: "100%",
               }}
-              Tag="section"
-              alt="Section Background"
-              fluid={backgroundImage.fluid}
             >
-              <Module key={`${section.title}: ${index}`} {...widget}></Module>
-            </BackgroundImage>
-          );
-        } else {
-          return (
-            <Module key={`${section.title}: ${index}`} {...widget}></Module>
-          );
-        }
+              <Image
+                sx={{ width: "100%", height:"100%" }}
+                alt="background image"
+                gatsbyImageData={backgroundImage.gatsbyImageData}
+                file={{ contentType: "any", url: "" }}
+              ></Image>
+            </div>
+
+            <WidgetElement {...widget}></WidgetElement>
+          </div>
+        );
+      } else {
+        
+        return <WidgetElement {...widget}></WidgetElement>;
       }
-    
     });
 
   return (
     <Layout>
       <SEO title={title} description={description}></SEO>
       {sectionModules}
-      <MarkDown
+      {body && <MarkDown
         sx={{ variant: "layout.container.box" }}
         data={body || ""}
-      ></MarkDown>
+      ></MarkDown>}
     </Layout>
   );
 }
 
 export const pageQuery = graphql`
-         query PageQuery($slug: String!) {
-           contentfulPage(slug: { eq: $slug }) {
-             title
-             description
-             body {
-               childMarkdownRemark {
-                 html
-               }
-             }
-             pageSections {
-               title
-               position
-               backgroundImage {
-                 svg {
-                   content
-                   absolutePath
-                   dataURI
-                   relativePath
-                 }
-                 file {
-                   url
-                   contentType
-                 }
-                 fluid(
-                   maxWidth: 1600
-                   maxHeight: 700
+  query PageQuery($slug: String!) {
+    contentfulPage(slug: { eq: $slug }) {
+      title
+      description
+      body {
+        childMarkdownRemark {
+          html
+        }
+      }
+      pageSections {
+        title
+        position
+        backgroundImage {
+          svg {
+            content
+            absolutePath
+            dataURI
+            relativePath
+          }
+          file {
+            url
+            contentType
+          }
+          gatsbyImageData(layout: CONSTRAINED, width: 1600, height: 700)
+        }
 
-                   background: "rgb:000000"
-                 ) {
-                   aspectRatio
-                   src
-                   srcSet
-                   sizes
-                 }
-               }
+        widget {
+          ... on ContentfulHero {
+            __typename
+            internal {
+              type
+            }
+            message {
+              childMarkdownRemark {
+                html
+              }
+            }
+            ctaPrimary {
+              label
+              externalLink
+              target
+            }
+            ctaSecondary {
+              label
+              internalLink
+              target
+            }
+            heading
+            backgroundImage {
+              gatsbyImageData(layout: CONSTRAINED, width: 1600, height: 700)
+            }
+            image {
+              gatsbyImageData(layout: CONSTRAINED, width: 400)
+            }
+          }
+          ... on ContentfulSignUpForm {
+            id
+            __typename
+            formHeading: heading {
+              childMarkdownRemark {
+                html
+              }
+            }
+            social
+          }
+          ... on ContentfulContactForm {
+            id
+            __typename
+            formHeading: heading {
+              childMarkdownRemark {
+                html
+              }
+            }
+            message {
+              childMarkdownRemark {
+                html
+              }
+            }
+            otherInformation {
+              childMarkdownRemark {
+                html
+              }
+            }
+          }
+          ... on ContentfulLatestArticles {
+            internal {
+              type
+            }
+            id
+            __typename
+            title
+            heading
+            articleCount
+          }
+          ... on ContentfulCallToAction {
+            internal {
+              type
+            }
+            __typename
+            buttonLabel
+            link
+            ctaMessage {
+              ctaMessage
+              childMarkdownRemark {
+                html
+              }
+            }
+          }
+          ... on ContentfulTeamSection {
+            id
+            heading
+            __typename
+            people {
+              name
+              title
+              shortBio {
+                childMarkdownRemark {
+                  html
+                }
+              }
+              image {
+                svg {
+                  content
+                  absolutePath
+                  dataURI
+                  relativePath
+                }
+                file {
+                  url
+                  contentType
+                }
+                gatsbyImageData(layout: CONSTRAINED, width: 400, height: 400)
+              }
+            }
+          }
+          ... on ContentfulIconBoxSection {
+            internal {
+              type
+            }
+            __typename
+            iconBoxes {
+              heading {
+                childMarkdownRemark {
+                  html
+                }
+              }
+              icon {
+                svg {
+                  content
+                  absolutePath
+                  dataURI
+                  relativePath
+                }
+                file {
+                  url
+                  contentType
+                }
+                fluid(
+                  maxWidth: 100
+                  maxHeight: 100
 
-               widget {
-                 ... on ContentfulHero {
-                   internal {
-                     type
-                   }
-                   message {
-                     childMarkdownRemark {
-                       html
-                     }
-                   }
-                   ctaPrimary {
-                     label
-                     externalLink
-                     target
-                   }
-                   ctaSecondary {
-                     label
-                     internalLink
-                     target
-                   }
-                   heading
-                   backgroundImage {
-                     fluid(maxWidth: 1600, maxHeight: 700) {
-                       aspectRatio
-                       src
-                       srcSet
-                       sizes
-                     }
-                   }
-                   image {
-                     fluid(maxWidth: 400) {
-                       aspectRatio
-                       src
-                       srcSet
-                       sizes
-                     }
-                   }
-                 }
-                 ... on ContentfulSignUpForm {
-                   id
-                   formHeading: heading {
-                     childMarkdownRemark {
-                       html
-                     }
-                   }
-                   social
-                 }
-                 ... on ContentfulContactForm {
-                   id
-                   formHeading: heading {
-                     childMarkdownRemark {
-                       html
-                     }
-                   }
-                   message {
-                     childMarkdownRemark {
-                       html
-                     }
-                   }
-                   otherInformation {
-                     childMarkdownRemark {
-                       html
-                     }
-                   }
-                 }
-                 ... on ContentfulLatestArticles {
-                   internal {
-                     type
-                   }
-                   id
-                   title
-                   heading
-                   articleCount
-                 }
-                 ... on ContentfulCallToAction {
-                   internal {
-                     type
-                   }
-                   buttonLabel
-                   link
-                   ctaMessage {
-                     ctaMessage
-                     childMarkdownRemark {
-                       html
-                     }
-                   }
-                 }
-                 ... on ContentfulTeamSection {
-                   id
-                   heading
+                  background: "rgb:000000"
+                ) {
+                  aspectRatio
+                  src
+                  srcSet
+                  sizes
+                }
+              }
+            }
+          }
+          ... on ContentfulInfoBoxSection {
+            __typename
+            internal {
+              type
+            }
+            infoBoxes {
+              heading
+              message {
+                childMarkdownRemark {
+                  html
+                }
+              }
+            }
+          }
+          ... on ContentfulTextSection {
+            __typename
+            internal {
+              type
+            }
+            heading
+            body {
+              childMarkdownRemark {
+                html
+              }
+            }
+          }
 
-                   people {
-                     name
-                     title
-                     shortBio {
-                       childMarkdownRemark {
-                         html
-                       }
-                     }
-                     image {
-                       svg {
-                         content
-                         absolutePath
-                         dataURI
-                         relativePath
-                       }
-                       file {
-                         url
-                         contentType
-                       }
-                       fluid(
-                         maxWidth: 400
-                         maxHeight: 400
+          ... on ContentfulMediaLogos {
+            __typename
+            id
+            title
+            internal {
+              type
+            }
+            image {
+              svg {
+                content
+                absolutePath
+                dataURI
+                relativePath
+              }
+              file {
+                url
+                contentType
+              }
+              fluid(
+                maxWidth: 1600
+                maxHeight: 700
 
-                         background: "rgb:000000"
-                       ) {
-                         aspectRatio
-                         src
-                         srcSet
-                         sizes
-                       }
-                     }
-                   }
-                 }
-                 ... on ContentfulIconBoxSection {
-                   internal {
-                     type
-                   }
-                   iconBoxes {
-                     heading {
-                       childMarkdownRemark {
-                         html
-                       }
-                     }
-                     icon {
-                       svg {
-                         content
-                         absolutePath
-                         dataURI
-                         relativePath
-                       }
-                       file {
-                         url
-                         contentType
-                       }
-                       fluid(
-                         maxWidth: 100
-                         maxHeight: 100
-
-                         background: "rgb:000000"
-                       ) {
-                         aspectRatio
-                         src
-                         srcSet
-                         sizes
-                       }
-                     }
-                   }
-                 }
-                 ... on ContentfulInfoBoxSection {
-                   internal {
-                     type
-                   }
-                   infoBoxes {
-                     heading
-                     message {
-                       childMarkdownRemark {
-                         html
-                       }
-                     }
-                   }
-                 }
-                 ... on ContentfulTextSection {
-                   internal {
-                     type
-                   }
-                   heading
-                   body {
-                     childMarkdownRemark {
-                       html
-                     }
-                   }
-                 }
-
-                 ... on ContentfulMediaLogos {
-                   id
-                   title
-                   internal {
-                     type
-                   }
-                   image {
-                     svg {
-                       content
-                       absolutePath
-                       dataURI
-                       relativePath
-                     }
-                     file {
-                       url
-                       contentType
-                     }
-                     fluid(
-                       maxWidth: 1600
-                       maxHeight: 700
-
-                       background: "rgb:000000"
-                     ) {
-                       aspectRatio
-                       src
-                       srcSet
-                       sizes
-                     }
-                   }
-                   mediaLogos {
-                     svg {
-                       content
-                       absolutePath
-                       dataURI
-                       relativePath
-                     }
-                     file {
-                       url
-                       contentType
-                     }
-                     fluid(
-                       maxWidth: 1600
-                       maxHeight: 700
-
-                       background: "rgb:000000"
-                     ) {
-                       aspectRatio
-                       src
-                       srcSet
-                       sizes
-                     }
-                   }
-                 }
-                 ... on ContentfulFeaturePerson {
-                   id
-                   position
-                   internal {
-                     type
-                   }
-                   person {
-                     name
-                     title
-                     shortBio {
-                       childMarkdownRemark {
-                         html
-                       }
-                     }
-                     image {
-                       svg {
-                         content
-                         absolutePath
-                         dataURI
-                         relativePath
-                       }
-                       file {
-                         url
-                         contentType
-                       }
-                       fluid(maxWidth: 400) {
-                         ...GatsbyContentfulFluid_tracedSVG
-                       }
-                     }
-                   }
-                   image {
-                     svg {
-                       content
-                       absolutePath
-                       dataURI
-                       relativePath
-                     }
-                     file {
-                       url
-                       contentType
-                     }
-                     fluid(
-                       maxWidth: 1600
-                       maxHeight: 700
-
-                       background: "rgb:000000"
-                     ) {
-                       aspectRatio
-                       src
-                       srcSet
-                       sizes
-                     }
-                   }
-                 }
-               }
-             }
-           }
-         }
-       `;
+                background: "rgb:000000"
+              ) {
+                aspectRatio
+                src
+                srcSet
+                sizes
+              }
+            }
+            mediaLogos {
+              svg {
+                content
+                absolutePath
+                dataURI
+                relativePath
+              }
+              file {
+                url
+                contentType
+              }
+              gatsbyImageData(layout: CONSTRAINED, height: 70)
+            }
+          }
+          ... on ContentfulFeaturePerson {
+            id
+            __typename
+            position
+            internal {
+              type
+            }
+            person {
+              name
+              title
+              shortBio {
+                childMarkdownRemark {
+                  html
+                }
+              }
+              image {
+                svg {
+                  content
+                  absolutePath
+                  dataURI
+                  relativePath
+                }
+                file {
+                  url
+                  contentType
+                }
+                gatsbyImageData(layout: CONSTRAINED, width: 400)
+              }
+            }
+            image {
+              svg {
+                content
+                absolutePath
+                dataURI
+                relativePath
+              }
+              file {
+                url
+                contentType
+              }
+              gatsbyImageData(layout: CONSTRAINED, width: 1600, height: 700)
+            }
+          }
+        }
+      }
+    }
+  }
+`;
 /*
 
 

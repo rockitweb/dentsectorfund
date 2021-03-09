@@ -1,23 +1,20 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui";
 import React from "react";
-import Img from "gatsby-image";
 import Image from "./utilities/image";
-import BackgroundImage from "gatsby-background-image";
 import { VideoData } from "./video/interfaces";
 import HeroHome from "./hero/hero-home";
-import { isBlock } from "typescript";
 import MarkDown from "./utilities/markdown";
 export interface HeroProps {
   heading: any;
   message: any;
 
   backgroundImage?: {
-    fluid: any;
+    gatsbyImageData: any;
   };
   backgroundVideo: VideoData;
   image?: {
-    fluid: any;
+    gatsbyImageData: any;
   };
 
   ctaPrimary: {
@@ -96,89 +93,98 @@ const Hero: React.FC<HeroProps> = ({
     );
   } else {
     return (
-      <div sx={{ minHeight: ["65vw", "600px"] }}>
-        <BackgroundImage
+      <div sx={{ minHeight: ["65vw", "600px"], position: "relative", overflow:"hidden" }}>
+        {/** BG images */}
+        <div
           sx={{
-            height: ["60vh"],
-            minHeight: ["65vw", "600px"],
-            maxHeight: "600px",
-            backgroundColor: "primary",
-            backgroundPosition: "center center",
-            backgroundRepeat: "repeat-y",
-            backgroundSize: "cover",
+            position: "absolute",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+            zIndex: -99,
+            bg: "white",
+            opacity: ".8",
           }}
-          Tag="section"
-          alt={heading}
-          fluid={backgroundImage?.fluid}
         >
-          <section
-            sx={{ variant: "hero", height: "100%" }}
-            className="flex flex-col md:flex-row justify-between items-center md:items-center"
+          <Image
+            sx={{
+              width: "100%",
+              height:"100%"
+            }}
+            gatsbyImageData={backgroundImage?.gatsbyImageData}
+            alt="Skyline"
+            file={{ contentType: "any", url: "" }}
+          ></Image>
+        </div>
+
+        <section
+          sx={{ variant: "hero", height: "100%", minHeight: ["65vw", "600px"] }}
+          className="flex flex-col md:flex-row justify-between items-center md:items-center"
+        >
+          <div
+            sx={{ width: heroTextSectionWidth }}
+            className="flex flex-col justify-start  md:justify-center"
           >
-            <div
-              sx={{ width: heroTextSectionWidth }}
-              className="flex flex-col justify-start  md:justify-center"
+            <h2
+              sx={{
+                variant: "hero.heading",
+                textAlign: ["center", "left"],
+              }}
             >
-              <h2
-                sx={{
-                  variant: "hero.heading",
-                  textAlign: ["center", "left"],
-                }}
-              >
-                {heading}
-              </h2>
-              <div
-                sx={{
-                  variant: "hero.message",
-                  textAlign: ["center", "left"],
-                }}
-                
-              > 
-                <MarkDown  data={message}></MarkDown>
-              </div>
-              <div
-                sx={{
-                  display: "flex",
-                  flexDirection: ["row", "row", "row"],
-                  justifyContent: "flex-start",
-                }}
-              >
-                <div sx={{ pt: 4, pr: 2, width: ["100%", "40%"] }}>
-                  {elementPrimaryCTA}
-                </div>
-                <div sx={{ pt: 4, width: ["100%", "40%"] }}>
-                  {elementSecondaryCTA}
-                </div>
-              </div>
+              {heading}
+            </h2>
+            <div
+              sx={{
+                variant: "hero.message",
+                textAlign: ["center", "left"],
+              }}
+            >
+              <MarkDown data={message}></MarkDown>
             </div>
             <div
               sx={{
-                width: ["100%", "50%"],
-                height: ["100%"],
-                display: [
-                  "none",
-                  image ? "flex" : "none",
-                  image ? "flex" : "none",
-                ],
-                alignItems: "flex-end",
-                justifyContent: ["center", "flex-end"],
+                display: "flex",
+                flexDirection: ["row", "row", "row"],
+                justifyContent: "flex-start",
               }}
             >
-              <Image
-                sx={{
-                  height: "auto",
-                  width: "100%",
-                  maxWidth: ["45%", null, "300px"],
-                  objectFit: "contain",
-                  objectPosition: "center top",
-                }}
-                fluid={image?.fluid}
-                alt="Harry dent"
-                file={{ contentType: "any", url: "" }}
-              ></Image>
+              <div sx={{ pt: 4, pr: 2, width: ["100%", "40%"] }}>
+                {elementPrimaryCTA}
+              </div>
+              <div sx={{ pt: 4, width: ["100%", "40%"] }}>
+                {elementSecondaryCTA}
+              </div>
             </div>
-          </section>
-        </BackgroundImage>
+          </div>
+          <div
+            sx={{
+              alignSelf:"flex-end",
+              width: ["100%", "50%"],
+              height: ["100%"],
+              display: [
+                "none",
+                image ? "flex" : "none",
+                image ? "flex" : "none",
+              ],
+              alignItems: "flex-end",
+              justifyContent: ["center", "flex-end"],
+            }}
+          >
+            <Image
+              sx={{
+                height: "100%",
+                width: "100%",
+                maxWidth: ["45%", null, "300px"],
+                objectFit: "contain",
+                objectPosition: "center top",
+              }}
+              gatsbyImageData={image?.gatsbyImageData}
+              alt="Harry dent"
+              file={{ contentType: "any", url: "" }}
+            ></Image>
+          </div>
+        </section>
       </div>
     );
   }
