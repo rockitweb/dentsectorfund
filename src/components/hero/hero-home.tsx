@@ -12,7 +12,7 @@ export type HeroWiHomeProps = {
   heading: any;
   message: any;
   image?: {
-    fluid: any;
+    gatsbyImageData: any;
   };
   video: VideoData;
 };
@@ -24,7 +24,7 @@ export const HeroHome: React.FC<HeroWiHomeProps> = ({
   image,
 }) => {
 
-
+return <div>hi there</div>
   return (
     <div id="hero" sx={{ position: "relative", minHeight: ["65vw", "600px"] }}>
       <div
@@ -40,21 +40,6 @@ export const HeroHome: React.FC<HeroWiHomeProps> = ({
           bg: "primary",
         }}
       >
-        <Video
-          video={video}
-          sx={{
-            position: "absolute",
-
-            objectFit: "cover",
-
-            width: "100%",
-            height: "100%",
-            zIndex: "-100",
-
-            overflow: "hidden",
-          }}
-        ></Video>
-
         <section
           sx={{ variant: "hero", height: "100%" }}
           className="flex justify-between items-end"
@@ -71,13 +56,13 @@ export const HeroHome: React.FC<HeroWiHomeProps> = ({
           </div>
           <Image
             sx={{
-              height:"auto",
+              height: "auto",
               width: "100%",
-              maxWidth:["40%",null,"360px"],
+              maxWidth: ["40%", null, "360px"],
               objectFit: "contain",
               objectPosition: "center top",
             }}
-            fluid={image?.fluid}
+            gatsbyImageData={image?.gatsbyImageData}
             alt="Harry dent"
             file={{ contentType: "any", url: "" }}
           ></Image>

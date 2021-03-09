@@ -14,33 +14,35 @@ import MarkDown from "./utilities/styled-markdown";
 
 export interface FeatureProps {
   person: Person;
-  image: FluidImage;
+  image: {gatsbyImageData:any};
   position: "Left" | "Right";
 }
 
 // Render inline SVG with fallback non-svg images
 const FeaturePerson: React.FC<FeatureProps> = ({ person, image, position }) => {
   const heading = `${person.name} | ${person.title}`;
-
+console.log("image", image);
   return (
-    <BackgroundImage
-      sx={{
-        width: "100%",
-        backgroundColor: "primary",
-        backgroundPosition: "center center",
-        backgroundRepeat: "repeat-y",
-        backgroundSize: "cover",
-      }}
-      Tag="section"
-      alt="Section Background"
-      fluid={image.fluid}
-    >
+    <div sx={{ position: "relative", overflow: "hidden" }}>
+      <div
+        sx={{
+          left: 0,
+          top: 0,
+          position: "absolute",
+          zIndex:-1,
+          width: ["100%"],
+          //opacity: ".5",
+          height: "auto",
+        }}
+      >
+        <Image sx={{width:"100%"}} alt="background image" {...image}></Image>
+      </div>
       <div
         sx={{
           variant: "layout.container.box",
           pb: [4, 4, 0],
           display: "flex",
-          flexDirection: ["column","row"],
+          flexDirection: ["column", "row"],
           justifyContent: `flex-${position === "Left" ? "start" : "end"}`,
         }}
       >
@@ -63,13 +65,21 @@ const FeaturePerson: React.FC<FeatureProps> = ({ person, image, position }) => {
 
           <MarkDown data={person.shortBio}></MarkDown>
         </div>
-        <div sx={{ width: ["100%", "70%", "60%"], display:"flex", justifyContent: ["center","flex-end"]  }}>
-          <Image sx={{width:"50%"}} {... person.image} alt={person.name}>
-
-          </Image>
+        <div
+          sx={{
+            width: ["100%", "70%", "60%"],
+            display: "flex",
+            justifyContent: ["center", "flex-end"],
+          }}
+        >
+          <Image
+            sx={{ width: "50%" }}
+            {...person.image}
+            alt={person.name}
+          ></Image>
         </div>
       </div>
-    </BackgroundImage>
+    </div>
   );
 };
 

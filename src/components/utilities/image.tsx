@@ -1,12 +1,12 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui";
-import React, { Fragment } from "react";
+import React from "react";
 import propTypes from "prop-types";
-import Img from "gatsby-image";
+import { GatsbyImage } from "gatsby-plugin-image";
 
 export interface ImageProps {
   svg?: { content: string };
-  fluid: any;
+  gatsbyImageData?: any;
   file?: { url: string; contentType: string };
   alt: string;
   width?: string;
@@ -22,21 +22,20 @@ export interface ImageProps {
 // Render inline SVG with fallback non-svg images
 const Image: React.FC<ImageProps> = ({
   svg,
-  fluid,
+  gatsbyImageData,
   file,
   alt,
   width,
   height,
   imageStyle,
   styles,
-  className
+  className,
 }) => {
-  
   width = width ? width : "200";
   height = height ? height : "200";
 
   //if there isn't an image, for some reason then get out of dodge.
-  if (!file) return (< Fragment />);
+  if (!file) return null;
 
   if (file.contentType === "image/svg+xml") {
     if (svg && svg.content) {
@@ -63,7 +62,14 @@ const Image: React.FC<ImageProps> = ({
   }
 
   // Non SVG images
-  return <Img fluid={fluid} alt={alt} className={className} imgStyle={imageStyle} />;
+  return (
+    <GatsbyImage
+      image={gatsbyImageData}
+      alt={alt}
+      className={className}
+      imgStyle={imageStyle}
+    />
+  );
 };
 
 export default Image;

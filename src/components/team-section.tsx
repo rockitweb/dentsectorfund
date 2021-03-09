@@ -1,11 +1,7 @@
 /** @jsx jsx */
-import { jsx, Grid } from "theme-ui";
+import { jsx } from "theme-ui";
 import React from "react";
 import { Person } from "./interfaces/Person";
-import MarkDown from "./utilities/markdown";
-import PersonComponent from "./person";
-import SectionHeading from "./section-heading";
-import CardVertical from "./cards/image-card";
 import PersonProfile from "./person-profile";
 export interface TeamSectionProps {
   heading: string;

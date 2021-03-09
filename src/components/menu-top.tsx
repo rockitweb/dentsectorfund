@@ -33,11 +33,7 @@ export default function MenuTopNav() {
     let link;
     if (menu.externalPath)  {
       link = (
-        <a
-          
-          href={menu.externalPath}
-          target="_blank"
-        >
+        <a rel="noreferrer" href={menu.externalPath} target="_blank">
           {menu.label}
         </a>
       );
@@ -98,13 +94,14 @@ export default function MenuTopNav() {
         <nav
           sx={{
             variant: "nav",
-            opacity: ".9",
+            //opacity: ".9",
             backgroundColor: isExpanded ? "primary" : "",
             color: isExpanded ? "white" : "",
-            mt:["2px",0,0]
+            my:["2px",0,0]
+            
           }}
         >
-          <ul className="lg:flex items-center justify-between pt-4 lg:pt-0">
+          <ul className="lg:flex items-center justify-between py-4 lg:py-0">
             {menu}
           </ul>
         </nav>
