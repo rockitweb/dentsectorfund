@@ -52,6 +52,7 @@ const Hero: React.FC<HeroProps> = ({
           width: "100%",
           textAlign: "center",
         }}
+        rel="noreferrer"
         href={ctaPrimary.externalLink || "/"}
         target={ctaPrimary.target}
       >

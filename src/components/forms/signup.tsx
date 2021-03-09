@@ -47,7 +47,7 @@ const SignupForm: React.FC = () => {
       <Input type="hidden" name="bot-field"></Input>
       <div className="flex flex-wrap -mx-3 mb-6">
         <div className="w-full px-3 mb-6">
-          <Label htmlFor="name">First Name</Label>
+          <Label htmlFor="firstName">First Name</Label>
           <Input
             ref={register({
               required: { value: true, message: "First Name is required" },
@@ -64,7 +64,7 @@ const SignupForm: React.FC = () => {
           )}
         </div>
         <div className="w-full  px-3 mb-6">
-          <Label htmlFor="name">Last Name</Label>
+          <Label htmlFor="lastName">Last Name</Label>
           <Input
             ref={register({
               required: { value: true, message: "Last Name is required" },

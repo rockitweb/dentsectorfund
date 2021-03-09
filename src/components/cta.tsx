@@ -30,7 +30,12 @@ const CTA: React.FC<CtaProps> = ({ buttonLabel, link, ctaMessage }) => (
           }}
         />
       )}
-      <a sx={{ variant: "buttons.cta" }} href={link} target="_blank">
+      <a
+        sx={{ variant: "buttons.cta" }}
+        href={link}
+        rel="noreferrer"
+        target="_blank"
+      >
         {buttonLabel}
       </a>
     </div>
