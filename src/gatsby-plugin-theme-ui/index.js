@@ -68,7 +68,7 @@ export default {
     },
     h2: {
       ...sharedHeadingStyles,
-     
+
       fontSize: [2, 2, 5],
     },
   },
@@ -113,6 +113,18 @@ export default {
   },
 
   buttons: {
+    primary: {
+      bg: "primary",
+      color: "white",
+      outline: {
+        bg: "white",
+        color:"primary",
+        borderColor: "primary",
+        borderStyle:"solid",
+        borderWidth: "2px",
+      },
+    },
+
     menu: {
       bg: "primary",
     },

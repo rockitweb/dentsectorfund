@@ -9,6 +9,7 @@ import iconSection from '../icon-section'
 import infoBoxSection from '../info-box-section'
 import mediaIcons from '../media-icons'
 import teamSection from '../team-section'
+import Reports from '../reports'
 
 
 const WidgetSelector = {
@@ -23,6 +24,7 @@ const WidgetSelector = {
   ContentfulMediaLogos: mediaIcons,
   ContentfulSignUpForm: signup,
   ContentfulContactForm: contact,
+  ContentfulReports: Reports,
 };
 
 export default WidgetSelector;

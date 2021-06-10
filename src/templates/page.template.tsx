@@ -25,7 +25,6 @@ export default function Page({ data }) {
       const WidgetElement = WidgetSelector[widgetName];
 
       if (backgroundImage) {
-        
         return (
           <div
             key={`section-${section.title}: ${index}`}
@@ -46,7 +45,7 @@ export default function Page({ data }) {
               }}
             >
               <Image
-                sx={{ width: "100%", height:"100%" }}
+                sx={{ width: "100%", height: "100%" }}
                 alt="background image"
                 gatsbyImageData={backgroundImage.gatsbyImageData}
                 file={{ contentType: "any", url: "" }}
@@ -57,7 +56,6 @@ export default function Page({ data }) {
           </div>
         );
       } else {
-        
         return <WidgetElement {...widget}></WidgetElement>;
       }
     });
@@ -66,10 +64,12 @@ export default function Page({ data }) {
     <Layout>
       <SEO title={title} description={description}></SEO>
       {sectionModules}
-      {body && <MarkDown
-        sx={{ variant: "layout.container.box" }}
-        data={body || ""}
-      ></MarkDown>}
+      {body && (
+        <MarkDown
+          sx={{ variant: "layout.container.box" }}
+          data={body || ""}
+        ></MarkDown>
+      )}
     </Layout>
   );
 }
@@ -317,6 +317,24 @@ export const pageQuery = graphql`
               gatsbyImageData(layout: CONSTRAINED, height: 70)
             }
           }
+          ... on ContentfulReports {
+            id
+            __typename
+
+            categories {
+              categoryName
+              report {
+                reportName
+                report {
+                  localFile {
+                    relativePath
+                    publicURL
+                  }
+                }
+              }
+            }
+          }
+
           ... on ContentfulFeaturePerson {
             id
             __typename
