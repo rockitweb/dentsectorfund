@@ -33,7 +33,18 @@ export default function MenuTopNav() {
     let link;
     if (menu.externalPath)  {
       link = (
-        <a rel="noreferrer" href={menu.externalPath} target="_blank">
+        <a
+          rel="noreferrer"
+          href={menu.externalPath}
+          target="_blank"
+          sx={{
+            "&.active": {
+              color: "secondary",
+            },
+            variant: "nav.link",
+            p: 2,
+          }}
+        >
           {menu.label}
         </a>
       );
