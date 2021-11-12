@@ -12,6 +12,7 @@ import SEO from "../components/utilities/seo";
 import WidgetSelector from "../components/utilities/widget-selector";
 
 export default function Page({ data }) {
+  console.log("data", data)
   const sections: any[] = data.contentfulPage.pageSections;
   const { title, description, body } = data.contentfulPage;
   const sectionModules = sections

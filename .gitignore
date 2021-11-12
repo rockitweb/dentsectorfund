@@ -69,3 +69,4 @@ public
 .netlify
 .env.production
 .env.development
+.env.development
