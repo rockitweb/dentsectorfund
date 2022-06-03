@@ -92,9 +92,7 @@ export const pageQuery = graphql`
           url
           contentType
         }
-        fluid(maxWidth: 150, maxHeight: 150, resizingBehavior: THUMB) {
-          ...GatsbyContentfulFluid_tracedSVG
-        }
+        gatsbyImageData(width: 150, height: 150)
       }
       blog_post {
         title
@@ -112,9 +110,8 @@ export const pageQuery = graphql`
             url
             contentType
           }
-          fluid(maxWidth: 350, maxHeight: 196, resizingBehavior: SCALE) {
-            ...GatsbyContentfulFluid_tracedSVG
-          }
+          gatsbyImageData(width: 350, height: 196)
+          
         }
         description {
           childMarkdownRemark {

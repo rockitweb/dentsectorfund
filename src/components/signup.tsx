@@ -15,7 +15,7 @@ const SignUp: React.FC<SignupProps> = ({formHeading, social}) => {
         <section sx={{variant:"layout.container.narrow"}}>
             <SectionHeading heading={formHeading} description=""></SectionHeading>
       <div id="signupform" sx={{ justifyContent: `center` }}>
-        <SignupForm></SignupForm>
+        {/*<SignupForm></SignupForm>*/}
       </div>
 </section>
   );

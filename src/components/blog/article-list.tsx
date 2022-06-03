@@ -32,12 +32,7 @@ const ArticleList: React.FC<ArticleListProps> = ({ heading, articleCount }) => {
                 url
                 contentType
               }
-              fluid(maxWidth: 350, maxHeight: 196, resizingBehavior: SCALE) {
-                aspectRatio
-                src
-                srcSet
-                sizes
-              }
+              
             }
             description {
               childMarkdownRemark {
@@ -60,12 +55,7 @@ const ArticleList: React.FC<ArticleListProps> = ({ heading, articleCount }) => {
                   url
                   contentType
                 }
-                fluid(maxWidth: 104, maxHeight: 104, resizingBehavior: SCALE) {
-                  aspectRatio
-                  src
-                  srcSet
-                  sizes
-                }
+               
               }
               title
               name

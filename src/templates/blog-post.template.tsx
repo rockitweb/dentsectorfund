@@ -61,14 +61,7 @@ export const pageQuery = graphql`
              }
              tags
              publishDate(formatString: "MMMM Do, YYYY")
-             image: heroImage {
-               fluid(maxWidth: 1180, background: "rgb:000000") {
-                 aspectRatio
-                 src
-                 srcSet
-                 sizes
-               }
-             }
+             
              body {
                childMarkdownRemark {
                  html
@@ -89,12 +82,7 @@ export const pageQuery = graphql`
                    url
                    contentType
                  }
-                 fluid(maxWidth: 104, maxHeight: 104, resizingBehavior: SCALE) {
-                   aspectRatio
-                   src
-                   srcSet
-                   sizes
-                 }
+                
                }
              }
            }

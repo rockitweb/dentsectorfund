@@ -45,19 +45,7 @@ export const blogListQuery = graphql`
                  html
                }
              }
-             backgroundImage {
-               fluid(
-                 maxWidth: 1600
-                 maxHeight: 700
-
-                 background: "rgb:000000"
-               ) {
-                 aspectRatio
-                 src
-                 srcSet
-                 sizes
-               }
-             }
+             
            }
            allContentfulBlogPost(
              sort: { fields: publishDate, order: DESC }
@@ -81,16 +69,7 @@ export const blogListQuery = graphql`
                      url
                      contentType
                    }
-                   fluid(
-                     maxWidth: 350
-                     maxHeight: 196
-                     resizingBehavior: SCALE
-                   ) {
-                     aspectRatio
-                     src
-                     srcSet
-                     sizes
-                   }
+                 
                  }
                  description {
                    childMarkdownRemark {
@@ -113,16 +92,7 @@ export const blogListQuery = graphql`
                        url
                        contentType
                      }
-                     fluid(
-                       maxWidth: 104
-                       maxHeight: 104
-                       resizingBehavior: SCALE
-                     ) {
-                       aspectRatio
-                       src
-                       srcSet
-                       sizes
-                     }
+                    
                    }
                    title
                    name

@@ -233,17 +233,8 @@ export const pageQuery = graphql`
                   url
                   contentType
                 }
-                fluid(
-                  maxWidth: 100
-                  maxHeight: 100
-
-                  background: "rgb:000000"
-                ) {
-                  aspectRatio
-                  src
-                  srcSet
-                  sizes
-                }
+                gatsbyImageData(height: 100, width: 100)
+               
               }
             }
           }
@@ -292,17 +283,7 @@ export const pageQuery = graphql`
                 url
                 contentType
               }
-              fluid(
-                maxWidth: 1600
-                maxHeight: 700
-
-                background: "rgb:000000"
-              ) {
-                aspectRatio
-                src
-                srcSet
-                sizes
-              }
+              gatsbyImageData(height: 700, width: 1600)
             }
             mediaLogos {
               svg {
