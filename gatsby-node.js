@@ -5,7 +5,6 @@ const kebabCase = require("lodash/kebabCase");
 //create blog posts
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions;
-
   return new Promise((resolve, reject) => {
     const blogPost = path.resolve("./src/templates/blog-post.template.tsx");
     const blogList = path.resolve("./src/templates/blog-list.template.tsx");

@@ -16,9 +16,9 @@ export default function Page({ data }) {
   const sections: any[] = data.contentfulPage.pageSections;
   const { title, description, body } = data.contentfulPage;
   const sectionModules = sections
-    .sort(function (a, b) {
-      return a.position - b.position;
-    })
+  //  .sort(function (a, b) {
+  //    return a.position - b.position;
+  //  })
     .map((section, index) => {
       const backgroundImage = section.backgroundImage;
       const widget = section.widget;
@@ -262,6 +262,12 @@ export const pageQuery = graphql`
               childMarkdownRemark {
                 html
               }
+            }
+            buttons {
+              externalLink
+              internalLink
+              target
+              label
             }
           }
 

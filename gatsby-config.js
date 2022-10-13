@@ -6,6 +6,7 @@ const contentfulConfig = {
   spaceId: process.env.CONTENTFUL_SPACE_ID,
   accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
   downloadLocal: true,
+  environment:"master"
 }; // if you want to use the preview API please define
 // CONTENTFUL_HOST in your environment config
 // the `host` property should map to `preview.contentful.com`
