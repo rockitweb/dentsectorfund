@@ -4,7 +4,6 @@ import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 
 const Pds: React.FC = () => {
-  
     const { contentfulAsset } = useStaticQuery(graphql`
       query Pds {
         contentfulAsset(title: { eq: "pds" }) {

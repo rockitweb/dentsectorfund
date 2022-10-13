@@ -20,7 +20,7 @@ export type ReportsProps = {
 export const Reports: React.FC<ReportsProps> = ({ categories }) => {
   const [categoryFilter, setCategoryFilter] = useState("All");
   const [useCategories, setUseCategories] = useState(categories);
-console.log(categories)
+
   useEffect(() => {
     const tempCategories = categories.filter(
       (c) => categoryFilter === "All" || c.categoryName === categoryFilter
